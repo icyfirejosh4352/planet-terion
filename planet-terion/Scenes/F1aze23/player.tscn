@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://c0fksoi8au1o4"]
+
+[ext_resource type="Script" uid="uid://btab531svpaqx" path="res://Scripts/F1aze23/player.gd" id="1_qs70e"]
+[ext_resource type="Script" uid="uid://drsrihrd4igyf" path="res://Scripts/F1aze23/InputComponent.gd" id="2_jb2ko"]
+[ext_resource type="Script" uid="uid://c5nfegkv71e0v" path="res://Scripts/F1aze23/MovementComponent.gd" id="3_0hji0"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1vivr"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_8vrlf"]
+
+[node name="Player" type="CharacterBody2D" unique_id=1939686657 node_paths=PackedStringArray("input", "move")]
+script = ExtResource("1_qs70e")
+input = NodePath("InputComponent")
+move = NodePath("MovementComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=980196192]
+shape = SubResource("CapsuleShape2D_1vivr")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=112886909]
+position = Vector2(3.5762787e-07, 2.026558e-06)
+scale = Vector2(20, 15.000004)
+mesh = SubResource("CapsuleMesh_8vrlf")
+
+[node name="InputComponent" type="Node" parent="." unique_id=2125975322]
+script = ExtResource("2_jb2ko")
+metadata/_custom_type_script = "uid://drsrihrd4igyf"
+
+[node name="MovementComponent" type="Node" parent="." unique_id=1371078995 node_paths=PackedStringArray("body")]
+script = ExtResource("3_0hji0")
+body = NodePath("..")
+metadata/_custom_type_script = "uid://c5nfegkv71e0v"

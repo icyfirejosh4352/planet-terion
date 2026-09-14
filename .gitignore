@@ -2,6 +2,7 @@
 .godot/
 .nomedia
 planet-terion/addons/godotty/
+planet-terion\override.cfg
 
 # Godot-specific ignores
 .import/
