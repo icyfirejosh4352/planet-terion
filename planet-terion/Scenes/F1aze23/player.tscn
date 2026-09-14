@@ -3,15 +3,19 @@
 [ext_resource type="Script" uid="uid://btab531svpaqx" path="res://Scripts/F1aze23/player.gd" id="1_qs70e"]
 [ext_resource type="Script" uid="uid://drsrihrd4igyf" path="res://Scripts/F1aze23/InputComponent.gd" id="2_jb2ko"]
 [ext_resource type="Script" uid="uid://c5nfegkv71e0v" path="res://Scripts/F1aze23/MovementComponent.gd" id="3_0hji0"]
+[ext_resource type="Script" uid="uid://5fvcilw81dav" path="res://Scripts/F1aze23/DashComponent.gd" id="4_0hji0"]
+[ext_resource type="Script" uid="uid://qb6e5kxd2ui" path="res://Scripts/F1aze23/HealthComponent.gd" id="5_gh6j0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1vivr"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_8vrlf"]
 
-[node name="Player" type="CharacterBody2D" unique_id=1939686657 node_paths=PackedStringArray("input", "move")]
+[node name="Player" type="CharacterBody2D" unique_id=1939686657 node_paths=PackedStringArray("input", "move", "dash", "health")]
 script = ExtResource("1_qs70e")
 input = NodePath("InputComponent")
 move = NodePath("MovementComponent")
+dash = NodePath("DashComponent")
+health = NodePath("HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=980196192]
 shape = SubResource("CapsuleShape2D_1vivr")
@@ -29,3 +33,25 @@ metadata/_custom_type_script = "uid://drsrihrd4igyf"
 script = ExtResource("3_0hji0")
 body = NodePath("..")
 metadata/_custom_type_script = "uid://c5nfegkv71e0v"
+
+[node name="DashComponent" type="Node" parent="." unique_id=1420409046]
+script = ExtResource("4_0hji0")
+metadata/_custom_type_script = "uid://5fvcilw81dav"
+
+[node name="HealthComponent" type="Node" parent="." unique_id=1805043721 node_paths=PackedStringArray("healthBar")]
+script = ExtResource("5_gh6j0")
+healthBar = NodePath("../Control/HealthBar")
+metadata/_custom_type_script = "uid://qb6e5kxd2ui"
+
+[node name="Control" type="Control" parent="." unique_id=2122946735]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HealthBar" type="ProgressBar" parent="Control" unique_id=230360127]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 35.0
+offset_right = 316.0
+offset_bottom = 103.0

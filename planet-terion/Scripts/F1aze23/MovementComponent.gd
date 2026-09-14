@@ -6,6 +6,7 @@ var dir:float
 var acceleration:= 10
 var vel:= 160.0
 var jump_vel:= -320.0
+var speedMultiplier = 1
 
 
 func physics_process(delta: float) -> void:
@@ -17,7 +18,10 @@ func physics_process(delta: float) -> void:
 	if dir == 0:
 		body.velocity.x = move_toward(body.velocity.x, 0, acceleration)
 	else:
-		body.velocity.x = move_toward(body.velocity.x, dir * vel , acceleration)
+		if speedMultiplier == 1:
+			body.velocity.x = move_toward(body.velocity.x, dir * vel , acceleration)
+		else:
+			body.velocity.x = dir*vel*speedMultiplier
 	
 	body.move_and_slide()
 	

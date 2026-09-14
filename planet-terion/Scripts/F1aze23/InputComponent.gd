@@ -2,8 +2,8 @@ class_name InputComponent
 extends Node
 
 var dir:float
-var jump
-var dash
+var jump: bool
+var dash: bool
 
 func process(delta: float) -> void:
 	dir = Input.get_axis("Left", "Right")
