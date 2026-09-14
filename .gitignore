@@ -1,6 +1,7 @@
 # Godot 4+ specific ignores
 .godot/
 .nomedia
+planet-terion/addons/godotty/
 
 # Godot-specific ignores
 .import/
