@@ -17,13 +17,17 @@ config/icon="res://icon.svg"
 
 [display]
 
-window/subwindows/embed_subwindows=false
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
+enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg", "res://addons/terminal/plugin.cfg")
+
+[global_group]
+
+Player=""
+StartZone=""
 
 [input]
 
@@ -54,7 +58,9 @@ Dash={
 
 [rendering]
 
-rendering_device/driver.windows="d3d12"
+rendering_device/driver="opengl3"
+rendering_device/driver.windows="opengl3"
 renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
 renderer/gpu_pipeline/enable_vrs=false
 renderer/quality/dynamic_fonts/use_oversampling=false

@@ -2,6 +2,7 @@
 .godot/
 .nomedia
 planet-terion/addons/godotty/
+planet-terion\addons\terminal/
 planet-terion\override.cfg
 
 # Godot-specific ignores

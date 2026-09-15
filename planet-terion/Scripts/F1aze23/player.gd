@@ -4,10 +4,12 @@ extends CharacterBody2D
 @export var move:MovementComponent
 @export var dash:DashComponent
 @export var health:HealthComponent
+@export var cam:CameraComponent
 
 func _ready() -> void:
 	health.ready()
 	health.Death.connect(Death)
+	cam.ready()
 
 func _process(delta: float) -> void:
 	move.speedMultiplier = dash.speedMultiplier
@@ -18,6 +20,7 @@ func _process(delta: float) -> void:
 	dash.process()
 	health.process(delta)
 	input.process(delta)
+	cam.process(delta)
 
 func _physics_process(delta: float) -> void:
 	move.physics_process(delta)

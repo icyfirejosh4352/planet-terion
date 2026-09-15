@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://co8llfh76lsdc"]
+
+[ext_resource type="Script" uid="uid://cqbb0balo5npa" path="res://Scripts/F1aze23/CamZone.gd" id="1_2arpm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8vrlf"]
+size = Vector2(1152, 648)
+
+[node name="CamZone" type="Node2D" unique_id=844620592]
+script = ExtResource("1_2arpm")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1284831592]
+position = Vector2(-576, -324)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=488760672]
+position = Vector2(576, 322)
+shape = SubResource("RectangleShape2D_8vrlf")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
