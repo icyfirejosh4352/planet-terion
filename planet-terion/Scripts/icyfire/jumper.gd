@@ -28,10 +28,10 @@ func _process(delta: float) -> void:
 			velocity.x = MoveSpeed * direction.x
 		else:
 			velocity.x = MoveSpeed * direction.x * 2
-		if player.global_position.y  + 1 < global_position.y && TimeSinceJump>JumpSpacing:
+		if player.global_position.y  + 1 < global_position.y && TimeSinceJump>JumpSpacing && is_on_floor():
 			print("Jump")
 			TimeSinceJump = 0
-			velocity.y = JumpSpeed #- (get_gravity().y*delta)
+			velocity.y = JumpSpeed
 			
 	elif !IsChasing && is_on_floor():
 		if !left_check.is_colliding() && !right_check.is_colliding() && down_left_check.is_colliding() && down_right_check.is_colliding():

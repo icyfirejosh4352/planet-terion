@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dssvio2wngf6e"]
 
 [ext_resource type="PackedScene" uid="uid://c0fksoi8au1o4" path="res://Scenes/F1aze23/player.tscn" id="1_sqhof"]
-[ext_resource type="PackedScene" uid="uid://boaljk64saxvx" path="res://Scenes/icyfire/enemy1.tscn" id="2_vkc1e"]
-[ext_resource type="PackedScene" uid="uid://dfc0oggyt1dpm" path="res://Scenes/icyfire/enemy2.tscn" id="3_okitt"]
+[ext_resource type="PackedScene" uid="uid://boaljk64saxvx" path="res://Scenes/icyfire/crawler.tscn" id="2_vkc1e"]
+[ext_resource type="PackedScene" uid="uid://dfc0oggyt1dpm" path="res://Scenes/icyfire/jumper.tscn" id="3_okitt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rlbqw"]
 size = Vector2(139, 24)
@@ -72,7 +72,7 @@ mesh = SubResource("BoxMesh_okitt")
 [node name="Player" parent="." unique_id=1939686657 instance=ExtResource("1_sqhof")]
 position = Vector2(1493, 829)
 
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1596035935]
+[node name="Camera2D2" type="Camera2D" parent="Player" unique_id=1596035935]
 
 [node name="Enemy" parent="." unique_id=588281268 instance=ExtResource("2_vkc1e")]
 position = Vector2(1968, 781)
