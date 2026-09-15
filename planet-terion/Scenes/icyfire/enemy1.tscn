@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://boaljk64saxvx"]
+
+[ext_resource type="Script" uid="uid://ctafnkyay475a" path="res://Scripts/icyfire/enemy1.gd" id="1_swrat"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_np20c"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_np20c"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_np20c"]
+
+[node name="crawler" type="CharacterBody2D" unique_id=588281268]
+script = ExtResource("1_swrat")
+MoveSpeed = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=384724839]
+shape = SubResource("RectangleShape2D_np20c")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=592474208]
+scale = Vector2(20, 20)
+texture = SubResource("PlaceholderTexture2D_np20c")
+
+[node name="Detection Range" type="Area2D" parent="." unique_id=376817989]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection Range" unique_id=150829048]
+scale = Vector2(30.075, 30.075)
+shape = SubResource("CircleShape2D_np20c")
+
+[node name="CollisionChecks" type="Node2D" parent="." unique_id=1053684188]
+
+[node name="DownRightCheck" type="RayCast2D" parent="CollisionChecks" unique_id=1851549849]
+position = Vector2(10, 11)
+target_position = Vector2(0, 8)
+hit_from_inside = true
+
+[node name="DownLeftCheck" type="RayCast2D" parent="CollisionChecks" unique_id=1215490117]
+position = Vector2(-10, 11)
+target_position = Vector2(0, 8)
+hit_from_inside = true
+
+[node name="LeftCheck" type="RayCast2D" parent="CollisionChecks" unique_id=201983945]
+position = Vector2(-11, 0)
+target_position = Vector2(-4, 0)
+hit_from_inside = true
+
+[node name="RightCheck" type="RayCast2D" parent="CollisionChecks" unique_id=1011504122]
+position = Vector2(11, 0)
+target_position = Vector2(4, 0)
+hit_from_inside = true

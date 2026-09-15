@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://dssvio2wngf6e"]
+
+[ext_resource type="PackedScene" uid="uid://c0fksoi8au1o4" path="res://Scenes/F1aze23/player.tscn" id="1_sqhof"]
+[ext_resource type="PackedScene" uid="uid://boaljk64saxvx" path="res://Scenes/icyfire/enemy1.tscn" id="2_vkc1e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rlbqw"]
+size = Vector2(139, 24)
+
+[sub_resource type="BoxMesh" id="BoxMesh_sqhof"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vkc1e"]
+size = Vector2(139, 24)
+
+[sub_resource type="BoxMesh" id="BoxMesh_okitt"]
+
+[node name="EnemyTest" type="Node2D" unique_id=892365770]
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1475277912]
+position = Vector2(1988, 816)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1802769120]
+shape = SubResource("RectangleShape2D_rlbqw")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D2" unique_id=794774867]
+scale = Vector2(138.99995, 23.875021)
+mesh = SubResource("BoxMesh_sqhof")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=1911222146]
+position = Vector2(1817, 893)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=1893301270]
+shape = SubResource("RectangleShape2D_rlbqw")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D4" unique_id=2043916483]
+scale = Vector2(138.99995, 23.875021)
+mesh = SubResource("BoxMesh_sqhof")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=1436201529]
+position = Vector2(2127, 816)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=1242462572]
+shape = SubResource("RectangleShape2D_rlbqw")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D3" unique_id=789703719]
+scale = Vector2(138.99995, 23.875021)
+mesh = SubResource("BoxMesh_sqhof")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1047160279]
+position = Vector2(969, 455)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=517718805]
+position = Vector2(677.5, 607)
+scale = Vector2(11.48, 7.16)
+shape = SubResource("RectangleShape2D_vkc1e")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D" unique_id=1749767661]
+position = Vector2(701, 608.125)
+scale = Vector2(1545.75, 173.75003)
+mesh = SubResource("BoxMesh_okitt")
+
+[node name="Player" parent="." unique_id=1939686657 instance=ExtResource("1_sqhof")]
+position = Vector2(1493, 829)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1596035935]
+
+[node name="Enemy" parent="." unique_id=588281268 instance=ExtResource("2_vkc1e")]
+position = Vector2(1968, 781)
+
+[node name="Enemy2" parent="." unique_id=1550967063 instance=ExtResource("2_vkc1e")]
+position = Vector2(2321, 925)
