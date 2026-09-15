@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c0fksoi8au1o4" path="res://Scenes/F1aze23/player.tscn" id="1_sqhof"]
 [ext_resource type="PackedScene" uid="uid://boaljk64saxvx" path="res://Scenes/icyfire/enemy1.tscn" id="2_vkc1e"]
+[ext_resource type="PackedScene" uid="uid://dfc0oggyt1dpm" path="res://Scenes/icyfire/enemy2.tscn" id="3_okitt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rlbqw"]
 size = Vector2(139, 24)
@@ -45,6 +46,16 @@ shape = SubResource("RectangleShape2D_rlbqw")
 scale = Vector2(138.99995, 23.875021)
 mesh = SubResource("BoxMesh_sqhof")
 
+[node name="StaticBody2D5" type="StaticBody2D" parent="." unique_id=108873379]
+position = Vector2(2554, 1039)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5" unique_id=1896550022]
+shape = SubResource("RectangleShape2D_rlbqw")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D5" unique_id=492658112]
+scale = Vector2(138.99995, 23.875021)
+mesh = SubResource("BoxMesh_sqhof")
+
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1047160279]
 position = Vector2(969, 455)
 
@@ -66,5 +77,5 @@ position = Vector2(1493, 829)
 [node name="Enemy" parent="." unique_id=588281268 instance=ExtResource("2_vkc1e")]
 position = Vector2(1968, 781)
 
-[node name="Enemy2" parent="." unique_id=1550967063 instance=ExtResource("2_vkc1e")]
-position = Vector2(2321, 925)
+[node name="jumper" parent="." unique_id=2133311114 instance=ExtResource("3_okitt")]
+position = Vector2(2563, 983)
