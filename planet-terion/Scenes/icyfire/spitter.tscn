@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://by4ubgr23nahq"]
+
+[ext_resource type="Script" uid="uid://b4iehpneqey8j" path="res://Scripts/icyfire/spitter.gd" id="1_hjf7y"]
+[ext_resource type="Script" uid="uid://qb6e5kxd2ui" path="res://Scripts/F1aze23/HealthComponent.gd" id="2_h57lj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_np20c"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_np20c"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_np20c"]
+
+[node name="spitter" type="CharacterBody2D" unique_id=588281268 groups=["spitter"]]
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_hjf7y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=384724839]
+shape = SubResource("RectangleShape2D_np20c")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=592474208]
+scale = Vector2(20, 20)
+texture = SubResource("PlaceholderTexture2D_np20c")
+
+[node name="Detection Range" type="Area2D" parent="." unique_id=376817989]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection Range" unique_id=150829048]
+scale = Vector2(30.075, 30.075)
+shape = SubResource("CircleShape2D_np20c")
+
+[node name="CollisionChecks" type="Node2D" parent="." unique_id=1053684188]
+
+[node name="DownRightCheck" type="RayCast2D" parent="CollisionChecks" unique_id=1851549849]
+position = Vector2(10, 11)
+target_position = Vector2(0, 8)
+hit_from_inside = true
+
+[node name="DownLeftCheck" type="RayCast2D" parent="CollisionChecks" unique_id=1215490117]
+position = Vector2(-10, 11)
+target_position = Vector2(0, 8)
+hit_from_inside = true
+
+[node name="LeftCheck" type="RayCast2D" parent="CollisionChecks" unique_id=201983945]
+position = Vector2(-11, 0)
+target_position = Vector2(-4, 0)
+hit_from_inside = true
+
+[node name="RightCheck" type="RayCast2D" parent="CollisionChecks" unique_id=1011504122]
+position = Vector2(11, 0)
+target_position = Vector2(4, 0)
+hit_from_inside = true
+
+[node name="HealthComponent" type="Node" parent="." unique_id=55915084]
+script = ExtResource("2_h57lj")
+metadata/_custom_type_script = "uid://qb6e5kxd2ui"

@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://tps4qfrmupqc"]
+
+[ext_resource type="Script" uid="uid://ccdc85usn1sqo" path="res://Scripts/icyfire/spit.gd" id="1_4vn02"]
+[ext_resource type="Script" uid="uid://1bb2d6hbrbmv" path="res://Scripts/icyfire/spitcol.gd" id="2_xiv8e"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_np20c"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_np20c"]
+
+[node name="Spit" type="Node2D" unique_id=445478944]
+rotation = 1.5707964
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_4vn02")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1920512552]
+script = ExtResource("2_xiv8e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=531726361]
+shape = SubResource("CapsuleShape2D_np20c")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Area2D" unique_id=312424760]
+position = Vector2(0, 1.9073486e-06)
+scale = Vector2(20, 15.000001)
+mesh = SubResource("CapsuleMesh_np20c")
