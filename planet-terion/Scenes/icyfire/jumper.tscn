@@ -1,7 +1,6 @@
-[gd_scene format=3 uid="uid://boaljk64saxvx"]
+[gd_scene format=3 uid="uid://dfc0oggyt1dpm"]
 
-[ext_resource type="Script" uid="uid://ctafnkyay475a" path="res://Scripts/icyfire/enemy1.gd" id="1_swrat"]
-[ext_resource type="Script" uid="uid://qb6e5kxd2ui" path="res://Scripts/F1aze23/HealthComponent.gd" id="2_mq3rg"]
+[ext_resource type="Script" uid="uid://c7snufdxp7wgn" path="res://Scripts/icyfire/jumper.gd" id="1_4bjd4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_np20c"]
 
@@ -9,8 +8,9 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_np20c"]
 
-[node name="crawler" type="CharacterBody2D" unique_id=588281268]
-script = ExtResource("1_swrat")
+[node name="jumper" type="CharacterBody2D" unique_id=588281268]
+scale = Vector2(1, 2)
+script = ExtResource("1_4bjd4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=384724839]
 shape = SubResource("RectangleShape2D_np20c")
@@ -46,7 +46,3 @@ hit_from_inside = true
 position = Vector2(11, 0)
 target_position = Vector2(4, 0)
 hit_from_inside = true
-
-[node name="HealthComponent" type="Node" parent="." unique_id=55915084]
-script = ExtResource("2_mq3rg")
-metadata/_custom_type_script = "uid://qb6e5kxd2ui"
