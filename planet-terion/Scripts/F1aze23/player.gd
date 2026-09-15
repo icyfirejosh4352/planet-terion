@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 	dash.canDash = input.dash
 	if input.jump:
 		move.jump()
-	dash.process()
+	dash.process(self, move)
 	health.process(delta)
 	input.process(delta)
 	cam.process(delta)

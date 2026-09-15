@@ -17,7 +17,7 @@ size = Vector2(139, 24)
 [node name="EnemyTest" type="Node2D" unique_id=892365770]
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1475277912]
-position = Vector2(1988, 816)
+position = Vector2(1959.875, 809.4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1802769120]
 shape = SubResource("RectangleShape2D_rlbqw")
@@ -27,7 +27,7 @@ scale = Vector2(138.99995, 23.875021)
 mesh = SubResource("BoxMesh_sqhof")
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=1911222146]
-position = Vector2(1817, 893)
+position = Vector2(1811.825, 921.45)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=1893301270]
 shape = SubResource("RectangleShape2D_rlbqw")
@@ -37,7 +37,7 @@ scale = Vector2(138.99995, 23.875021)
 mesh = SubResource("BoxMesh_sqhof")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=1436201529]
-position = Vector2(2127, 816)
+position = Vector2(2127, 879.82)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=1242462572]
 shape = SubResource("RectangleShape2D_rlbqw")
@@ -72,10 +72,10 @@ mesh = SubResource("BoxMesh_okitt")
 [node name="Player" parent="." unique_id=1939686657 instance=ExtResource("1_sqhof")]
 position = Vector2(1493, 829)
 
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1596035935]
+[node name="Camera2D2" type="Camera2D" parent="Player" unique_id=1596035935]
 
 [node name="Enemy" parent="." unique_id=588281268 instance=ExtResource("2_vkc1e")]
-position = Vector2(1968, 781)
+position = Vector2(1968.465, 778.855)
 
 [node name="jumper" parent="." unique_id=2133311114 instance=ExtResource("3_okitt")]
 position = Vector2(2563, 983)

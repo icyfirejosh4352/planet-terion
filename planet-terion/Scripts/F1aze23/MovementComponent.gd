@@ -3,17 +3,17 @@ extends Node
 
 @export var body : CharacterBody2D
 var dir:float
-var acceleration:= 10
+var acceleration:= 20
 var vel:= 160.0
-var jump_vel:= -320.0
-var speedMultiplier = 1
+var jump_vel:= -350.0
+var speedMultiplier = 1.3
 
 
 func physics_process(delta: float) -> void:
 	if body.is_on_floor():
 		body.velocity.y += body.get_gravity().y/150
 	else:
-		body.velocity.y += body.get_gravity().y/100
+		body.velocity.y += body.get_gravity().y/70
 	
 	if dir == 0:
 		body.velocity.x = move_toward(body.velocity.x, 0, acceleration)
