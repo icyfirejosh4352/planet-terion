@@ -19,7 +19,7 @@ size = Vector2(139, 24)
 [node name="EnemyTest" type="Node2D" unique_id=892365770]
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1475277912]
-position = Vector2(1959.875, 809.4)
+position = Vector2(1959.875, 817.355)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1802769120]
 shape = SubResource("RectangleShape2D_rlbqw")
@@ -39,7 +39,7 @@ scale = Vector2(138.99995, 23.875021)
 mesh = SubResource("BoxMesh_sqhof")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=1436201529]
-position = Vector2(2127, 879.82)
+position = Vector2(2127, 893.29)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=1242462572]
 shape = SubResource("RectangleShape2D_rlbqw")

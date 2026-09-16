@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var MoveSpeed:float = 100.0
-@export var JumpSpeed:float= -400.0
+@export var JumpSpeed:float= -600.0
 @onready var player: CharacterBody2D = $"../Player"
 @onready var detection_range: Area2D = $"Detection Range"
 @onready var down_right_check: RayCast2D = $CollisionChecks/DownRightCheck

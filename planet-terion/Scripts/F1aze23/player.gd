@@ -14,10 +14,11 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	move.speedMultiplier = dash.speedMultiplier
 	move.dir = input.dir
+	move.is_crouching = input.crouch
 	dash.canDash = input.dash
 	if input.jump:
 		move.jump()
-	dash.process(self, move)
+	dash.process(delta)
 	health.process(delta)
 	input.process(delta)
 	cam.process(delta)

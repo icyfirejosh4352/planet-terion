@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var area_2d: Area2D = $Area2D
-@export var Speed:float = 1000.0
+@export var Speed:float = 960.0
 
 func _ready() -> void:
 	print("borne")
