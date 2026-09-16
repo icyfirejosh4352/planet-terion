@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dfc0oggyt1dpm" path="res://Scenes/icyfire/jumper.tscn" id="3_okitt"]
 [ext_resource type="PackedScene" uid="uid://by4ubgr23nahq" path="res://Scenes/icyfire/spitter.tscn" id="4_b43p4"]
 [ext_resource type="PackedScene" uid="uid://tps4qfrmupqc" path="res://Scenes/icyfire/spit.tscn" id="5_gfkgu"]
+[ext_resource type="PackedScene" uid="uid://ulp8vixirrfm" path="res://Scenes/icyfire/blocker.tscn" id="6_sh70w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rlbqw"]
 size = Vector2(139, 24)
@@ -87,3 +88,6 @@ position = Vector2(926, 933)
 
 [node name="Spit" parent="." unique_id=445478944 instance=ExtResource("5_gfkgu")]
 position = Vector2(682, 945)
+
+[node name="blocker" parent="." unique_id=1162379990 instance=ExtResource("6_sh70w")]
+position = Vector2(1210, 935)

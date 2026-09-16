@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://ulp8vixirrfm"]
+
+[ext_resource type="Script" uid="uid://bnophyk7xv63t" path="res://Scripts/icyfire/blocker.gd" id="1_0siex"]
+[ext_resource type="Script" uid="uid://qb6e5kxd2ui" path="res://Scripts/F1aze23/HealthComponent.gd" id="2_m030n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_np20c"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_np20c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0siex"]
+
+[node name="blocker" type="CharacterBody2D" unique_id=588281268]
+script = ExtResource("1_0siex")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=384724839]
+scale = Vector2(4, 4)
+shape = SubResource("RectangleShape2D_np20c")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=592474208]
+scale = Vector2(80, 80)
+texture = SubResource("PlaceholderTexture2D_np20c")
+
+[node name="Detection Range" type="Area2D" parent="." unique_id=376817989]
+position = Vector2(261, 0)
+scale = Vector2(1, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection Range" unique_id=150829048]
+scale = Vector2(30.075, 30.075)
+shape = SubResource("RectangleShape2D_0siex")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=55915084]
+script = ExtResource("2_m030n")
+metadata/_custom_type_script = "uid://qb6e5kxd2ui"
