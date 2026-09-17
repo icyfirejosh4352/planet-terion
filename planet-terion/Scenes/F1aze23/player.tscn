@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://5fvcilw81dav" path="res://Scripts/F1aze23/DashComponent.gd" id="4_0hji0"]
 [ext_resource type="Script" uid="uid://bgyrmtc2qvkvw" path="res://Scripts/F1aze23/CameraComponent.gd" id="5_cyppd"]
 [ext_resource type="Script" uid="uid://qb6e5kxd2ui" path="res://Scripts/F1aze23/HealthComponent.gd" id="5_gh6j0"]
+[ext_resource type="Script" uid="uid://b482lg66v1sol" path="res://Scripts/randemlyy/Inventory.gd" id="7_u34yc"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1vivr"]
 
@@ -72,3 +73,6 @@ offset_top = 35.0
 offset_right = 316.0
 offset_bottom = 103.0
 metadata/_edit_use_anchors_ = true
+
+[node name="Inventory" type="Node" parent="." unique_id=55547198]
+script = ExtResource("7_u34yc")

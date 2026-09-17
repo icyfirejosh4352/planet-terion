@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://26328poeoxev"]
+
+[ext_resource type="Script" uid="uid://cci5b4oru8yd8" path="res://Scripts/randemlyy/Knife.gd" id="1_p8oer"]
+
+[node name="Knife" type="Node" unique_id=1843594905]
+script = ExtResource("1_p8oer")
+
+[node name="AttackVisual" type="ColorRect" parent="." unique_id=634868938]
+visible = false
+offset_right = 32.0
+offset_bottom = 16.0
+color = Color(1, 0, 0, 1)

@@ -5,11 +5,34 @@ extends CharacterBody2D
 @export var dash:DashComponent
 @export var health:HealthComponent
 @export var cam:CameraComponent
+@export var inventory:Inventory
+@export var knife:Knife
+@export var pistol:Pistol
+
+var equipped_weapon: Weapon: get = return_equipped
+
+func return_equipped(): return inventory.get_equipped()
 
 func _ready() -> void:
 	health.ready()
 	health.Death.connect(Death)
 	cam.ready()
+	
+	if not inventory:
+		inventory = get_node("Inventory")
+	
+	if inventory:
+		inventory.equipped_changed.connect(_on_equipped_changed)
+	
+	#var knife = Knife.new()
+	#var pistol = Pistol.new()
+	#knife.name = "Knife"
+	#pistol.name = "Pistol"
+	#add_child(knife)
+	#add_child(pistol)
+	#inventory.add_weapon(knife)
+	#inventory.add_weapon(pistol)
+
 
 func _process(delta: float) -> void:
 	move.speedMultiplier = dash.speedMultiplier
@@ -22,7 +45,24 @@ func _process(delta: float) -> void:
 	health.process(delta)
 	input.process(delta)
 	cam.process(delta)
-
+	
+	if equipped_weapon:
+		equipped_weapon._process(delta)
+	
+	if input.attack:
+		if equipped_weapon and equipped_weapon.can_attack():
+			var aim_dir = Vector2(input.dir, 0.0)
+			if aim_dir.length() > 0:
+				equipped_weapon.attack(aim_dir)
+	
+	if input.inv_next:
+		inventory.next_weapon()
+	if input.inv_prev:
+		inventory.prev_weapon()
+		
+func _on_equipped_changed(new_weapon: Weapon) -> void:
+	print("Equipped weapon: %s" % new_weapon.name)
+	
 func _physics_process(delta: float) -> void:
 	move.physics_process(delta)
 	
