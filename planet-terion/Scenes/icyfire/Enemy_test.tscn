@@ -90,4 +90,4 @@ position = Vector2(926, 933)
 position = Vector2(682, 945)
 
 [node name="blocker" parent="." unique_id=1162379990 instance=ExtResource("6_sh70w")]
-position = Vector2(1210, 935)
+position = Vector2(1114.61, 935)

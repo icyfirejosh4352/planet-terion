@@ -21,7 +21,7 @@ scale = Vector2(80, 80)
 texture = SubResource("PlaceholderTexture2D_np20c")
 
 [node name="Detection Range" type="Area2D" parent="." unique_id=376817989]
-position = Vector2(261, 0)
+position = Vector2(258.26, 0)
 scale = Vector2(1, 0.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detection Range" unique_id=150829048]
