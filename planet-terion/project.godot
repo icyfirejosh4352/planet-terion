@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="planet terion"
-run/main_scene="uid://dssvio2wngf6e"
+run/main_scene="uid://cbvlv0natpdc2"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
 
@@ -78,6 +78,7 @@ Inv_Prev={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver="opengl3"
 rendering_device/driver.windows="opengl3"
 renderer/rendering_method="gl_compatibility"

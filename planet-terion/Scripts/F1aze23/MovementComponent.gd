@@ -4,8 +4,8 @@ extends Node
 @export var body : CharacterBody2D
 
 @export var acceleration:= 300
-@export var vel:= 160.0
-@export var jump_vel:= -390.0
+@export var vel:= 90.0
+@export var jump_vel:= -260.0
 @export var speedMultiplier := 1.3
 @export var coyote_time := 0.10
 @export var _jump_buffer_time := 0.15 

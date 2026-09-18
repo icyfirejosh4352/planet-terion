@@ -5,9 +5,9 @@ extends Node
 @export var body:CharacterBody2D
 @export var move:MovementComponent
 @export var dash_cooldown: = 0.5
-@export var dash_duration: = 0.15
+@export var dash_duration: = 0.1
 @export var dash_deceleration := 0.15
-@export var dash_speed_mult: = 4.5
+@export var dash_speed_mult: = 3.5
 
 var speedMultiplier: = 1.0
 var dash_timer: = 0.0
