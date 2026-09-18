@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://cci5b4oru8yd8" path="res://Scripts/randemlyy/Knife.gd" id="1_p8oer"]
 
-[node name="Knife" type="Node" unique_id=1843594905]
+[node name="Knife" type="Node2D" unique_id=1934780239]
 script = ExtResource("1_p8oer")
 
-[node name="AttackVisual" type="ColorRect" parent="." unique_id=634868938]
+[node name="AttackVisual1" type="ColorRect" parent="." unique_id=634868938]
 visible = false
 offset_right = 32.0
 offset_bottom = 16.0

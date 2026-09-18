@@ -13,6 +13,6 @@ func _process(delta: float) -> void:
 		if obj.is_in_group("Player"):
 			IsBlocking = true
 	if IsBlocking:
-		print("IsBlocking")
+		pass
 
 	move_and_slide()

@@ -2,10 +2,11 @@
 
 [ext_resource type="Script" uid="uid://djquo2ya2dt1h" path="res://Scripts/randemlyy/Pistol.gd" id="1_jvclg"]
 
-[node name="Pistol" type="Node" unique_id=688772647]
+[node name="Pistol" type="Node2D" unique_id=1783106664]
 script = ExtResource("1_jvclg")
 
-[node name="AttackVisual" type="ColorRect" parent="." unique_id=1008768455]
+[node name="AttackVisual2" type="ColorRect" parent="." unique_id=1008768455]
+visible = false
 offset_right = 32.0
 offset_bottom = 16.0
 color = Color(1, 0, 0, 1)

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dfc0oggyt1dpm"]
 
 [ext_resource type="Script" uid="uid://c7snufdxp7wgn" path="res://Scripts/icyfire/jumper.gd" id="1_4bjd4"]
+[ext_resource type="Script" uid="uid://qb6e5kxd2ui" path="res://Scripts/F1aze23/HealthComponent.gd" id="2_5rll0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_np20c"]
 
@@ -46,3 +47,7 @@ hit_from_inside = true
 position = Vector2(11, 0)
 target_position = Vector2(4, 0)
 hit_from_inside = true
+
+[node name="HealthComponent" type="Node" parent="." unique_id=1481907643]
+script = ExtResource("2_5rll0")
+metadata/_custom_type_script = "uid://qb6e5kxd2ui"

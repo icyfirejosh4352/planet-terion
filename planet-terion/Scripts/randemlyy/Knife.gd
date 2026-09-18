@@ -1,19 +1,13 @@
 class_name Knife
 extends Weapon
 
-@onready var attack_visual: Node2D = $AttackVisual
+@onready var attack_visual: ColorRect = $AttackVisual1
 @export var attack_range: float = 32.0   # pixels
 @export var attack_width: float = 16.0   # pixels
 
 func attack(direction: Vector2) -> void:
 	if not can_attack():
 		return
-	if attack_visual:
-		attack_visual.visible = true
-		attack_visual.modulate = Color(1, 0, 0, 0.5)
-		get_tree().create_timer(0.1).timeout.connect(
-			func(): if is_instance_valid(attack_visual): attack_visual.visible = false
-		)
 	
 	var dir = direction.normalized()
 	if abs(dir.x) > abs(dir.y):
@@ -30,6 +24,16 @@ func attack(direction: Vector2) -> void:
 		rect_size = Vector2(attack_range, attack_width)
 	else:
 		rect_size = Vector2(attack_width, attack_range)
+	
+	if attack_visual:
+		attack_visual.visible = true
+		attack_visual.modulate = Color(1, 0, 0, 0.5)
+		attack_visual.position = offset
+		attack_visual.size = rect_size
+		attack_visual.rotation = dir.angle()
+		get_tree().create_timer(0.1).timeout.connect(
+			func(): if is_instance_valid(attack_visual): attack_visual.visible = false
+		)
 	
 	var shape = RectangleShape2D.new()
 	shape.size = rect_size
@@ -50,5 +54,8 @@ func attack(direction: Vector2) -> void:
 			var health = body.get_parent().get_node("HealthComponent")
 			if health:
 				health.damage(damage)
+				print("HITITHITHITHI")
+				print(damage)
+				print(body)
 	
 	cooldown_timer = firerate

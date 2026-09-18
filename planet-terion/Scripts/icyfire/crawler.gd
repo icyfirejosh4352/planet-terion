@@ -25,7 +25,7 @@ func _process(delta: float) -> void:
 		if !left_check.is_colliding() && !right_check.is_colliding() && down_left_check.is_colliding() && down_right_check.is_colliding():
 			pass
 		else:
-			print ("changing dir")
+			#print ("changing dir")
 			if left_check.is_colliding() || !down_left_check.is_colliding():
 				MovingDir = 1
 			elif right_check.is_colliding() || !down_right_check.is_colliding():

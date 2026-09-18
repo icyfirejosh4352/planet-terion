@@ -10,7 +10,6 @@ extends CharacterBody2D
 @export var pistol:Pistol
 
 var equipped_weapon: Weapon: get = return_equipped
-
 func return_equipped(): return inventory.get_equipped()
 
 func _ready() -> void:
@@ -23,15 +22,17 @@ func _ready() -> void:
 	
 	if inventory:
 		inventory.equipped_changed.connect(_on_equipped_changed)
-	
-	#var knife = Knife.new()
-	#var pistol = Pistol.new()
-	#knife.name = "Knife"
-	#pistol.name = "Pistol"
-	#add_child(knife)
-	#add_child(pistol)
-	#inventory.add_weapon(knife)
-	#inventory.add_weapon(pistol)
+		
+	var knife_scene = load("res://Scenes/randemlyy/Knife.tscn")
+	var pistol_scene = load("res://Scenes/randemlyy/Pistol.tscn")
+	knife = knife_scene.instantiate()
+	pistol = pistol_scene.instantiate()
+	knife.name = "Knife"
+	pistol.name = "Pistol"
+	add_child(knife)
+	add_child(pistol)
+	inventory.add_weapon(knife)
+	inventory.add_weapon(pistol)
 
 
 func _process(delta: float) -> void:
