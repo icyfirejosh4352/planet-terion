@@ -84,10 +84,13 @@ position = Vector2(1968.465, 778.855)
 position = Vector2(2563, 983)
 
 [node name="spitter" parent="." unique_id=1096838553 instance=ExtResource("4_b43p4")]
-position = Vector2(926, 933)
+position = Vector2(1399, 680)
 
 [node name="Spit" parent="." unique_id=445478944 instance=ExtResource("5_gfkgu")]
 position = Vector2(682, 945)
 
 [node name="blocker" parent="." unique_id=1162379990 instance=ExtResource("6_sh70w")]
 position = Vector2(1114.61, 935)
+
+[node name="crawler" parent="." unique_id=1541718422 instance=ExtResource("2_vkc1e")]
+position = Vector2(1020, 926)
