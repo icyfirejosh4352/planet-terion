@@ -1,32 +1,169 @@
 [gd_scene format=3 uid="uid://c0fksoi8au1o4"]
 
 [ext_resource type="Script" uid="uid://btab531svpaqx" path="res://Scripts/F1aze23/player.gd" id="1_qs70e"]
+[ext_resource type="Texture2D" uid="uid://dgtgp8ygemioc" path="res://Assets/final_spritesheet.png" id="2_30xau"]
 [ext_resource type="Script" uid="uid://drsrihrd4igyf" path="res://Scripts/F1aze23/InputComponent.gd" id="2_jb2ko"]
 [ext_resource type="Script" uid="uid://c5nfegkv71e0v" path="res://Scripts/F1aze23/MovementComponent.gd" id="3_0hji0"]
 [ext_resource type="Script" uid="uid://5fvcilw81dav" path="res://Scripts/F1aze23/DashComponent.gd" id="4_0hji0"]
 [ext_resource type="Script" uid="uid://bgyrmtc2qvkvw" path="res://Scripts/F1aze23/CameraComponent.gd" id="5_cyppd"]
 [ext_resource type="Script" uid="uid://qb6e5kxd2ui" path="res://Scripts/F1aze23/HealthComponent.gd" id="5_gh6j0"]
 [ext_resource type="Script" uid="uid://b482lg66v1sol" path="res://Scripts/randemlyy/Inventory.gd" id="7_u34yc"]
+[ext_resource type="Script" uid="uid://b08u5vc4slxwe" path="res://Scripts/F1aze23/AnimationComponent.gd" id="9_k6ugq"]
+
+[sub_resource type="Animation" id="Animation_k6ugq"]
+resource_name = "Attack-Sword"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [72, 83]
+}
+
+[sub_resource type="Animation" id="Animation_avk3n"]
+resource_name = "Idle-Base"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [36, 41]
+}
+
+[sub_resource type="Animation" id="Animation_uxjim"]
+resource_name = "Idle-Sword"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [84, 89]
+}
+
+[sub_resource type="Animation" id="Animation_l17bt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_a0qf0"]
+resource_name = "Walk-Base"
+length = 0.75
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.73333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 20]
+}
+
+[sub_resource type="Animation" id="Animation_l4mgg"]
+resource_name = "Walk-Sword"
+length = 0.75
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.73333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [48, 69]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xsgxr"]
+_data = {
+&"Attack-Sword": SubResource("Animation_k6ugq"),
+&"Idle-Base": SubResource("Animation_avk3n"),
+&"Idle-Sword": SubResource("Animation_uxjim"),
+&"RESET": SubResource("Animation_l17bt"),
+&"Walk-Base": SubResource("Animation_a0qf0"),
+&"Walk-Sword": SubResource("Animation_l4mgg")
+}
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1vivr"]
+radius = 17.0
+height = 58.0
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_8vrlf"]
-
-[node name="Player" type="CharacterBody2D" unique_id=1939686657 node_paths=PackedStringArray("input", "move", "dash", "health", "cam") groups=["Player"]]
+[node name="Player" type="CharacterBody2D" unique_id=1939686657 node_paths=PackedStringArray("input", "move", "dash", "health", "cam", "anim") groups=["Player"]]
 script = ExtResource("1_qs70e")
 input = NodePath("InputComponent")
 move = NodePath("MovementComponent")
 dash = NodePath("DashComponent")
 health = NodePath("HealthComponent")
 cam = NodePath("CameraComponent")
+anim = NodePath("AnimationComponent")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1813478409]
+root_node = NodePath("../Sprite2D")
+libraries/ = SubResource("AnimationLibrary_xsgxr")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=439064958]
+position = Vector2(0, -4)
+texture = ExtResource("2_30xau")
+hframes = 12
+vframes = 12
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=980196192]
 shape = SubResource("CapsuleShape2D_1vivr")
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=112886909]
-position = Vector2(3.5762787e-07, 2.026558e-06)
-scale = Vector2(20, 15.000004)
-mesh = SubResource("CapsuleMesh_8vrlf")
+[node name="Camera2D" type="Camera2D" parent="." unique_id=809227422]
+scale = Vector2(1.0000001, 1.0000001)
+
+[node name="Control" type="Control" parent="Camera2D" unique_id=2046209436]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -576.0
+offset_top = -324.0
+offset_right = -576.0
+offset_bottom = -324.0
+metadata/_edit_use_anchors_ = true
+
+[node name="HealthBar" type="ProgressBar" parent="Camera2D/Control" unique_id=11285153]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 35.0
+offset_right = 316.0
+offset_bottom = 103.0
+metadata/_edit_use_anchors_ = true
 
 [node name="InputComponent" type="Node" parent="." unique_id=2125975322]
 script = ExtResource("2_jb2ko")
@@ -54,25 +191,11 @@ script = ExtResource("5_gh6j0")
 healthBar = NodePath("../Camera2D/Control/HealthBar")
 metadata/_custom_type_script = "uid://qb6e5kxd2ui"
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=809227422]
-scale = Vector2(1.0000001, 1.0000001)
-
-[node name="Control" type="Control" parent="Camera2D" unique_id=2046209436]
-layout_mode = 3
-anchors_preset = 0
-offset_left = -576.0
-offset_top = -324.0
-offset_right = -576.0
-offset_bottom = -324.0
-metadata/_edit_use_anchors_ = true
-
-[node name="HealthBar" type="ProgressBar" parent="Camera2D/Control" unique_id=11285153]
-layout_mode = 0
-offset_left = 14.0
-offset_top = 35.0
-offset_right = 316.0
-offset_bottom = 103.0
-metadata/_edit_use_anchors_ = true
-
 [node name="Inventory" type="Node" parent="." unique_id=55547198]
 script = ExtResource("7_u34yc")
+
+[node name="AnimationComponent" type="Node" parent="." unique_id=936907298 node_paths=PackedStringArray("anim", "sprite")]
+script = ExtResource("9_k6ugq")
+anim = NodePath("../AnimationPlayer")
+sprite = NodePath("../Sprite2D")
+metadata/_custom_type_script = "uid://b08u5vc4slxwe"

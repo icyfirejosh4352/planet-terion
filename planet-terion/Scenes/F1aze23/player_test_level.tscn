@@ -29,7 +29,7 @@ scale = Vector2(1545.75, 173.75003)
 mesh = SubResource("BoxMesh_1vivr")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="Level" unique_id=387568039]
-position = Vector2(969, 455)
+position = Vector2(969, 490)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/StaticBody2D2" unique_id=1021557945]
 shape = SubResource("RectangleShape2D_1vivr")
