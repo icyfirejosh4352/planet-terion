@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://bgyrmtc2qvkvw" path="res://Scripts/F1aze23/CameraComponent.gd" id="5_cyppd"]
 [ext_resource type="Script" uid="uid://qb6e5kxd2ui" path="res://Scripts/F1aze23/HealthComponent.gd" id="5_gh6j0"]
 [ext_resource type="Script" uid="uid://b482lg66v1sol" path="res://Scripts/randemlyy/Inventory.gd" id="7_u34yc"]
+[ext_resource type="Script" uid="uid://b08u5vc4slxwe" path="res://Scripts/F1aze23/AnimationComponent.gd" id="8_30xau"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1vivr"]
 
@@ -78,3 +79,6 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Inventory" type="Node" parent="." unique_id=55547198]
 script = ExtResource("7_u34yc")
+
+[node name="AnimationComponent" type="Node" parent="." unique_id=1135363358]
+script = ExtResource("8_30xau")

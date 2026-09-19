@@ -4,7 +4,7 @@ extends Node
 @export var anim:AnimationPlayer
 @export var sprite:Sprite2D
 var moveDir
-var isMoving:= false
+var isMoving:bool = false
 var isWeapon:=false
 var isAttack:=false
 

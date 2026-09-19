@@ -18,7 +18,7 @@ var _jump_buffer_timer := 0.0
 var _was_on_floor := false
 var is_crouching := false
 
-var isMoving := false
+var isMoving :bool = false
 enum MoveDir{left, right}
 var moveDir:MoveDir
 

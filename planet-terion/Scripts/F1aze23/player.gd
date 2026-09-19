@@ -24,6 +24,16 @@ func _ready() -> void:
 	
 	if inventory:
 		inventory.equipped_changed.connect(_on_equipped_changed)
+	
+	if not anim:
+		for child in get_children():
+			if child is AnimationComponent:
+				anim = child
+				break
+		if anim:
+			print("anim found")
+		else:
+			push_error('anim not found')
 		
 	var knife_scene = load("res://Scenes/randemlyy/Knife.tscn")
 	var pistol_scene = load("res://Scenes/randemlyy/Pistol.tscn")
