@@ -18,6 +18,10 @@ var _jump_buffer_timer := 0.0
 var _was_on_floor := false
 var is_crouching := false
 
+var isMoving := false
+enum MoveDir{left, right}
+var moveDir:MoveDir
+
 func physics_process(delta: float) -> void:
 	if body.is_on_floor():
 		_coyote_timer = coyote_time
@@ -51,6 +55,14 @@ func physics_process(delta: float) -> void:
 			body.velocity.x = dir*current_vel*speedMultiplier
 	
 	body.move_and_slide()
+	if body.velocity != Vector2.ZERO:
+		isMoving = true
+		if body.velocity.x > 0:
+			moveDir = MoveDir.left
+		else:
+			moveDir = MoveDir.right
+	else:
+		isMoving = false
 	
 func jump():
 	if body.is_on_floor() or _coyote_timer > 0.0:
