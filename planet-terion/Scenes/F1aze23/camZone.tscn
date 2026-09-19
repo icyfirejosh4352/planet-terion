@@ -10,6 +10,7 @@ script = ExtResource("1_2arpm")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1284831592]
 position = Vector2(-576, -324)
+scale = Vector2(0.505, 0.505)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=488760672]
 position = Vector2(576, 322)

@@ -56,14 +56,16 @@ metadata/_custom_type_script = "uid://qb6e5kxd2ui"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=809227422]
 scale = Vector2(1.0000001, 1.0000001)
+zoom = Vector2(2.255, 2.255)
 
 [node name="Control" type="Control" parent="Camera2D" unique_id=2046209436]
 layout_mode = 3
 anchors_preset = 0
-offset_left = -576.0
-offset_top = -324.0
-offset_right = -576.0
-offset_bottom = -324.0
+offset_left = -304.94
+offset_top = -180.75
+offset_right = -303.94
+offset_bottom = -180.75
+scale = Vector2(0.655, 0.655)
 metadata/_edit_use_anchors_ = true
 
 [node name="HealthBar" type="ProgressBar" parent="Camera2D/Control" unique_id=11285153]
