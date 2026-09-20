@@ -21,6 +21,7 @@ scale = Vector2(20, 20)
 texture = SubResource("PlaceholderTexture2D_np20c")
 
 [node name="Detection Range" type="Area2D" parent="." unique_id=376817989]
+scale = Vector2(1, 0.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detection Range" unique_id=150829048]
 scale = Vector2(30.075, 30.075)
@@ -50,4 +51,5 @@ hit_from_inside = true
 
 [node name="HealthComponent" type="Node" parent="." unique_id=1481907643]
 script = ExtResource("2_5rll0")
+health = 20.0
 metadata/_custom_type_script = "uid://qb6e5kxd2ui"
