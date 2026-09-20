@@ -8,6 +8,7 @@
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_np20c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_np20c"]
+radius = 7.9467998
 
 [node name="crawler" type="CharacterBody2D" unique_id=588281268]
 script = ExtResource("1_nnqf8")

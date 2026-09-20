@@ -4,10 +4,14 @@ extends Weapon
 @onready var attack_visual: ColorRect = $AttackVisual1
 @export var attack_range: float = 32.0   # pixels
 @export var attack_width: float = 16.0   # pixels
+@onready var audio_stream_player: AudioStreamPlayer = $"../AudioStreamPlayer"
+
 
 func attack(direction: Vector2) -> void:
 	if not can_attack():
 		return
+	
+	audio_stream_player.play()
 	
 	var dir = direction.normalized()
 	if abs(dir.x) > abs(dir.y):

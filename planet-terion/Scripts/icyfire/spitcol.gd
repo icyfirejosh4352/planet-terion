@@ -6,7 +6,7 @@ func _process(delta: float) -> void:
 		if body.is_in_group("Player"):
 				body.get_node("HealthComponent").damage(20)
 				#print("ded")
-				free()
+				queue_free()
 		elif !body.is_in_group("spitter"):
 			#print("ded")
 			free()

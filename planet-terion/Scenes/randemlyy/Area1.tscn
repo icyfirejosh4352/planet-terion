@@ -2,7 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://ceduv4d2jdcb3" path="res://Assets/TileMap.png" id="1_8dr0h"]
 [ext_resource type="PackedScene" uid="uid://co8llfh76lsdc" path="res://Scenes/F1aze23/camZone.tscn" id="3_c4byr"]
+[ext_resource type="PackedScene" uid="uid://dfc0oggyt1dpm" path="res://Scenes/icyfire/jumper.tscn" id="3_csaee"]
 [ext_resource type="Script" uid="uid://d4k5bss050hco" path="res://Scripts/F1aze23/LevelManager.gd" id="4_c4byr"]
+[ext_resource type="PackedScene" uid="uid://by4ubgr23nahq" path="res://Scenes/icyfire/spitter.tscn" id="4_h57tg"]
 [ext_resource type="PackedScene" uid="uid://boaljk64saxvx" path="res://Scenes/icyfire/crawler.tscn" id="4_xuanr"]
 [ext_resource type="AudioStream" uid="uid://ce2ilkplvfbrs" path="res://Assets/icyfire/Planet terion - 3.mp3" id="5_xuanr"]
 
@@ -158,10 +160,11 @@ position = Vector2(611, -151)
 scale = Vector2(1.4, 1)
 
 [node name="CamZone4" parent="Cams" unique_id=1867187772 instance=ExtResource("3_c4byr")]
-position = Vector2(3, -297)
+position = Vector2(1, -354)
+scale = Vector2(1, 1.3999994)
 
 [node name="CamZone10" parent="Cams" unique_id=1312071975 instance=ExtResource("3_c4byr")]
-position = Vector2(604, -499)
+position = Vector2(512, -437)
 
 [node name="CamZone5" parent="Cams" unique_id=1506148626 instance=ExtResource("3_c4byr")]
 position = Vector2(1147, -275)
@@ -171,18 +174,19 @@ scale = Vector2(0.7199927, 1)
 position = Vector2(-508, -349)
 
 [node name="CamZone8" parent="Cams" unique_id=481801678 instance=ExtResource("3_c4byr")]
-position = Vector2(-509, -61)
+position = Vector2(-527, -59)
+scale = Vector2(1.0650661, 1)
 
 [node name="CamZone9" parent="Cams" unique_id=2064320499 instance=ExtResource("3_c4byr")]
-position = Vector2(-915, -123)
+position = Vector2(-1277, -123)
 scale = Vector2(0.6000049, 1)
 
 [node name="CamZone13" parent="Cams" unique_id=1497257999 instance=ExtResource("3_c4byr")]
-position = Vector2(-1731, -123)
+position = Vector2(-2093, -123)
 scale = Vector2(0.6000049, 1)
 
 [node name="CamZone11" parent="Cams" unique_id=967508979 instance=ExtResource("3_c4byr")]
-position = Vector2(-1322, -124)
+position = Vector2(-1684, -124)
 
 [node name="CamZone6" parent="Cams" unique_id=2121897349 instance=ExtResource("3_c4byr")]
 position = Vector2(1587, -273)
@@ -190,14 +194,26 @@ position = Vector2(1587, -273)
 [node name="CamZone12" parent="Cams" unique_id=387335702 instance=ExtResource("3_c4byr")]
 position = Vector2(2097, -273)
 
+[node name="CamZone3" parent="Cams" unique_id=1973053355 instance=ExtResource("3_c4byr")]
+position = Vector2(-961.00006, -113)
+scale = Vector2(0.64824337, 0.78201485)
+
 [node name="LevelManager" type="Node" parent="." unique_id=666015886]
 script = ExtResource("4_c4byr")
 metadata/_custom_type_script = "uid://d4k5bss050hco"
 
-[node name="crawler" parent="." unique_id=588281268 instance=ExtResource("4_xuanr")]
-position = Vector2(601, -77)
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=118633503]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1400871342]
 stream = ExtResource("5_xuanr")
 autoplay = true
 parameters/looping = true
+
+[node name="Enemies" type="Node" parent="." unique_id=1689844225]
+
+[node name="crawler" parent="Enemies" unique_id=991275237 instance=ExtResource("4_xuanr")]
+position = Vector2(601, -77)
+
+[node name="jumper" parent="Enemies" unique_id=588281268 instance=ExtResource("3_csaee")]
+position = Vector2(-595, 1)
+
+[node name="spitter" parent="Enemies" unique_id=16186634 instance=ExtResource("4_h57tg")]
+position = Vector2(-866, -43)

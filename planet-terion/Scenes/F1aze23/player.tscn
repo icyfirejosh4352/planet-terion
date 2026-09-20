@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://b482lg66v1sol" path="res://Scripts/randemlyy/Inventory.gd" id="7_u34yc"]
 [ext_resource type="Script" uid="uid://b08u5vc4slxwe" path="res://Scripts/F1aze23/AnimationComponent.gd" id="8_30xau"]
 [ext_resource type="Texture2D" uid="uid://dgtgp8ygemioc" path="res://Assets/final_spritesheet.png" id="9_k6ugq"]
+[ext_resource type="AudioStream" uid="uid://cr5n3pjqgnswl" path="res://Assets/icyfire/weapons-sword-wield-swoosh-chink-01.mp3" id="10_avk3n"]
 
 [sub_resource type="Animation" id="Animation_avk3n"]
 resource_name = "Attack-Sword"
@@ -185,6 +186,7 @@ metadata/_custom_type_script = "uid://drsrihrd4igyf"
 [node name="MovementComponent" type="Node" parent="." unique_id=1371078995 node_paths=PackedStringArray("body")]
 script = ExtResource("3_0hji0")
 body = NodePath("..")
+jump_vel = -350.0
 metadata/_custom_type_script = "uid://c5nfegkv71e0v"
 
 [node name="DashComponent" type="Node" parent="." unique_id=1420409046 node_paths=PackedStringArray("input", "body", "move")]
@@ -192,6 +194,7 @@ script = ExtResource("4_0hji0")
 input = NodePath("../InputComponent")
 body = NodePath("..")
 move = NodePath("../MovementComponent")
+dash_speed_mult = 4.0
 metadata/_custom_type_script = "uid://5fvcilw81dav"
 
 [node name="CameraComponent" type="Node" parent="." unique_id=1256990026 node_paths=PackedStringArray("cam")]
@@ -211,3 +214,7 @@ script = ExtResource("7_u34yc")
 script = ExtResource("8_30xau")
 anim = NodePath("../AnimationPlayer")
 sprite = NodePath("../Sprite2D")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=618826675]
+stream = ExtResource("10_avk3n")
+volume_db = 2.453
