@@ -8,6 +8,7 @@
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_np20c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_np20c"]
+radius = 5.432495
 
 [node name="spitter" type="CharacterBody2D" unique_id=588281268 groups=["spitter"]]
 scale = Vector2(1.5, 1.5)
@@ -50,4 +51,5 @@ hit_from_inside = true
 
 [node name="HealthComponent" type="Node" parent="." unique_id=55915084]
 script = ExtResource("2_h57lj")
+health = 50.0
 metadata/_custom_type_script = "uid://qb6e5kxd2ui"

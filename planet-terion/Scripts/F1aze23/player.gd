@@ -88,6 +88,8 @@ func _process(delta: float) -> void:
 	if input.inv_prev:
 		inventory.prev_weapon()
 		
+		
+		
 func _on_equipped_changed(new_weapon: Weapon) -> void:
 	if weapon_label:
 		weapon_label.text = "Equipped Weapon: %s" % new_weapon.name
@@ -99,3 +101,4 @@ func _physics_process(delta: float) -> void:
 	
 func Death():
 	GM.load_scene(GM.gameOver)
+	
