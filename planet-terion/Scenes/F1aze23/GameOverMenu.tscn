@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://iiav6na3ka07"]
+
+[ext_resource type="Script" uid="uid://c53a61t4rw4c7" path="res://Scenes/F1aze23/gameOver.gd" id="1_bgtxr"]
+
+[node name="GameOverMenu" type="Node2D" unique_id=1269097523]
+script = ExtResource("1_bgtxr")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1342042513]
+
+[node name="BackToMenu" type="Button" parent="." unique_id=492910986]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -78.0
+offset_right = 100.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "BACK TO MENU"
+metadata/_edit_use_anchors_ = true
+
+[node name="Quit" type="Button" parent="." unique_id=54149816]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = 20.0
+offset_right = 100.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "QUIT"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="BackToMenu" to="." method="_on_back_to_menu_pressed"]
+[connection signal="pressed" from="BackToMenu" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="planet terion"
-run/main_scene="uid://cbvlv0natpdc2"
+run/main_scene="uid://cvm63ia4224s4"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
 

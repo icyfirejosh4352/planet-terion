@@ -9,6 +9,7 @@ extends CharacterBody2D
 @export var anim:AnimationComponent
 @export var knife:Knife
 @export var pistol:Pistol
+@onready var GM:GameManager
 
 
 var equipped_weapon: Weapon: get = return_equipped
@@ -18,22 +19,13 @@ func _ready() -> void:
 	health.ready()
 	health.Death.connect(Death)
 	cam.ready()
+	GM = get_node("/root/GameManager")
 	
 	if not inventory:
 		inventory = get_node("Inventory")
 	
 	if inventory:
 		inventory.equipped_changed.connect(_on_equipped_changed)
-	
-	if not anim:
-		for child in get_children():
-			if child is AnimationComponent:
-				anim = child
-				break
-		if anim:
-			print("anim found")
-		else:
-			push_error('anim not found')
 		
 	var knife_scene = load("res://Scenes/randemlyy/Knife.tscn")
 	var pistol_scene = load("res://Scenes/randemlyy/Pistol.tscn")
@@ -90,4 +82,4 @@ func _physics_process(delta: float) -> void:
 	move.physics_process(delta)
 	
 func Death():
-	print("dead")
+	GM.load_scene(GM.gameOver)
