@@ -14,10 +14,6 @@ func process(delta: float) -> void:
 		await anim.animation_finished
 		isAttack = false
 	elif isMoving:
-		if moveDir == 1:
-			sprite.flip_h = false
-		else:
-			sprite.flip_h = true
 		if isWeapon:
 			anim.play("Walk-Sword")
 		else:
@@ -27,4 +23,9 @@ func process(delta: float) -> void:
 			anim.play("Idle-Sword")
 		else:
 			anim.play("Idle-Base")
+			
+	if moveDir == 1:
+		sprite.flip_h = false
+	else:
+		sprite.flip_h = true
 	
