@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ce2ilkplvfbrs"
+path="res://.godot/imported/Planet terion - 3.mp3-b8a7694e780c45f232cf8cd15dc3d88d.mp3str"
+
+[deps]
+
+source_file="res://Assets/icyfire/Planet terion - 3.mp3"
+dest_files=["res://.godot/imported/Planet terion - 3.mp3-b8a7694e780c45f232cf8cd15dc3d88d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

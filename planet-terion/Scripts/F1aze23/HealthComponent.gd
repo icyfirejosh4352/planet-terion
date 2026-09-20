@@ -2,7 +2,7 @@ class_name HealthComponent
 extends Node
 
 @export var healthBar: ProgressBar
-var health:= 100.0
+@export var health:= 100.0
 signal Death
 
 func ready():

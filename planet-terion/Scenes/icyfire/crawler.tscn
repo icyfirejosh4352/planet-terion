@@ -49,4 +49,5 @@ hit_from_inside = true
 
 [node name="HealthComponent" type="Node" parent="." unique_id=55915084]
 script = ExtResource("2_mq3rg")
+health = 10.0
 metadata/_custom_type_script = "uid://qb6e5kxd2ui"

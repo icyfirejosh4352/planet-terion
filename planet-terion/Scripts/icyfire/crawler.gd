@@ -17,7 +17,7 @@ var DRcheckcol:bool
 var MovingDir:float = 1
 
 func _process(delta: float) -> void:
-#	print ("running")
+	print(healthComp.health)
 	Enemy_process(delta)
 	TimeSinceDmg += delta
 	velocity.y += (get_gravity().y * delta)

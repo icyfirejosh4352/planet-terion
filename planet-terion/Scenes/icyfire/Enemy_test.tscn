@@ -79,6 +79,7 @@ position = Vector2(1493, 829)
 
 [node name="Enemy" parent="." unique_id=588281268 instance=ExtResource("2_vkc1e")]
 position = Vector2(1968.465, 778.855)
+MovementSpeedDiff = null
 
 [node name="jumper" parent="." unique_id=2133311114 instance=ExtResource("3_okitt")]
 position = Vector2(2563, 983)
@@ -94,3 +95,4 @@ position = Vector2(1114.61, 935)
 
 [node name="crawler" parent="." unique_id=1541718422 instance=ExtResource("2_vkc1e")]
 position = Vector2(1020, 926)
+MovementSpeedDiff = null
