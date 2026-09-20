@@ -49,6 +49,7 @@ func _ready() -> void:
 		weapon_label.text = "Equipped Weapon: %s" % inventory.get_equipped().name
 	else:
 		weapon_label.text = "Equipped Weapon: None"
+		
 
 
 func _process(delta: float) -> void:

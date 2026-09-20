@@ -155,48 +155,49 @@ collision_enabled = false
 [node name="CamZone" parent="Cams" unique_id=844620592 groups=["StartZone"] instance=ExtResource("3_c4byr")]
 position = Vector2(2, -11)
 
-[node name="CamZone2" parent="Cams" unique_id=309833742 instance=ExtResource("3_c4byr")]
-position = Vector2(611, -151)
-scale = Vector2(1.4, 1)
+[node name="CamZone7" parent="Cams" unique_id=2033049503 groups=["StartZone"] instance=ExtResource("3_c4byr")]
+position = Vector2(2, -301)
 
-[node name="CamZone4" parent="Cams" unique_id=1867187772 instance=ExtResource("3_c4byr")]
-position = Vector2(1, -354)
-scale = Vector2(1, 1.3999994)
+[node name="CamZone8" parent="Cams" unique_id=1948411087 groups=["StartZone"] instance=ExtResource("3_c4byr")]
+position = Vector2(-510, -365)
 
-[node name="CamZone10" parent="Cams" unique_id=1312071975 instance=ExtResource("3_c4byr")]
-position = Vector2(512, -437)
+[node name="CamZone10" parent="Cams" unique_id=55766463 groups=["StartZone"] instance=ExtResource("3_c4byr")]
+position = Vector2(-508, -73)
 
-[node name="CamZone5" parent="Cams" unique_id=1506148626 instance=ExtResource("3_c4byr")]
-position = Vector2(1147, -275)
-scale = Vector2(0.7199927, 1)
+[node name="CamZone11" parent="Cams" unique_id=1376461460 groups=["StartZone"] instance=ExtResource("3_c4byr")]
+position = Vector2(-1020, -81)
 
-[node name="CamZone7" parent="Cams" unique_id=1584878856 instance=ExtResource("3_c4byr")]
-position = Vector2(-508, -349)
+[node name="CamZone12" parent="Cams" unique_id=1240034273 groups=["StartZone"] instance=ExtResource("3_c4byr")]
+position = Vector2(-1669, -110)
 
-[node name="CamZone8" parent="Cams" unique_id=481801678 instance=ExtResource("3_c4byr")]
-position = Vector2(-527, -59)
-scale = Vector2(1.0650661, 1)
+[node name="CamZone13" parent="Cams" unique_id=1031782886 groups=["StartZone"] instance=ExtResource("3_c4byr")]
+position = Vector2(-1338, -110)
+scale = Vector2(0.27999997, 1)
 
-[node name="CamZone9" parent="Cams" unique_id=2064320499 instance=ExtResource("3_c4byr")]
-position = Vector2(-1277, -123)
-scale = Vector2(0.6000049, 1)
+[node name="CamZone14" parent="Cams" unique_id=1931877078 groups=["StartZone"] instance=ExtResource("3_c4byr")]
+position = Vector2(-2008, -108)
+scale = Vector2(0.3276732, 1)
 
-[node name="CamZone13" parent="Cams" unique_id=1497257999 instance=ExtResource("3_c4byr")]
-position = Vector2(-2093, -123)
-scale = Vector2(0.6000049, 1)
+[node name="CamZone9" parent="Cams" unique_id=1405841528 groups=["StartZone"] instance=ExtResource("3_c4byr")]
+position = Vector2(513, -415)
 
-[node name="CamZone11" parent="Cams" unique_id=967508979 instance=ExtResource("3_c4byr")]
-position = Vector2(-1684, -124)
+[node name="CamZone3" parent="Cams" unique_id=1673770846 groups=["StartZone"] instance=ExtResource("3_c4byr")]
+position = Vector2(816, -150)
+scale = Vector2(0.92, 1)
 
-[node name="CamZone6" parent="Cams" unique_id=2121897349 instance=ExtResource("3_c4byr")]
-position = Vector2(1587, -273)
+[node name="CamZone4" parent="Cams" unique_id=2120478066 groups=["StartZone"] instance=ExtResource("3_c4byr")]
+position = Vector2(1308, -308)
 
-[node name="CamZone12" parent="Cams" unique_id=387335702 instance=ExtResource("3_c4byr")]
-position = Vector2(2097, -273)
+[node name="CamZone5" parent="Cams" unique_id=999469282 groups=["StartZone"] instance=ExtResource("3_c4byr")]
+position = Vector2(1713, -308)
+scale = Vector2(0.6, 1)
 
-[node name="CamZone3" parent="Cams" unique_id=1973053355 instance=ExtResource("3_c4byr")]
-position = Vector2(-961.00006, -113)
-scale = Vector2(0.64824337, 0.78201485)
+[node name="CamZone6" parent="Cams" unique_id=1441598151 groups=["StartZone"] instance=ExtResource("3_c4byr")]
+position = Vector2(2126, -308)
+
+[node name="CamZone2" parent="Cams" unique_id=1034079624 groups=["StartZone"] instance=ExtResource("3_c4byr")]
+position = Vector2(416, -129)
+scale = Vector2(0.63999397, 1)
 
 [node name="LevelManager" type="Node" parent="." unique_id=666015886]
 script = ExtResource("4_c4byr")
