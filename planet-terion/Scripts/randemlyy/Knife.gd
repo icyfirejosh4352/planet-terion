@@ -43,7 +43,7 @@ func attack(direction: Vector2) -> void:
 	params.shape = shape
 	params.transform = Transform2D(0, global_position + offset)
 	params.collide_with_bodies = true
-	params.collide_with_areas = true
+	params.collide_with_areas = false
 	
 	var results = space.intersect_shape(params)
 	for r in results:

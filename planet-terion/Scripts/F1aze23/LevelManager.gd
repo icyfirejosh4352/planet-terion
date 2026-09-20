@@ -3,7 +3,7 @@ extends Node
 
 var startPoint:Node2D
 var parent:Node2D
-var playerScene = preload("res://Scenes/F1aze23/player.tscn")
+var playerScene = load("res://Scenes/F1aze23/player.tscn")
 var player:CharacterBody2D
 var enemySpawner:Node
 

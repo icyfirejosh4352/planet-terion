@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cekjrmd0g6x5f"]
+
+[ext_resource type="Script" uid="uid://lhrwc51dqsgj" path="res://Scripts/randemlyy/Bullet.gd" id="1_a2ck4"]
+[ext_resource type="Texture2D" uid="uid://ceduv4d2jdcb3" path="res://Assets/TileMap.png" id="2_2o5ua"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jpaqu"]
+size = Vector2(14, 6)
+
+[node name="Bullet" type="Node2D" unique_id=1092921667]
+script = ExtResource("1_a2ck4")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=186896744]
+texture = ExtResource("2_2o5ua")
+region_enabled = true
+region_rect = Rect2(176, 128, 16, 16)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1859804521]
+
+[node name="CollisionShape" type="CollisionShape2D" parent="Area2D" unique_id=392782954]
+shape = SubResource("RectangleShape2D_jpaqu")

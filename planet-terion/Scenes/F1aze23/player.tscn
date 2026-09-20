@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" uid="uid://btab531svpaqx" path="res://Scripts/F1aze23/player.gd" id="1_qs70e"]
 [ext_resource type="Script" uid="uid://drsrihrd4igyf" path="res://Scripts/F1aze23/InputComponent.gd" id="2_jb2ko"]
-[ext_resource type="Texture2D" uid="uid://dgtgp8ygemioc" path="res://Assets/final_spritesheet.png" id="2_k6ugq"]
 [ext_resource type="Script" uid="uid://c5nfegkv71e0v" path="res://Scripts/F1aze23/MovementComponent.gd" id="3_0hji0"]
 [ext_resource type="Script" uid="uid://5fvcilw81dav" path="res://Scripts/F1aze23/DashComponent.gd" id="4_0hji0"]
 [ext_resource type="Script" uid="uid://bgyrmtc2qvkvw" path="res://Scripts/F1aze23/CameraComponent.gd" id="5_cyppd"]
 [ext_resource type="Script" uid="uid://qb6e5kxd2ui" path="res://Scripts/F1aze23/HealthComponent.gd" id="5_gh6j0"]
 [ext_resource type="Script" uid="uid://b482lg66v1sol" path="res://Scripts/randemlyy/Inventory.gd" id="7_u34yc"]
 [ext_resource type="Script" uid="uid://b08u5vc4slxwe" path="res://Scripts/F1aze23/AnimationComponent.gd" id="8_30xau"]
+[ext_resource type="Texture2D" uid="uid://dgtgp8ygemioc" path="res://Assets/final_spritesheet.png" id="9_k6ugq"]
 
 [sub_resource type="Animation" id="Animation_avk3n"]
 resource_name = "Attack-Sword"
@@ -123,8 +123,11 @@ _data = {
 radius = 14.0
 height = 60.0
 
-[node name="Player" type="CharacterBody2D" unique_id=1939686657 node_paths=PackedStringArray("input", "move", "dash", "health", "cam", "anim") groups=["Player"]]
-scale = Vector2(0.57, 0.57)
+[sub_resource type="LabelSettings" id="LabelSettings_k6ugq"]
+font_size = 11
+
+[node name="Player" type="CharacterBody2D" unique_id=1939686657 node_paths=PackedStringArray("input", "move", "dash", "health", "cam", "anim", "weapon_label") groups=["Player"]]
+scale = Vector2(0.445, 0.445)
 script = ExtResource("1_qs70e")
 input = NodePath("InputComponent")
 move = NodePath("MovementComponent")
@@ -132,9 +135,10 @@ dash = NodePath("DashComponent")
 health = NodePath("HealthComponent")
 cam = NodePath("CameraComponent")
 anim = NodePath("AnimationComponent")
+weapon_label = NodePath("Camera2D/Control/WeaponLabel")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=848227279]
-texture = ExtResource("2_k6ugq")
+texture = ExtResource("9_k6ugq")
 hframes = 12
 vframes = 12
 
@@ -164,6 +168,15 @@ offset_left = -254.99997
 offset_top = -143.99998
 offset_right = -119.999985
 offset_bottom = -116.999985
+
+[node name="WeaponLabel" type="Label" parent="Camera2D/Control" unique_id=1479989753]
+layout_mode = 0
+offset_left = -254.0
+offset_top = -113.0
+offset_right = -65.0
+offset_bottom = -90.0
+text = "Equipped weapon: None"
+label_settings = SubResource("LabelSettings_k6ugq")
 
 [node name="InputComponent" type="Node" parent="." unique_id=2125975322]
 script = ExtResource("2_jb2ko")

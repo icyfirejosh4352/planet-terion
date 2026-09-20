@@ -9,17 +9,24 @@ extends CharacterBody2D
 @export var anim:AnimationComponent
 @export var knife:Knife
 @export var pistol:Pistol
+@export var weapon_label:Label
 @onready var GM:GameManager
 
 
 var equipped_weapon: Weapon: get = return_equipped
-func return_equipped(): return inventory.get_equipped()
+#func return_equipped(): return inventory.get_equipped()
+
+func return_equipped():
+	if inventory:
+		return inventory.get_equipped()
+	return null
 
 func _ready() -> void:
 	health.ready()
 	health.Death.connect(Death)
 	cam.ready()
 	GM = get_node("/root/GameManager")
+
 	
 	if not inventory:
 		inventory = get_node("Inventory")
@@ -37,6 +44,11 @@ func _ready() -> void:
 	add_child(pistol)
 	inventory.add_weapon(knife)
 	inventory.add_weapon(pistol)
+	
+	if inventory.get_equipped():
+		weapon_label.text = "Equipped Weapon: %s" % inventory.get_equipped().name
+	else:
+		weapon_label.text = "Equipped Weapon: None"
 
 
 func _process(delta: float) -> void:
@@ -76,7 +88,10 @@ func _process(delta: float) -> void:
 		inventory.prev_weapon()
 		
 func _on_equipped_changed(new_weapon: Weapon) -> void:
-	print("Equipped weapon: %s" % new_weapon.name)
+	if weapon_label:
+		weapon_label.text = "Equipped Weapon: %s" % new_weapon.name
+	else:
+		push_warning("Weapon Label not set.")
 	
 func _physics_process(delta: float) -> void:
 	move.physics_process(delta)
