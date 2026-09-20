@@ -11,6 +11,8 @@ extends CharacterBody2D
 @export var pistol:Pistol
 @export var weapon_label:Label
 @onready var GM:GameManager
+@onready var tutorial: Label = $Camera2D/UI/Control/Tutorial
+@onready var tut_timer: Timer = $TutTimer
 
 
 var equipped_weapon: Weapon: get = return_equipped
@@ -50,7 +52,8 @@ func _ready() -> void:
 	else:
 		weapon_label.text = "Equipped Weapon: None"
 		
-
+	tut_timer.start()
+	tut_timer.timeout.connect(tutorial.hide)
 
 func _process(delta: float) -> void:
 	move.speedMultiplier = dash.speedMultiplier
@@ -87,6 +90,8 @@ func _process(delta: float) -> void:
 		inventory.next_weapon()
 	if input.inv_prev:
 		inventory.prev_weapon()
+		
+	
 		
 func _on_equipped_changed(new_weapon: Weapon) -> void:
 	if weapon_label:

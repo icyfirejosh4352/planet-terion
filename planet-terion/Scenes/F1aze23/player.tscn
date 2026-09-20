@@ -181,6 +181,16 @@ offset_bottom = -90.0
 text = "Equipped weapon: None"
 label_settings = SubResource("LabelSettings_k6ugq")
 
+[node name="Tutorial" type="Label" parent="Camera2D/UI/Control" unique_id=421537456]
+layout_mode = 0
+offset_left = -250.0
+offset_top = 64.0
+offset_right = -116.0
+offset_bottom = 139.0
+text = "Move- A,D
+Jump - Space
+Attack - Left Click"
+
 [node name="InputComponent" type="Node" parent="." unique_id=2125975322]
 script = ExtResource("2_jb2ko")
 metadata/_custom_type_script = "uid://drsrihrd4igyf"
@@ -220,3 +230,7 @@ sprite = NodePath("../Sprite2D")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=618826675]
 stream = ExtResource("10_avk3n")
 volume_db = 2.453
+
+[node name="TutTimer" type="Timer" parent="." unique_id=812923979]
+wait_time = 5.0
+one_shot = true
