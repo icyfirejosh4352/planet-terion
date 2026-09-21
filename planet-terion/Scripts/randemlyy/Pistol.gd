@@ -1,8 +1,8 @@
 class_name Pistol
 extends Weapon
 
-@export var bullet_range: float = 256.0
-@export var bullet_speed: float = 500.0
+@export var bullet_range: float = 512.0
+@export var bullet_speed: float = 740.0
 @export var bullet_width: float = 8.0
 
 func attack(direction: Vector2) -> void:
@@ -13,16 +13,14 @@ func attack(direction: Vector2) -> void:
 	if dir.length() == 0:
 		return
 	
-	var bullet_scene = load("res://Scenes/randemlyy/Bullet.tscn")
-	var bullet = bullet_scene.instantiate()
-	get_tree().current_scene.add_child(bullet)
-	print(">>> Bullet instance created:", bullet)
+	var bullet = load("res://Scenes/randemlyy/Bullet.tscn").instantiate()
+	print("Bullet instantiated:", bullet, "at position:", global_position)
 	
 	bullet.global_position = global_position
 	bullet.rotation = dir.angle()
 	
-	bullet.velocity = dir * bullet_speed
-	bullet.damage = damage
+	bullet.global_position += dir * 12
+	get_tree().current_scene.add_child(bullet)
 	
 	
 	#var start = global_position
@@ -40,6 +38,7 @@ func attack(direction: Vector2) -> void:
 			#var health = body.get_node("HealthComponent")
 			#if health:
 				#health.damage(damage)
+	
 	
 	cooldown_timer = firerate
 	
