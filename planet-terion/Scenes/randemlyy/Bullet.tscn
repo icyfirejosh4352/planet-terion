@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://lhrwc51dqsgj" path="res://Scripts/randemlyy/Bullet.gd" id="1_a2ck4"]
 [ext_resource type="Texture2D" uid="uid://ceduv4d2jdcb3" path="res://Assets/TileMap.png" id="2_2o5ua"]
-[ext_resource type="Script" uid="uid://cmpy2oh7ia6bu" path="res://Scenes/randemlyy/BulletCol.gd" id="3_2o5ua"]
+[ext_resource type="Script" uid="uid://cmpy2oh7ia6bu" path="res://Scripts/randemlyy/BulletCol.gd" id="3_2o5ua"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jpaqu"]
 size = Vector2(14, 6)

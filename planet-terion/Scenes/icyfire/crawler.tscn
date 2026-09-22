@@ -10,7 +10,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_np20c"]
 radius = 7.9467998
 
-[node name="crawler" type="CharacterBody2D" unique_id=588281268]
+[node name="crawler" type="CharacterBody2D" unique_id=588281268 groups=["Enemies"]]
 script = ExtResource("1_nnqf8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=384724839]
@@ -50,5 +50,5 @@ hit_from_inside = true
 
 [node name="HealthComponent" type="Node" parent="." unique_id=55915084]
 script = ExtResource("2_mq3rg")
-health = 10.0
+health = 20.0
 metadata/_custom_type_script = "uid://qb6e5kxd2ui"

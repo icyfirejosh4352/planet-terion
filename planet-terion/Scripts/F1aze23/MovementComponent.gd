@@ -59,10 +59,15 @@ func physics_process(delta: float) -> void:
 		isMoving = true
 	else:
 		isMoving = false
-	if dir > 0:
-		moveDir = MoveDir.left
-	else:
-		moveDir = MoveDir.right
+	#if dir > 0:
+		#moveDir = MoveDir.left
+	#else:
+		#moveDir = MoveDir.right
+	if dir != 0:
+		if dir > 0:
+			moveDir = MoveDir.left
+		else:
+			moveDir = MoveDir.right
 
 func jump():
 	if body.is_on_floor() or _coyote_timer > 0.0:

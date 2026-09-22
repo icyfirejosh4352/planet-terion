@@ -13,7 +13,7 @@ extends CharacterBody2D
 @onready var GM:GameManager
 @onready var tutorial: Label = $Camera2D/UI/Control/Tutorial
 @onready var tut_timer: Timer = $TutTimer
-
+@onready var sprite = $Sprite2D
 
 var equipped_weapon: Weapon: get = return_equipped
 #func return_equipped(): return inventory.get_equipped()
@@ -29,7 +29,6 @@ func _ready() -> void:
 	cam.ready()
 	GM = get_node("/root/GameManager")
 
-	
 	if not inventory:
 		inventory = get_node("Inventory")
 	

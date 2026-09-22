@@ -9,7 +9,7 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_np20c"]
 
-[node name="jumper" type="CharacterBody2D" unique_id=588281268]
+[node name="jumper" type="CharacterBody2D" unique_id=588281268 groups=["Enemies"]]
 scale = Vector2(1, 2)
 script = ExtResource("1_4bjd4")
 

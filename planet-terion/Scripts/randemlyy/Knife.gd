@@ -1,9 +1,9 @@
 class_name Knife
 extends Weapon
 
-@onready var attack_visual: ColorRect = $AttackVisual1
 @export var attack_range: float = 32.0   # pixels
 @export var attack_width: float = 16.0   # pixels
+@export var knockback_force: float = 280.0 # Heavy melee punch impact
 @onready var audio_stream_player: AudioStreamPlayer = $"../AudioStreamPlayer"
 
 
@@ -28,17 +28,7 @@ func attack(direction: Vector2) -> void:
 		rect_size = Vector2(attack_range, attack_width)
 	else:
 		rect_size = Vector2(attack_width, attack_range)
-	
-	if attack_visual:
-		attack_visual.visible = true
-		attack_visual.modulate = Color(1, 0, 0, 0.5)
-		attack_visual.position = offset
-		attack_visual.size = rect_size
-		attack_visual.rotation = dir.angle()
-		get_tree().create_timer(0.1).timeout.connect(
-			func(): if is_instance_valid(attack_visual): attack_visual.visible = false
-		)
-	
+		
 	var shape = RectangleShape2D.new()
 	shape.size = rect_size
 	
@@ -50,16 +40,22 @@ func attack(direction: Vector2) -> void:
 	params.collide_with_areas = false
 	
 	var results = space.intersect_shape(params)
+	var hit_anything = false
 	for r in results:
 		var body = r.collider as Node
 		if body and body.has_method("get_node"):
 			if body == self or body == self.get_parent():
 				continue
-			if body.has_node("HealthComponent"):
+			if body.has_node("HealthComponent"):		
 				var health = body.get_node("HealthComponent")
 				health.damage(damage)
-				print("HITITHITHITHI")
-				print(damage)
-				print(body)
+				
+				var knockback_dir = Vector2(dir.x if dir.x != 0 else 1.0, 0.0)
+				HitEffectManager.apply_knockback(body, knockback_dir, knockback_force)
+				hit_anything = true
 	
-	cooldown_timer = firerate
+	if hit_anything:
+		HitEffectManager.trigger_hitstop(0.08) 
+		ScreenShakeManager.shake(0.5, 4.0, Vector2(25, 2)) 
+	
+	cooldown_timer = knife_firerate

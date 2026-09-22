@@ -15,6 +15,11 @@ run/main_scene="uid://cvm63ia4224s4"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+ScreenShakeManager="*uid://cw7i7127ydynu"
+HitEffectManager="*uid://cdn4dfegb7ln1"
+
 [display]
 
 window/stretch/mode="canvas_items"
@@ -22,12 +27,13 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg", "res://addons/terminal/plugin.cfg")
+enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg", "res://addons/quill-ide/plugin.cfg")
 
 [global_group]
 
 Player=""
 StartZone=""
+Enemies=""
 
 [input]
 

@@ -2,8 +2,8 @@ class_name Weapon
 extends Node2D
 
 @export var damage: float = 10.0
-@export var firerate: float = 0.5
-
+@export var pistol_firerate: float = 1.2
+@export var knife_firerate: float = 0.5
 var cooldown_timer: float = 0.0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -20,5 +20,5 @@ func attack(direction: Vector2) -> void:
 func upgrade_damage(amount: float) -> void:
 	damage += amount
 
-func upgrade_firerate(amount: float) -> void:
-	firerate = max(0.1, firerate - amount)
+#func upgrade_firerate(amount: float) -> void:
+	#firerate = max(0.1, firerate - amount)
