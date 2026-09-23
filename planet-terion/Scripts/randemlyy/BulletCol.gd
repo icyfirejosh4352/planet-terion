@@ -21,6 +21,9 @@ func _process(delta: float) -> void:
 			if knockback_dir.x == 0: knockback_dir.x = 1
 			health.damage(Damage)
 			
+			#var impact = preload("res://Scenes/randemlyy/ImpactEffect.tscn").instantiate()
+			#impact.global_position = global_position
+			#get_tree().current_scene.add_child(impact)
 			HitEffectManager.trigger_hitstop(0.04)
 			HitEffectManager.apply_knockback(body, knockback_dir, knockback_force)
 			

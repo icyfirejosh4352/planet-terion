@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://c8gne8ws6dvyi"]
+
+[ext_resource type="Script" uid="uid://k20ldm2to2td" path="res://Scripts/randemlyy/ParticleCleanup.gd" id="1_kfr72"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_y8rms"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 98.111, 0)
+
+[node name="WalkParticles" type="GPUParticles2D" unique_id=244648677]
+emitting = false
+lifetime = 0.34
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_y8rms")
+script = ExtResource("1_kfr72")
