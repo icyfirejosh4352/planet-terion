@@ -3,7 +3,7 @@ extends Area2D
 @export var Speed: float = 740.0
 @export var Damage: float = 5.0
 @export var Lifetime: float = 2.0
-@export var knockback_force: float = 300.0
+@export var knockback_force: float = 30.0
 @onready var impact = preload("res://Scenes/randemlyy/ImpactEffect.tscn")
 
 
