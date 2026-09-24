@@ -339,3 +339,6 @@ position = Vector2(-1935, -21)
 
 [node name="Heal" parent="." unique_id=2087209350 instance=ExtResource("8_h57tg")]
 position = Vector2(85, -40)
+
+[node name="crawler" parent="." unique_id=1383593434 instance=ExtResource("4_xuanr")]
+position = Vector2(-87, -25)

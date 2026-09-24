@@ -28,15 +28,15 @@ func _process(delta: float) -> void:
 	DLcheckcol = down_left_check.is_colliding()
 	DRcheckcol = down_right_check.is_colliding()
 	
-	knockback_velocity = knockback_velocity.move_toward(Vector2.ZERO, knockback_friction * delta * 100)
+#	knockback_velocity = knockback_velocity.move_toward(Vector2.ZERO, knockback_friction * delta * 100)
 	
-	if knockback_velocity.length() > 15.0:
-		velocity.x = knockback_velocity.x
+	if S_EnemyState == EnemyStates.KNOCKEDBACK:
+		pass
 	else:
-		if IsChasing:
+		if S_EnemyState == EnemyStates.CHASING:
 			var direction = (player.global_position - global_position).normalized()
 			velocity.x = direction.x  * (MovementSpeed + MovementSpeedDiff)
-		elif !IsChasing && is_on_floor():
+		elif !S_EnemyState == EnemyStates.CHASING && is_on_floor():
 			if !Lcheckcol && !Rcheckcol && DLcheckcol && DRcheckcol:
 				pass
 			else:
@@ -54,5 +54,5 @@ func _process(delta: float) -> void:
 			TimeSinceDmg = 0
 			player.get_node("HealthComponent").damage(10)
 
-func apply_hit_knockback(force: Vector2) -> void:
-	knockback_velocity = force
+#func apply_hit_knockback(force: Vector2) -> void:
+#	knockback_velocity = force

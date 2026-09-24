@@ -6,7 +6,9 @@ func trigger_hitstop(duration: float = 0.06):
 	Engine.time_scale = 1.0
 
 func apply_knockback(body: Node, direction: Vector2, force: float):
-	if body.has_method("apply_hit_knockback"):
-		body.apply_hit_knockback(direction * force)
-	elif body is CharacterBody2D and "velocity" in body:
-		body.velocity = direction * force
+	
+	pass
+	#if body.has_method("apply_hit_knockback"):
+		#body.apply_hit_knockback(direction * force)
+	#elif body is CharacterBody2D and "velocity" in body:
+		#body.velocity = direction * force

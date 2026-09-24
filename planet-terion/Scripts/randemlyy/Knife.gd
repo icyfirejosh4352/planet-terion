@@ -51,7 +51,8 @@ func attack(direction: Vector2) -> void:
 				health.damage(damage)
 				
 				var knockback_dir = Vector2(dir.x if dir.x != 0 else 1.0, 0.0)
-				HitEffectManager.apply_knockback(body, knockback_dir, knockback_force)
+				body.knockback(knockback_dir, damage, knockback_force)
+				#HitEffectManager.apply_knockback(body, knockback_dir, knockback_force)
 				hit_anything = true
 	
 	if hit_anything:

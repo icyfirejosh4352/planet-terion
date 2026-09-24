@@ -1,7 +1,7 @@
 extends Area2D
 
 @export var Speed: float = 740.0
-@export var Damage: float = 10.0
+@export var Damage: float = 5.0
 @export var Lifetime: float = 2.0
 @export var knockback_force: float = 300.0
 @onready var impact = preload("res://Scenes/randemlyy/ImpactEffect.tscn")
@@ -23,6 +23,6 @@ func _process(delta: float) -> void:
 				##get_tree().current_scene.add_child(impact)
 				
 				HitEffectManager.trigger_hitstop(0.04)
-				HitEffectManager.apply_knockback(body, knockback_dir, knockback_force)
-			
+#				HitEffectManager.apply_knockback(body, knockback_dir, knockback_force)
+				body.knockback(knockback_dir, Damage, knockback_force)
 			self.get_parent().queue_free()
