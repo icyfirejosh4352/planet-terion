@@ -8,6 +8,7 @@ var crouch: bool
 var attack: bool
 var inv_next: bool
 var inv_prev: bool
+var interact: bool
 
 func process(delta: float) -> void:
 	dir = Input.get_axis("Left", "Right")
@@ -17,3 +18,4 @@ func process(delta: float) -> void:
 	attack = Input.is_action_just_pressed("Attack")
 	inv_next = Input.is_action_just_pressed("Inv_Next")
 	inv_prev = Input.is_action_just_pressed("Inv_Prev")
+	interact = Input.is_action_just_pressed("Interact")

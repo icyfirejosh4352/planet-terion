@@ -42,6 +42,7 @@ func _process(delta: float) -> void:
 			print("Jump")
 			TimeSinceJump = 0
 			velocity.y = JumpSpeed
+			
 	elif !IsChasing && is_on_floor():
 		if !Lcheckcol && !Rcheckcol && DLcheckcol && DRcheckcol:
 			pass

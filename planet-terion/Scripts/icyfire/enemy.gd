@@ -18,4 +18,3 @@ func Enemy_process(delta: float) -> void:
 	if healthComp.health <= 0:
 		print("ded")
 		queue_free()
-			

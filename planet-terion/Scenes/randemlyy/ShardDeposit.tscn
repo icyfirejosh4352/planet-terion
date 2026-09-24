@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://iolo2ehtl5qa"]
+
+[ext_resource type="Script" uid="uid://c8gk8rteirqey" path="res://Scripts/randemlyy/ShardDeposit.gd" id="1_doj7y"]
+[ext_resource type="Texture2D" uid="uid://dsxahrdodgir7" path="res://Assets/tileset.png" id="2_ox28h"]
+[ext_resource type="Script" uid="uid://qb6e5kxd2ui" path="res://Scripts/F1aze23/HealthComponent.gd" id="3_08esg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jpaqu"]
+size = Vector2(16, 16)
+
+[node name="ShardDeposit" type="StaticBody2D" unique_id=969256831]
+script = ExtResource("1_doj7y")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1033625415]
+texture = ExtResource("2_ox28h")
+region_enabled = true
+region_rect = Rect2(48, 144, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=620347099]
+shape = SubResource("RectangleShape2D_jpaqu")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=886845582]
+script = ExtResource("3_08esg")
+health = 40.0
+metadata/_custom_type_script = "uid://qb6e5kxd2ui"

@@ -2,12 +2,39 @@
 
 [ext_resource type="Script" uid="uid://k20ldm2to2td" path="res://Scripts/randemlyy/ParticleCleanup.gd" id="1_kfr72"]
 
+[sub_resource type="Gradient" id="Gradient_kfr72"]
+offsets = PackedFloat32Array(0.52449566, 0.7146974, 0.99135447)
+colors = PackedColorArray(0.8443613, 0.9530604, 0.7900118, 1, 0.9529412, 0.9529412, 0.9529412, 0, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4bqg2"]
+gradient = SubResource("Gradient_kfr72")
+width = 16
+height = 16
+fill = 1
+fill_from = Vector2(0.491453, 0.491453)
+fill_to = Vector2(0.21, 0)
+
+[sub_resource type="Curve" id="Curve_twmqh"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.58966565, 0.2265625), 0.0, 0.0, 0, 0, Vector2(1, 1), 1.4, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_2uaeh"]
+curve = SubResource("Curve_twmqh")
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_y8rms"]
 particle_flag_disable_z = true
-gravity = Vector3(0, 98.111, 0)
+spread = 35.0
+initial_velocity_min = 15.0
+initial_velocity_max = 30.0
+gravity = Vector3(0, 100, 0)
+scale_min = 0.14999999
+scale_max = 0.29999998
+scale_curve = SubResource("CurveTexture_2uaeh")
 
 [node name="WalkParticles" type="GPUParticles2D" unique_id=244648677]
 emitting = false
+amount = 3
+texture = SubResource("GradientTexture2D_4bqg2")
 lifetime = 0.34
 one_shot = true
 process_material = SubResource("ParticleProcessMaterial_y8rms")
