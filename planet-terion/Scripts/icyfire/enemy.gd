@@ -26,6 +26,7 @@ func Enemy_process(delta: float) -> void:
 			IsChasing = true
 			break
 	
+	
 
 func knockback(direction:Vector2, damage:float, force:float) -> void:
 	S_EnemyState = EnemyStates.KNOCKEDBACK
