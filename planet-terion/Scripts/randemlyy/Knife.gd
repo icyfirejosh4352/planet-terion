@@ -52,7 +52,6 @@ func attack(direction: Vector2) -> void:
 				
 				var knockback_dir = -(body.global_position - self.get_parent().global_position).normalized()
 				body.knockback(knockback_dir, damage, knockback_force)
-				#HitEffectManager.apply_knockback(body, knockback_dir, knockback_force)
 				hit_anything = true
 	
 	if hit_anything:

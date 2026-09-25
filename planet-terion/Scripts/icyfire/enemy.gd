@@ -44,11 +44,11 @@ func Enemy_process(delta: float) -> void:
 
 func knockback(direction:Vector2, damage:float, force:float) -> void:
 	S_EnemyState = EnemyStates.KNOCKEDBACK
-	print(name, " knockback")
+#	print(name, " knockback")
 	var health = healthComp.health
 	if health <= 0:
 		return
 	var HealthLostP:float = (damage/health) * 100
-	print (HealthLostP)
-	print(direction.x * force)
+#	print (HealthLostP)
+#	print(direction.x * force)
 	velocity.x = -direction.x * force * HealthLostP
