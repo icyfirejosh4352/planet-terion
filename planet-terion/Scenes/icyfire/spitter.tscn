@@ -12,6 +12,7 @@ radius = 5.432495
 
 [node name="spitter" type="CharacterBody2D" unique_id=588281268 groups=["spitter"]]
 scale = Vector2(1.5, 1.5)
+platform_floor_layers = 4294967294
 script = ExtResource("1_hjf7y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=384724839]

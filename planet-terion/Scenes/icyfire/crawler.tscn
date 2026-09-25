@@ -7,10 +7,11 @@
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_np20c"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_np20c"]
-radius = 7.9467998
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2uaeh"]
+size = Vector2(10.041563, 3.7240233)
 
 [node name="crawler" type="CharacterBody2D" unique_id=588281268 groups=["Enemies"]]
+platform_floor_layers = 4294967294
 script = ExtResource("1_nnqf8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=384724839]
@@ -24,7 +25,7 @@ texture = SubResource("PlaceholderTexture2D_np20c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detection Range" unique_id=150829048]
 scale = Vector2(30.075, 30.075)
-shape = SubResource("CircleShape2D_np20c")
+shape = SubResource("RectangleShape2D_2uaeh")
 
 [node name="CollisionChecks" type="Node2D" parent="." unique_id=1053684188]
 
