@@ -40,6 +40,7 @@ func Enemy_process(delta: float) -> void:
 			S_EnemyState = EnemyStates.CHASING
 			break
 	
+	
 
 func knockback(direction:Vector2, damage:float, force:float) -> void:
 	S_EnemyState = EnemyStates.KNOCKEDBACK
