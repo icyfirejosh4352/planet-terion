@@ -26,6 +26,7 @@ func Enemy_process(delta: float) -> void:
 	if healthComp.health <= 0:
 		S_EnemyState = EnemyStates.DYING
 		queue_free()
+	
 	if S_EnemyState == EnemyStates.KNOCKEDBACK:
 		TimeSinceKnockback += delta
 		velocity.x = lerp(velocity.x, 0.0, KnockbackSmooth)
@@ -38,14 +39,15 @@ func Enemy_process(delta: float) -> void:
 			player = obj
 			S_EnemyState = EnemyStates.CHASING
 			break
+	
 
 func knockback(direction:Vector2, damage:float, force:float) -> void:
 	S_EnemyState = EnemyStates.KNOCKEDBACK
-	print(name, " knockback")
+#	print(name, " knockback")
 	var health = healthComp.health
 	if health <= 0:
 		return
 	var HealthLostP:float = (damage/health) * 100
-	print (HealthLostP)
-	print(direction.x * force)
+#	print (HealthLostP)
+#	print(direction.x * force)
 	velocity.x = -direction.x * force * HealthLostP
