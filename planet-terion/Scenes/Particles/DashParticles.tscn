@@ -1,3 +1,33 @@
 [gd_scene format=3 uid="uid://c2e5o24mu1rjh"]
 
+[sub_resource type="Gradient" id="Gradient_mtejg"]
+offsets = PackedFloat32Array(0, 0.5331412, 0.7262248, 1)
+colors = PackedColorArray(0.6581315, 0.7714466, 1, 1, 0, 0.6, 1, 0.6, 0.5019608, 0.5019608, 0.7882353, 1, 0.4703402, 0.640011, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_r3hix"]
+gradient = SubResource("Gradient_mtejg")
+width = 16
+height = 16
+fill = 3
+fill_from = Vector2(0.505, 0.505)
+
+[sub_resource type="Curve" id="Curve_lbcly"]
+_data = [Vector2(0, 1), 0.0, 1.4, 0, 0, Vector2(0.08510639, 0.109375), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_6sayi"]
+curve = SubResource("Curve_lbcly")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ilep4"]
+particle_flag_disable_z = true
+spread = 60.0
+gravity = Vector3(0, 0.2, 0)
+alpha_curve = SubResource("CurveTexture_6sayi")
+
 [node name="BaseParticles" type="GPUParticles2D" unique_id=244648677]
+emitting = false
+amount_ratio = 0.19
+texture = SubResource("GradientTexture2D_r3hix")
+one_shot = true
+randomness = 0.03
+process_material = SubResource("ParticleProcessMaterial_ilep4")

@@ -1,6 +1,7 @@
 class_name HealthComponent
 extends Node
 
+signal damaged(amount: float)
 @export var healthBar: ProgressBar
 @export var health:= 100.0
 @export var health_smooth_speed: float = 8.0
@@ -26,3 +27,4 @@ func heal(amt:float):
 	
 func damage(amt:float):
 	health-=amt
+	damaged.emit(amt)

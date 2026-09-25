@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://b6s7ol6uanlj4"]
+
+[ext_resource type="Script" uid="uid://d37mnlxlkkv37" path="res://Scenes/randemlyy/ShardPickup.gd" id="1_x7w8u"]
+[ext_resource type="Texture2D" uid="uid://dsxahrdodgir7" path="res://Assets/tileset.png" id="2_ujho6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jpaqu"]
+size = Vector2(3, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jmhjr"]
+size = Vector2(5, 6)
+
+[node name="ShardPickup" type="CharacterBody2D" unique_id=1744833638]
+collision_layer = 0
+script = ExtResource("1_x7w8u")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=920159338]
+texture = ExtResource("2_ujho6")
+region_enabled = true
+region_rect = Rect2(75, 34, 4, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=258159267]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_jpaqu")
+
+[node name="PickupArea" type="Area2D" parent="." unique_id=628780030]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea" unique_id=401837371]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_jmhjr")

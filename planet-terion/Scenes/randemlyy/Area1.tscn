@@ -8,6 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://boaljk64saxvx" path="res://Scenes/icyfire/crawler.tscn" id="4_xuanr"]
 [ext_resource type="AudioStream" uid="uid://ce2ilkplvfbrs" path="res://Assets/icyfire/Planet terion - 3.mp3" id="5_xuanr"]
 [ext_resource type="PackedScene" uid="uid://bv0vlj6ih8hoa" path="res://Scenes/icyfire/heal.tscn" id="8_h57tg"]
+[ext_resource type="PackedScene" uid="uid://47dwoc1so1xh" path="res://Scenes/randemlyy/KnifePickup.tscn" id="9_22lfh"]
+[ext_resource type="PackedScene" uid="uid://bh31oo8pjus4q" path="res://Scenes/randemlyy/PistolPickup.tscn" id="10_7lj02"]
+[ext_resource type="PackedScene" uid="uid://bffockmsld7qn" path="res://Scenes/randemlyy/Pistol.tscn" id="10_ifwl1"]
+[ext_resource type="PackedScene" uid="uid://26328poeoxev" path="res://Scenes/randemlyy/Knife.tscn" id="12_21qtk"]
+[ext_resource type="PackedScene" uid="uid://iolo2ehtl5qa" path="res://Scenes/randemlyy/ShardDeposit.tscn" id="13_21qtk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t7fy6"]
 texture = ExtResource("1_8dr0h")
@@ -339,3 +344,14 @@ position = Vector2(-1935, -21)
 
 [node name="Heal" parent="." unique_id=2087209350 instance=ExtResource("8_h57tg")]
 position = Vector2(85, -40)
+
+[node name="WeaponPickup" parent="." unique_id=2042744842 instance=ExtResource("9_22lfh")]
+position = Vector2(-110, -10)
+weapon_scene = ExtResource("10_ifwl1")
+
+[node name="WeaponPickup2" parent="." unique_id=1306326238 instance=ExtResource("10_7lj02")]
+position = Vector2(62, -10)
+weapon_scene = ExtResource("12_21qtk")
+
+[node name="ShardDeposit" parent="." unique_id=969256831 instance=ExtResource("13_21qtk")]
+position = Vector2(-165, -56)

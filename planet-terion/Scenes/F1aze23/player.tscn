@@ -126,7 +126,25 @@ radius = 14.0
 height = 60.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_k6ugq"]
+font_size = 9
+shadow_size = 0
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(0.5, 0.5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3fx5o"]
+font_size = 8
+shadow_size = 0
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(0.5, 0.5)
+
+[sub_resource type="SystemFont" id="SystemFont_jmhjr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jpaqu"]
+font = SubResource("SystemFont_jmhjr")
 font_size = 11
+shadow_size = 0
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(0.5, 0.5)
 
 [node name="Player" type="CharacterBody2D" unique_id=1939686657 node_paths=PackedStringArray("input", "move", "dash", "health", "cam", "anim", "weapon_label") groups=["Player"]]
 scale = Vector2(0.445, 0.445)
@@ -185,13 +203,25 @@ label_settings = SubResource("LabelSettings_k6ugq")
 
 [node name="Tutorial" type="Label" parent="Camera2D/UI/Control" unique_id=421537456]
 layout_mode = 0
-offset_left = -250.0
+offset_left = -251.0
 offset_top = 64.0
-offset_right = -116.0
+offset_right = -117.0
 offset_bottom = 139.0
 text = "Move- A,D
 Jump - Space
+Dash - Shift
+Interact - F
 Attack - Left Click"
+label_settings = SubResource("LabelSettings_3fx5o")
+
+[node name="ShardLabel" type="Label" parent="Camera2D/UI/Control" unique_id=1621326501]
+layout_mode = 0
+offset_left = 124.0
+offset_top = -141.0
+offset_right = 186.0
+offset_bottom = -118.0
+text = "Shards: 0"
+label_settings = SubResource("LabelSettings_jpaqu")
 
 [node name="InputComponent" type="Node" parent="." unique_id=2125975322]
 script = ExtResource("2_jb2ko")

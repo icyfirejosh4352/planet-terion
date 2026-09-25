@@ -7,20 +7,6 @@ var player
 var IsChasing:bool = false
 var MovementSpeed:float = 100.0
 
-var TimeSinceKnockback:float = 0
-var KnockbackTime:float = 0.8
-var KnockbackSmooth:float = 0.5
-
-enum EnemyStates
-{
-	IDLE,
-	ROAMING,
-	CHASING,
-	KNOCKEDBACK,
-	DYING
-}
-var S_EnemyState = EnemyStates.IDLE
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func Enemy_process(delta: float) -> void:
 	if healthComp.health <= 0:
@@ -37,7 +23,7 @@ func Enemy_process(delta: float) -> void:
 	for obj in detection_range.get_overlapping_bodies():
 		if obj.is_in_group("Player"):
 			player = obj
-			S_EnemyState = EnemyStates.CHASING
+			IsChasing = true
 			break
 	
 
