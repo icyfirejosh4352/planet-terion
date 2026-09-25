@@ -35,34 +35,36 @@ func _process(delta: float) -> void:
 	DLcheckcol = down_left_check.is_colliding()
 	DRcheckcol = down_right_check.is_colliding()
 	
-	if IsChasing:
-		var randemlyy
-		var direction = (player.global_position - global_position).normalized()
-		velocity.x = direction.x  * (MovementSpeed + MovementSpeedDiff)
-		
-		if TimeSinceRoll>RollTime:
-			TimeSinceRoll = 0
-			randemlyy = rng.randi_range(0,9)
-			if randemlyy == 4:
-				var new_bullet = spitsc.instantiate()
-				new_bullet.global_position = self.global_position
-				if direction.x > 0:
-					new_bullet.global_rotation = self.global_rotation + PI/2
-				elif direction.x < 0:
-					new_bullet.global_rotation = self.global_rotation - PI/2
-				get_parent().add_child(new_bullet)
-		
-	elif !IsChasing && is_on_floor():
-		if !Lcheckcol && !Rcheckcol && DLcheckcol && DRcheckcol:
-			pass
-		else:
-			#print ("changing dir")
-			if left_check.is_colliding() || !down_left_check.is_colliding():
-				if MovingDir == -1 && (Lcheckcol || !DLcheckcol):
-					MovingDir = 1
-				elif MovingDir == 1 && (Rcheckcol || !DRcheckcol):
-					MovingDir = -1
-		velocity.x = MovingDir * (MovementSpeed)
+	
+	if S_EnemyState != EnemyStates.KNOCKEDBACK:
+		if S_EnemyState == EnemyStates.CHASING:
+			var randemlyy
+			var direction = (player.global_position - global_position).normalized()
+			velocity.x = direction.x  * (MovementSpeed + MovementSpeedDiff)
+			
+			if TimeSinceRoll>RollTime:
+				TimeSinceRoll = 0
+				randemlyy = rng.randi_range(0,9)
+				if randemlyy == 4:
+					var new_bullet = spitsc.instantiate()
+					new_bullet.global_position = self.global_position
+					if direction.x > 0:
+						new_bullet.global_rotation = self.global_rotation + PI/2
+					elif direction.x < 0:
+						new_bullet.global_rotation = self.global_rotation - PI/2
+					get_parent().add_child(new_bullet)
+			
+		elif S_EnemyState != EnemyStates.CHASING && is_on_floor():
+			if !Lcheckcol && !Rcheckcol && DLcheckcol && DRcheckcol:
+				pass
+			else:
+				#print ("changing dir")
+				if left_check.is_colliding() || !down_left_check.is_colliding():
+					if MovingDir == -1 && (Lcheckcol || !DLcheckcol):
+						MovingDir = 1
+					elif MovingDir == 1 && (Rcheckcol || !DRcheckcol):
+						MovingDir = -1
+			velocity.x = MovingDir * (MovementSpeed)
 		
 	move_and_slide()
 	for i in get_slide_collision_count():

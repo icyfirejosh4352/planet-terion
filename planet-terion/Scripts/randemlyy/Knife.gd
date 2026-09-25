@@ -3,7 +3,7 @@ extends Weapon
 
 @export var attack_range: float = 32.0   # pixels
 @export var attack_width: float = 16.0   # pixels
-@export var knockback_force: float = 280.0 # Heavy melee punch impact
+@export var knockback_force: float = 28.0 # Heavy melee punch impact
 @onready var audio_stream_player: AudioStreamPlayer = $"../AudioStreamPlayer"
 
 
@@ -50,7 +50,7 @@ func attack(direction: Vector2) -> void:
 				var health = body.get_node("HealthComponent")
 				health.damage(damage)
 				
-				var knockback_dir = Vector2(dir.x if dir.x != 0 else 1.0, 0.0)
+				var knockback_dir = -(body.global_position - self.get_parent().global_position).normalized()
 				body.knockback(knockback_dir, damage, knockback_force)
 				#HitEffectManager.apply_knockback(body, knockback_dir, knockback_force)
 				hit_anything = true

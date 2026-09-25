@@ -23,6 +23,6 @@ func _process(delta: float) -> void:
 				##get_tree().current_scene.add_child(impact)
 				
 				HitEffectManager.trigger_hitstop(0.04)
-#				HitEffectManager.apply_knockback(body, knockback_dir, knockback_force)
+				#HitEffectManager.apply_knockback(body, knockback_dir, knockback_force)
 				body.knockback(knockback_dir, Damage, knockback_force)
 			self.get_parent().queue_free()
