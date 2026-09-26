@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://qb6e5kxd2ui" path="res://Scripts/F1aze23/HealthComponent.gd" id="5_gh6j0"]
 [ext_resource type="Script" uid="uid://b482lg66v1sol" path="res://Scripts/randemlyy/Inventory.gd" id="7_u34yc"]
 [ext_resource type="Script" uid="uid://b08u5vc4slxwe" path="res://Scripts/F1aze23/AnimationComponent.gd" id="8_30xau"]
-[ext_resource type="Texture2D" uid="uid://dgtgp8ygemioc" path="res://Assets/final_spritesheet.png" id="9_k6ugq"]
+[ext_resource type="Texture2D" uid="uid://dgtgp8ygemioc" path="res://Assets/F1aze23/Player.png" id="9_k6ugq"]
 [ext_resource type="AudioStream" uid="uid://cr5n3pjqgnswl" path="res://Assets/icyfire/weapons-sword-wield-swoosh-chink-01.mp3" id="10_avk3n"]
 
 [sub_resource type="Animation" id="Animation_avk3n"]
