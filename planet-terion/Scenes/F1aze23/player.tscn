@@ -3,12 +3,13 @@
 [ext_resource type="Script" uid="uid://btab531svpaqx" path="res://Scripts/F1aze23/player.gd" id="1_qs70e"]
 [ext_resource type="Script" uid="uid://drsrihrd4igyf" path="res://Scripts/F1aze23/InputComponent.gd" id="2_jb2ko"]
 [ext_resource type="Script" uid="uid://c5nfegkv71e0v" path="res://Scripts/F1aze23/MovementComponent.gd" id="3_0hji0"]
+[ext_resource type="Script" uid="uid://dcbjrq2mf66qp" path="res://Scenes/randemlyy/CameraBob.gd" id="3_uxjim"]
 [ext_resource type="Script" uid="uid://5fvcilw81dav" path="res://Scripts/F1aze23/DashComponent.gd" id="4_0hji0"]
 [ext_resource type="Script" uid="uid://bgyrmtc2qvkvw" path="res://Scripts/F1aze23/CameraComponent.gd" id="5_cyppd"]
 [ext_resource type="Script" uid="uid://qb6e5kxd2ui" path="res://Scripts/F1aze23/HealthComponent.gd" id="5_gh6j0"]
 [ext_resource type="Script" uid="uid://b482lg66v1sol" path="res://Scripts/randemlyy/Inventory.gd" id="7_u34yc"]
 [ext_resource type="Script" uid="uid://b08u5vc4slxwe" path="res://Scripts/F1aze23/AnimationComponent.gd" id="8_30xau"]
-[ext_resource type="Texture2D" uid="uid://dgtgp8ygemioc" path="res://Assets/final_spritesheet.png" id="9_k6ugq"]
+[ext_resource type="Texture2D" uid="uid://dgtgp8ygemioc" path="res://Assets/F1aze23/Player.png" id="9_k6ugq"]
 [ext_resource type="AudioStream" uid="uid://cr5n3pjqgnswl" path="res://Assets/icyfire/weapons-sword-wield-swoosh-chink-01.mp3" id="10_avk3n"]
 
 [sub_resource type="Animation" id="Animation_avk3n"]
@@ -125,7 +126,25 @@ radius = 14.0
 height = 60.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_k6ugq"]
+font_size = 9
+shadow_size = 0
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(0.5, 0.5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3fx5o"]
+font_size = 8
+shadow_size = 0
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(0.5, 0.5)
+
+[sub_resource type="SystemFont" id="SystemFont_jmhjr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jpaqu"]
+font = SubResource("SystemFont_jmhjr")
 font_size = 11
+shadow_size = 0
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(0.5, 0.5)
 
 [node name="Player" type="CharacterBody2D" unique_id=1939686657 node_paths=PackedStringArray("input", "move", "dash", "health", "cam", "anim", "weapon_label") groups=["Player"]]
 scale = Vector2(0.445, 0.445)
@@ -152,6 +171,7 @@ shape = SubResource("CapsuleShape2D_1vivr")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=809227422]
 scale = Vector2(1.0000001, 1.0000001)
 zoom = Vector2(2.255, 2.255)
+script = ExtResource("3_uxjim")
 
 [node name="UI" type="CanvasLayer" parent="Camera2D" unique_id=1632251271]
 follow_viewport_enabled = true
@@ -183,6 +203,7 @@ label_settings = SubResource("LabelSettings_k6ugq")
 
 [node name="Tutorial" type="Label" parent="Camera2D/UI/Control" unique_id=421537456]
 layout_mode = 0
+
 offset_left = -250.0
 offset_top = 64.0
 offset_right = -116.0
@@ -190,6 +211,26 @@ offset_bottom = 139.0
 text = "Move- A,D
 Jump - Space
 Attack - Left Click"
+=======
+offset_left = -251.0
+offset_top = 64.0
+offset_right = -117.0
+offset_bottom = 139.0
+text = "Move- A,D
+Jump - Space
+Dash - Shift
+Interact - F
+Attack - Left Click"
+label_settings = SubResource("LabelSettings_3fx5o")
+
+[node name="ShardLabel" type="Label" parent="Camera2D/UI/Control" unique_id=1621326501]
+layout_mode = 0
+offset_left = 124.0
+offset_top = -141.0
+offset_right = 186.0
+offset_bottom = -118.0
+text = "Shards: 0"
+label_settings = SubResource("LabelSettings_jpaqu")
 
 [node name="InputComponent" type="Node" parent="." unique_id=2125975322]
 script = ExtResource("2_jb2ko")
@@ -206,7 +247,6 @@ script = ExtResource("4_0hji0")
 input = NodePath("../InputComponent")
 body = NodePath("..")
 move = NodePath("../MovementComponent")
-dash_speed_mult = 4.0
 metadata/_custom_type_script = "uid://5fvcilw81dav"
 
 [node name="CameraComponent" type="Node" parent="." unique_id=1256990026 node_paths=PackedStringArray("cam")]

@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bv0vlj6ih8hoa"]
+
+[ext_resource type="Script" uid="uid://c6klms0t38m7r" path="res://Scripts/icyfire/heal.gd" id="1_7m0ur"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_np20c"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4q2qt"]
+radius = 1.0512483
+
+[node name="Heal" type="Node2D" unique_id=1674517239]
+scale = Vector2(3.805, 3.805)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=938896723]
+modulate = Color(0, 0.68041664, 0.123659946, 1)
+position = Vector2(0, 1.1920929e-07)
+scale = Vector2(2.0022678, 2.0000007)
+mesh = SubResource("SphereMesh_np20c")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=529908761]
+script = ExtResource("1_7m0ur")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1993502252]
+shape = SubResource("CircleShape2D_4q2qt")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

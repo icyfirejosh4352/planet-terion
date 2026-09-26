@@ -7,10 +7,12 @@
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_np20c"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_np20c"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nnqf8"]
+size = Vector2(10.773067, 16.217789)
 
-[node name="jumper" type="CharacterBody2D" unique_id=588281268]
+[node name="jumper" type="CharacterBody2D" unique_id=588281268 groups=["Enemies"]]
 scale = Vector2(1, 2)
+platform_floor_layers = 4294967294
 script = ExtResource("1_4bjd4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=384724839]
@@ -21,10 +23,12 @@ scale = Vector2(20, 20)
 texture = SubResource("PlaceholderTexture2D_np20c")
 
 [node name="Detection Range" type="Area2D" parent="." unique_id=376817989]
+scale = Vector2(1, 0.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detection Range" unique_id=150829048]
+position = Vector2(0, -56.874996)
 scale = Vector2(30.075, 30.075)
-shape = SubResource("CircleShape2D_np20c")
+shape = SubResource("RectangleShape2D_nnqf8")
 
 [node name="CollisionChecks" type="Node2D" parent="." unique_id=1053684188]
 
@@ -50,4 +54,5 @@ hit_from_inside = true
 
 [node name="HealthComponent" type="Node" parent="." unique_id=1481907643]
 script = ExtResource("2_5rll0")
+health = 20.0
 metadata/_custom_type_script = "uid://qb6e5kxd2ui"

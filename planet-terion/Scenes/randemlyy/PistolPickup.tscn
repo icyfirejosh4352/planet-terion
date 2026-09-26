@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bh31oo8pjus4q"]
+
+[ext_resource type="Script" uid="uid://byifh2txndr4k" path="res://Scripts/randemlyy/WeaponPickup.gd" id="1_fxoj3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jpaqu"]
+
+[node name="WeaponPickup" type="Area2D" unique_id=2042744842]
+script = ExtResource("1_fxoj3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=23125448]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=830076421]
+shape = SubResource("RectangleShape2D_jpaqu")

@@ -2,16 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgtgp8ygemioc"
-path="res://.godot/imported/final_spritesheet.png-d4a8141da1a1cbabce7bd26e93cff479.ctex"
+uid="uid://cupb0polhqrwj"
+path="res://.godot/imported/engine_func.svg-5f25e578b3a36c75d097ca819eef846d.ctex"
 metadata={
+"has_editor_variant": true,
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/final_spritesheet.png"
-dest_files=["res://.godot/imported/final_spritesheet.png-d4a8141da1a1cbabce7bd26e93cff479.ctex"]
+source_file="res://addons/quill-ide/icons/engine_func.svg"
+dest_files=["res://.godot/imported/engine_func.svg-5f25e578b3a36c75d097ca819eef846d.ctex"]
 
 [params]
 
@@ -38,3 +39,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=true
+editor/convert_colors_with_editor_theme=false

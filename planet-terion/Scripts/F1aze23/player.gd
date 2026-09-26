@@ -14,6 +14,9 @@ extends CharacterBody2D
 @onready var tutorial: Label = $Camera2D/UI/Control/Tutorial
 @onready var tut_timer: Timer = $TutTimer
 
+=======
+@onready var sprite = $Sprite2D
+
 
 var equipped_weapon: Weapon: get = return_equipped
 #func return_equipped(): return inventory.get_equipped()
@@ -28,29 +31,32 @@ func _ready() -> void:
 	health.Death.connect(Death)
 	cam.ready()
 	GM = get_node("/root/GameManager")
+	anim.charType = anim.animType.PLAYER
 
-	
 	if not inventory:
 		inventory = get_node("Inventory")
 	
 	if inventory:
 		inventory.equipped_changed.connect(_on_equipped_changed)
 		
-	var knife_scene = load("res://Scenes/randemlyy/Knife.tscn")
-	var pistol_scene = load("res://Scenes/randemlyy/Pistol.tscn")
-	knife = knife_scene.instantiate()
-	pistol = pistol_scene.instantiate()
-	knife.name = "Knife"
-	pistol.name = "Pistol"
-	add_child(knife)
-	add_child(pistol)
-	inventory.add_weapon(knife)
-	inventory.add_weapon(pistol)
+	#var knife_scene = load("res://Scenes/randemlyy/Knife.tscn")
+	#var pistol_scene = load("res://Scenes/randemlyy/Pistol.tscn")
+	#knife = knife_scene.instantiate()
+	#pistol = pistol_scene.instantiate()
+	#knife.name = "Knife"
+	#pistol.name = "Pistol"
+	#add_child(knife)
+	#add_child(pistol)
+	#inventory.add_weapon(knife)
+	#inventory.add_weapon(pistol)
 	
 	if inventory.get_equipped():
 		weapon_label.text = "Equipped Weapon: %s" % inventory.get_equipped().name
 	else:
 		weapon_label.text = "Equipped Weapon: None"
+	
+	ShardBank.shards_changed.connect(_on_shard_changed)
+	_on_shard_changed(ShardBank.shards)
 		
 	tut_timer.start()
 	tut_timer.timeout.connect(tutorial.hide)
@@ -98,9 +104,24 @@ func _on_equipped_changed(new_weapon: Weapon) -> void:
 		weapon_label.text = "Equipped Weapon: %s" % new_weapon.name
 	else:
 		push_warning("Weapon Label not set.")
+
+func _on_shard_changed(total: int) -> void:
+	$Camera2D/UI/Control/ShardLabel.text = "Shards: %d" % total
+
+func pick_up_weapon(weapon_scene: PackedScene) -> void:
+	if weapon_scene == null:
+		return
 	
+	var weapon = weapon_scene.instantiate() as Weapon
+	if weapon == null:
+		push_warning('no wepaon')
+		return
+	add_child(weapon)
+	inventory.add_weapon(weapon)
+
 func _physics_process(delta: float) -> void:
 	move.physics_process(delta)
 	
 func Death():
 	GM.load_scene(GM.gameOver)
+	

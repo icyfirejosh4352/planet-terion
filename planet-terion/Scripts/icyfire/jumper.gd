@@ -31,28 +31,29 @@ func _process(delta: float) -> void:
 	DLcheckcol = down_left_check.is_colliding()
 	DRcheckcol = down_right_check.is_colliding()
 	
-	if IsChasing:
-		var direction = (player.global_position - global_position).normalized()
-		if is_on_floor():
-			velocity.x = (MovementSpeed + MovementSpeedDiff) * direction.x
-		else:
-			velocity.x = (MovementSpeed + MovementSpeedDiff) * direction.x * 2
+	if S_EnemyState != EnemyStates.KNOCKEDBACK:
+		if S_EnemyState == EnemyStates.CHASING:
+			var direction = (player.global_position - global_position).normalized()
+			if is_on_floor():
+				velocity.x = (MovementSpeed + MovementSpeedDiff) * direction.x
+			else:
+				velocity.x = (MovementSpeed + MovementSpeedDiff) * direction.x * 2
 
-		if player.global_position.y  - 1 < global_position.y && TimeSinceJump>JumpTime && is_on_floor():
-			print("Jump")
-			TimeSinceJump = 0
-			velocity.y = JumpSpeed
-	elif !IsChasing && is_on_floor():
-		if !Lcheckcol && !Rcheckcol && DLcheckcol && DRcheckcol:
-			pass
-		else:
-			#print ("changing dir")
-			if left_check.is_colliding() || !down_left_check.is_colliding():
-				if MovingDir == -1 && (Lcheckcol || !DLcheckcol):
-					MovingDir = 1
-				elif MovingDir == 1 && (Rcheckcol || !DRcheckcol):
-					MovingDir = -1
-		velocity.x = MovingDir * (MovementSpeed)
+			if player.global_position.y  - 1 < global_position.y && TimeSinceJump>JumpTime && is_on_floor():
+	#			print("Jump")
+				TimeSinceJump = 0
+				velocity.y = JumpSpeed
+		elif S_EnemyState != EnemyStates.CHASING && is_on_floor():
+			if !Lcheckcol && !Rcheckcol && DLcheckcol && DRcheckcol:
+				pass
+			else:
+				#print ("changing dir")
+				if left_check.is_colliding() || !down_left_check.is_colliding():
+					if MovingDir == -1 && (Lcheckcol || !DLcheckcol):
+						MovingDir = 1
+					elif MovingDir == 1 && (Rcheckcol || !DRcheckcol):
+						MovingDir = -1
+			velocity.x = MovingDir * (MovementSpeed)
 		
 	move_and_slide()
 	for i in get_slide_collision_count():
