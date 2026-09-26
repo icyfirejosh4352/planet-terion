@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://btab531svpaqx" path="res://Scripts/F1aze23/player.gd" id="1_qs70e"]
 [ext_resource type="Script" uid="uid://drsrihrd4igyf" path="res://Scripts/F1aze23/InputComponent.gd" id="2_jb2ko"]
 [ext_resource type="Script" uid="uid://c5nfegkv71e0v" path="res://Scripts/F1aze23/MovementComponent.gd" id="3_0hji0"]
-[ext_resource type="Script" uid="uid://dcbjrq2mf66qp" path="res://Scenes/randemlyy/CameraBob.gd" id="3_uxjim"]
+[ext_resource type="Script" uid="uid://dcbjrq2mf66qp" path="res://Scripts/randemlyy/CameraBob.gd" id="3_uxjim"]
 [ext_resource type="Script" uid="uid://5fvcilw81dav" path="res://Scripts/F1aze23/DashComponent.gd" id="4_0hji0"]
 [ext_resource type="Script" uid="uid://bgyrmtc2qvkvw" path="res://Scripts/F1aze23/CameraComponent.gd" id="5_cyppd"]
 [ext_resource type="Script" uid="uid://qb6e5kxd2ui" path="res://Scripts/F1aze23/HealthComponent.gd" id="5_gh6j0"]

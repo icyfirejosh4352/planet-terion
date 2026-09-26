@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bhd2h7t0vdoxh"]
+
+[ext_resource type="Script" uid="uid://0qhcf2doj005" path="res://Scripts/randemlyy/TransistionOverlay.gd" id="1_kp6vf"]
+
+[node name="TransistionOverlay" type="CanvasLayer" unique_id=1492004772]
+script = ExtResource("1_kp6vf")
+
+[node name="ScreenCover" type="ColorRect" parent="." unique_id=335830330]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)

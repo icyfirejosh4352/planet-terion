@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b6s7ol6uanlj4"]
 
-[ext_resource type="Script" uid="uid://d37mnlxlkkv37" path="res://Scenes/randemlyy/ShardPickup.gd" id="1_x7w8u"]
+[ext_resource type="Script" uid="uid://d37mnlxlkkv37" path="res://Scripts/randemlyy/ShardPickup.gd" id="1_x7w8u"]
 [ext_resource type="Texture2D" uid="uid://dsxahrdodgir7" path="res://Assets/tileset.png" id="2_ujho6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jpaqu"]

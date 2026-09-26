@@ -13,8 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://bffockmsld7qn" path="res://Scenes/randemlyy/Pistol.tscn" id="10_ifwl1"]
 [ext_resource type="PackedScene" uid="uid://26328poeoxev" path="res://Scenes/randemlyy/Knife.tscn" id="12_21qtk"]
 [ext_resource type="PackedScene" uid="uid://iolo2ehtl5qa" path="res://Scenes/randemlyy/ShardDeposit.tscn" id="13_21qtk"]
+[ext_resource type="Script" uid="uid://ctajf64213x1r" path="res://Scripts/randemlyy/Doorway.gd" id="14_4bqg2"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t7fy6"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_21qtk"]
 texture = ExtResource("1_8dr0h")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -128,7 +129,10 @@ texture = ExtResource("1_8dr0h")
 
 [sub_resource type="TileSet" id="TileSet_jpaqu"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_t7fy6")
+sources/0 = SubResource("TileSetAtlasSource_21qtk")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jpaqu"]
+size = Vector2(20, 48.5)
 
 [node name="Area1" type="Node2D" unique_id=868296740]
 
@@ -195,11 +199,12 @@ scale = Vector2(0.92, 1)
 position = Vector2(1308, -308)
 
 [node name="CamZone5" parent="Cams" unique_id=999469282 groups=["StartZone"] instance=ExtResource("3_c4byr")]
-position = Vector2(1713, -308)
-scale = Vector2(0.6, 1)
+position = Vector2(1659.235, -308)
+scale = Vector2(-0.37, 1.069)
 
 [node name="CamZone6" parent="Cams" unique_id=1441598151 groups=["StartZone"] instance=ExtResource("3_c4byr")]
-position = Vector2(2126, -308)
+position = Vector2(1951.87, -308)
+scale = Vector2(0.775, 0.9)
 
 [node name="CamZone2" parent="Cams" unique_id=1034079624 groups=["StartZone"] instance=ExtResource("3_c4byr")]
 position = Vector2(416, -129)
@@ -355,3 +360,14 @@ weapon_scene = ExtResource("12_21qtk")
 
 [node name="ShardDeposit" parent="." unique_id=969256831 instance=ExtResource("13_21qtk")]
 position = Vector2(-165, -56)
+
+[node name="Exits" type="Node" parent="." unique_id=1876621727]
+
+[node name="Exit1" type="Area2D" parent="Exits" unique_id=388240656]
+position = Vector2(40, 0)
+script = ExtResource("14_4bqg2")
+destination = "uid://0yp1rqf1f2w"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exits/Exit1" unique_id=850900563]
+position = Vector2(69, -49)
+shape = SubResource("RectangleShape2D_jpaqu")
