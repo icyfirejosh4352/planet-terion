@@ -2,24 +2,102 @@
 
 [ext_resource type="Script" uid="uid://ctafnkyay475a" path="res://Scripts/icyfire/crawler.gd" id="1_nnqf8"]
 [ext_resource type="Script" uid="uid://qb6e5kxd2ui" path="res://Scripts/F1aze23/HealthComponent.gd" id="2_mq3rg"]
+[ext_resource type="Texture2D" uid="uid://dlukhv1yskq8r" path="res://Assets/F1aze23/Crawler.png" id="2_og4a1"]
+[ext_resource type="Script" uid="uid://b08u5vc4slxwe" path="res://Scripts/F1aze23/AnimationComponent.gd" id="4_478i4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_np20c"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_np20c"]
+size = Vector2(20, 10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2uaeh"]
 size = Vector2(10.041563, 3.7240233)
 
-[node name="crawler" type="CharacterBody2D" unique_id=588281268 groups=["Enemies"]]
+[sub_resource type="Animation" id="Animation_478i4"]
+resource_name = "Attack"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [17, 25]
+}
+
+[sub_resource type="Animation" id="Animation_6lyda"]
+resource_name = "Idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [26, 32]
+}
+
+[sub_resource type="Animation" id="Animation_fovc0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_e8oea"]
+resource_name = "Walk"
+length = 0.75
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.73333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 16]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vs33h"]
+_data = {
+&"Attack": SubResource("Animation_478i4"),
+&"Idle": SubResource("Animation_6lyda"),
+&"RESET": SubResource("Animation_fovc0"),
+&"Walk": SubResource("Animation_e8oea")
+}
+
+[node name="crawler" type="CharacterBody2D" unique_id=588281268 node_paths=PackedStringArray("anim") groups=["Enemies"]]
 platform_floor_layers = 4294967294
 script = ExtResource("1_nnqf8")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=384724839]
-shape = SubResource("RectangleShape2D_np20c")
+anim = NodePath("AnimationComponent")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=592474208]
-scale = Vector2(20, 20)
-texture = SubResource("PlaceholderTexture2D_np20c")
+position = Vector2(0, -1.9073486e-06)
+scale = Vector2(0.315, 0.315)
+texture = ExtResource("2_og4a1")
+hframes = 8
+vframes = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=384724839]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_np20c")
 
 [node name="Detection Range" type="Area2D" parent="." unique_id=376817989]
 
@@ -53,3 +131,12 @@ hit_from_inside = true
 script = ExtResource("2_mq3rg")
 health = 20.0
 metadata/_custom_type_script = "uid://qb6e5kxd2ui"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=329838869]
+libraries/ = SubResource("AnimationLibrary_vs33h")
+
+[node name="AnimationComponent" type="Node" parent="." unique_id=151132674 node_paths=PackedStringArray("anim", "sprite")]
+script = ExtResource("4_478i4")
+anim = NodePath("../AnimationPlayer")
+sprite = NodePath("../Sprite2D")
+metadata/_custom_type_script = "uid://b08u5vc4slxwe"

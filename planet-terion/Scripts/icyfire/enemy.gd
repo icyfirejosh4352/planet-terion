@@ -37,7 +37,7 @@ func Enemy_process(delta: float) -> void:
 	for obj in detection_range.get_overlapping_bodies():
 		if obj.is_in_group("Player"):
 			player = obj
-			IsChasing = true
+			S_EnemyState = EnemyStates.CHASING
 			break
 	
 	

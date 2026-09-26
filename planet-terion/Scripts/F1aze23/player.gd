@@ -28,6 +28,7 @@ func _ready() -> void:
 	health.Death.connect(Death)
 	cam.ready()
 	GM = get_node("/root/GameManager")
+	anim.charType = anim.animType.PLAYER
 
 	if not inventory:
 		inventory = get_node("Inventory")
