@@ -44,32 +44,31 @@ func _process(delta: float) -> void:
 			ScreenShakeManager.shake(0.5, 5.0, Vector2(40, 20))
 	
 	if S_EnemyState == EnemyStates.KNOCKEDBACK:
-		pass
+		anim.isMoving = false
 	else:
 		if !anim.isAttack:
 			if S_EnemyState == EnemyStates.CHASING:
 				anim.isMoving = true
 				var direction = (player.global_position - global_position).normalized()
 				velocity.x = direction.x  * (MovementSpeed + MovementSpeedDiff)
-				if direction.x > 0:
-					anim.moveDir = 0
-				elif direction.x < 0:
-					anim.moveDir = 1
 			elif !S_EnemyState == EnemyStates.CHASING && is_on_floor():
 				if !Lcheckcol && !Rcheckcol && DLcheckcol && DRcheckcol:
 					pass
 				else:
 					if left_check.is_colliding() || !down_left_check.is_colliding():
 						if MovingDir == -1 && (Lcheckcol || !DLcheckcol):
-							MovingDir = 1
-							anim.moveState = 2
+							MovingDir = 2
 						elif MovingDir == 1 && (Rcheckcol || !DRcheckcol):
 							MovingDir = -1
-							anim.moveState = 1
 				velocity.x = MovingDir * (MovementSpeed * 0.7)
 				anim.isMoving = true
 			else:
 				anim.isMoving = false
+				
+	if velocity.x > 0:
+		anim.moveState = 1
+	elif velocity.x < 0:
+		anim.moveState = 2
 	
 	move_and_slide()
 

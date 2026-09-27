@@ -2,10 +2,9 @@ extends Node2D
 
 @export var area:Area2D
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Player"):
-		var cam:= body.get_node("CameraComponent")
-		if cam!=null:
-			cam.switch(self)
-		else:
-			print("tf?")
+func _process(delta: float) -> void:
+	for i in area.get_overlapping_bodies():
+		if i.is_in_group("Player"):
+			var cam = i.get_node("CameraComponent")
+			if cam != null:
+				cam.switch(self)

@@ -11,7 +11,7 @@ extends CharacterBody2D
 @export var pistol:Pistol
 @export var weapon_label:Label
 @onready var GM:GameManager
-@onready var tutorial: Label = $Camera2D/UI/Control/Tutorial
+@onready var tutorial: Label = $UI/Control/Tutorial
 @onready var tut_timer: Timer = $TutTimer
 
 @onready var sprite = $Sprite2D
@@ -86,9 +86,9 @@ func _process(delta: float) -> void:
 	if input.attack:
 		if equipped_weapon and equipped_weapon.can_attack():
 			var aim_dir = Vector2.ZERO
-			if move.moveState == 2:
+			if anim.movingDir == 1:
 				aim_dir = Vector2(-1, 0.0)
-			elif move.moveState == 1:
+			elif anim.movingDir == 0:
 				aim_dir = Vector2(1, 0.0)
 			equipped_weapon.attack(aim_dir)
 			anim.isAttack = true
@@ -107,7 +107,7 @@ func _on_equipped_changed(new_weapon: Weapon) -> void:
 		push_warning("Weapon Label not set.")
 
 func _on_shard_changed(total: int) -> void:
-	$Camera2D/UI/Control/ShardLabel.text = "Shards: %d" % total
+	$UI/Control/ShardLabel.text = "Shards: %d" % total
 
 func pick_up_weapon(weapon_scene: PackedScene) -> void:
 	if weapon_scene == null:

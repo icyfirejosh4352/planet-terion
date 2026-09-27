@@ -9,17 +9,27 @@ var isWeapon:=false
 var isAttack:=false
 var isJump:=false
 enum animType{PLAYER, CRAWLER, THROWER}
+enum moveDir{LEFT, RIGHT}
+var movingDir = moveDir.RIGHT
 var playerType:int
 var charType = animType.PLAYER
 
 func process(delta: float) -> void:
-	if moveState == 0:
+	if moveState == 3:
 		isJump = true
 	elif moveState == 2:
 		sprite.flip_h = false
 		isJump = false
+		movingDir = moveDir.RIGHT
 	elif moveState == 1:
 		sprite.flip_h = true
+		movingDir = moveDir.LEFT
+		isJump = false
+	else:
+		if movingDir == moveDir.RIGHT:
+			sprite.flip_h = false
+		else:
+			sprite.flip_h = true
 		isJump = false
 
 

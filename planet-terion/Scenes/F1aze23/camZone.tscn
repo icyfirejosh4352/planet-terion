@@ -5,8 +5,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8vrlf"]
 size = Vector2(510, 287)
 
-[node name="CamZone" type="Node2D" unique_id=844620592]
+[node name="CamZone" type="Node2D" unique_id=844620592 node_paths=PackedStringArray("area")]
 script = ExtResource("1_2arpm")
+area = NodePath("Area2D")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1284831592]
 position = Vector2(-576, -324)

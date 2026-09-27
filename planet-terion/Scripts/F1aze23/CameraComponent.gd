@@ -7,7 +7,6 @@ extends Node
 var current_zone: Node2D
 var target_position: Vector2
 var is_transitioning: bool = false
-@onready var control: Control = $"../Camera2D/UI/Control"
 
 
 
@@ -31,7 +30,6 @@ func process(_delta: float) -> void:
 		else:
 			cam.global_position = current_zone.global_position
 			
-	control.global_position = cam.global_position
 
 func switch(new_zone: Node2D) -> void:
 	if new_zone != current_zone:

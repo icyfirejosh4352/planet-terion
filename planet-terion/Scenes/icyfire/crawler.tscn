@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ctafnkyay475a" path="res://Scripts/icyfire/crawler.gd" id="1_nnqf8"]
 [ext_resource type="Script" uid="uid://qb6e5kxd2ui" path="res://Scripts/F1aze23/HealthComponent.gd" id="2_mq3rg"]
-[ext_resource type="Texture2D" uid="uid://dlukhv1yskq8r" path="res://Assets/F1aze23/Crawler.png" id="2_og4a1"]
+[ext_resource type="Texture2D" uid="uid://5aopbuglw132" path="res://Assets/F1aze23/Crawler.png" id="2_og4a1"]
 [ext_resource type="Script" uid="uid://b08u5vc4slxwe" path="res://Scripts/F1aze23/AnimationComponent.gd" id="4_478i4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_np20c"]
@@ -24,7 +24,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.25),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [17, 25]
+"values": [0, 9]
 }
 
 [sub_resource type="Animation" id="Animation_6lyda"]
@@ -40,7 +40,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [26, 32]
+"values": [16, 22]
 }
 
 [sub_resource type="Animation" id="Animation_fovc0"]
@@ -69,10 +69,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.73333335),
+"times": PackedFloat32Array(0, 0.75),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0, 16]
+"values": [32, 47]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vs33h"]
@@ -93,7 +93,7 @@ position = Vector2(0, -1.9073486e-06)
 scale = Vector2(0.315, 0.315)
 texture = ExtResource("2_og4a1")
 hframes = 8
-vframes = 5
+vframes = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=384724839]
 position = Vector2(0, 5)

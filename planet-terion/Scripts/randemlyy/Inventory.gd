@@ -12,10 +12,11 @@ enum equipped{NULL, GUN, SWORD, SWORD_UPGRADE}
 var equippedWeapon:equipped
 
 func process(delta: float) -> void:
-	if get_equipped() == Pistol:
-		equippedWeapon = equipped.GUN
-	elif get_equipped() == Knife:
-		equippedWeapon = equipped.SWORD
+	if get_equipped() !=  null:
+		if get_equipped().name == "Pistol":
+			equippedWeapon = equipped.GUN
+		elif get_equipped().name == "Knife":
+			equippedWeapon = equipped.SWORD
 	else:
 		equippedWeapon = equipped.NULL
 func add_weapon(weapon: Weapon) -> void:

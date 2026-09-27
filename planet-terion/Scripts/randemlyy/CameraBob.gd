@@ -7,7 +7,7 @@ extends Camera2D
 var bob_time: float = 0.0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	var parent = get_parent()
 	
 	if parent and parent is CharacterBody2D and parent.is_on_floor() and parent.velocity.length() > 10.0:

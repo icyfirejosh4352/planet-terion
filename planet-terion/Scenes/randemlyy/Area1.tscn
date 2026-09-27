@@ -364,7 +364,7 @@ position = Vector2(-165, -56)
 [node name="Exits" type="Node" parent="." unique_id=1876621727]
 
 [node name="Exit1" type="Area2D" parent="Exits" unique_id=388240656]
-position = Vector2(40, 0)
+position = Vector2(34, 154)
 script = ExtResource("14_4bqg2")
 destination = "uid://0yp1rqf1f2w"
 

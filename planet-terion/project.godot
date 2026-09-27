@@ -37,6 +37,10 @@ Player=""
 StartZone=""
 Enemies=""
 
+[gui]
+
+fonts/dynamic_fonts/use_oversampling=false
+
 [input]
 
 Left={
