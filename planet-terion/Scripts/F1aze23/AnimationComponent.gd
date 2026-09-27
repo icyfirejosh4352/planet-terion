@@ -8,30 +8,25 @@ var isMoving:bool = false
 var isWeapon:=false
 var isAttack:=false
 var isJump:=false
-enum animType{PLAYER, CRAWLER, THROWER}
+enum animType{PLAYER, CRAWLER, THROWER, JUMPER}
 enum moveDir{LEFT, RIGHT}
 var movingDir = moveDir.RIGHT
 var playerType:int
 var charType = animType.PLAYER
 
 func process(delta: float) -> void:
-	if moveState == 3:
+	if moveState == 2:
 		isJump = true
-	elif moveState == 2:
-		sprite.flip_h = false
-		isJump = false
-		movingDir = moveDir.RIGHT
 	elif moveState == 1:
-		sprite.flip_h = true
-		movingDir = moveDir.LEFT
+		isMoving = true
 		isJump = false
 	else:
-		if movingDir == moveDir.RIGHT:
-			sprite.flip_h = false
-		else:
-			sprite.flip_h = true
 		isJump = false
-
+		isMoving = false
+	if movingDir == moveDir.RIGHT:
+		sprite.flip_h = false
+	else:
+		sprite.flip_h = true
 
 	if charType == animType.PLAYER:
 		if playerType == 0:
@@ -63,7 +58,6 @@ func process(delta: float) -> void:
 				anim.play("Walk-Sword")
 			else:
 				anim.play("Idle-Sword")
-				
 
 	elif charType == animType.CRAWLER:
 		if isAttack:
@@ -74,5 +68,26 @@ func process(delta: float) -> void:
 			anim.play("Walk")
 		else:
 			anim.play("Idle")
+			
+	elif charType == animType.JUMPER:
+		if isAttack:
+			anim.play("Attack")
+			await anim.animation_finished
+			isAttack = false
+		elif isMoving:
+			anim.play("Walk")
+		else:
+			anim.play("Idle")
+	
+	elif charType == animType.THROWER:
+		if isAttack:
+			anim.play("Attack")
+			await anim.animation_finished
+			isAttack = false
+		elif isMoving:
+			anim.play("Walk")
+		else:
+			anim.play("Idle")
+			 
 			
 	

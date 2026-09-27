@@ -7,6 +7,8 @@ extends Enemy
 @onready var left_check: RayCast2D = $CollisionChecks/LeftCheck
 @onready var right_check: RayCast2D = $CollisionChecks/RightCheck
 
+@export var anim:AnimationComponent
+
 var TimeSinceDmg:float = 0
 var DmgTime:float = 1
 var TimeSinceJump:float = 0
@@ -19,9 +21,13 @@ var DRcheckcol:bool
 
 var MovingDir:float = 1
 
+func _ready() -> void:
+	anim.charType = anim.animType.JUMPER
+
 func _process(delta: float) -> void:
 #	print ("running")
 	Enemy_process(delta)
+	anim.process(delta)
 	TimeSinceDmg += delta
 	TimeSinceJump += delta
 	velocity.y += (get_gravity().y * delta)
@@ -56,7 +62,18 @@ func _process(delta: float) -> void:
 			velocity.x = MovingDir * (MovementSpeed)
 		
 	move_and_slide()
+	if velocity.x > 0:
+		anim.movingDir = 0
+	elif velocity.x < 0:
+		anim.movingDir = 1
+	if !is_on_floor():
+		anim.isAttack = true
+	elif velocity.x != 0:
+		anim.moveState = 1
+	else:
+		anim.moveState = 0
 	for i in get_slide_collision_count():
 		if get_slide_collision(i).get_collider() == player && TimeSinceDmg>DmgTime:
 			TimeSinceDmg = 0
+			anim.isAttack = true
 			player.get_node("HealthComponent").damage(10)

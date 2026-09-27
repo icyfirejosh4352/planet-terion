@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://daofqtsiora3m"]
+
+[ext_resource type="Script" uid="uid://biq7eegg00nuf" path="res://Scripts/F1aze23/CampFire.gd" id="1_x3bq3"]
+[ext_resource type="Texture2D" uid="uid://bal3tpapdk0ha" path="res://Assets/F1aze23/toppng.com-campfire-pixel-art-621x301.png" id="2_2kt0a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1vivr"]
+
+[node name="CampFire" type="Area2D" unique_id=1905742394]
+script = ExtResource("1_x3bq3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1582120640]
+shape = SubResource("RectangleShape2D_1vivr")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=150275576]
+scale = Vector2(0.065, 0.065)
+texture = ExtResource("2_2kt0a")

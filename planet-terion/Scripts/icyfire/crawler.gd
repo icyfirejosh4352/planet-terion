@@ -44,11 +44,10 @@ func _process(delta: float) -> void:
 			ScreenShakeManager.shake(0.5, 5.0, Vector2(40, 20))
 	
 	if S_EnemyState == EnemyStates.KNOCKEDBACK:
-		anim.isMoving = false
+		pass
 	else:
 		if !anim.isAttack:
 			if S_EnemyState == EnemyStates.CHASING:
-				anim.isMoving = true
 				var direction = (player.global_position - global_position).normalized()
 				velocity.x = direction.x  * (MovementSpeed + MovementSpeedDiff)
 			elif !S_EnemyState == EnemyStates.CHASING && is_on_floor():
@@ -61,15 +60,14 @@ func _process(delta: float) -> void:
 						elif MovingDir == 1 && (Rcheckcol || !DRcheckcol):
 							MovingDir = -1
 				velocity.x = MovingDir * (MovementSpeed * 0.7)
-				anim.isMoving = true
-			else:
-				anim.isMoving = false
-				
+
 	if velocity.x > 0:
-		anim.moveState = 1
+		anim.movingDir = 0
 	elif velocity.x < 0:
-		anim.moveState = 2
-	
+		anim.movingDir = 1
+	if velocity.x != 0:
+		anim.moveState = 1
+
 	move_and_slide()
 
 #func apply_hit_knockback(force: Vector2) -> void:

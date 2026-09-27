@@ -1,22 +1,27 @@
-[gd_scene format=4 uid="uid://cbvlv0natpdc2"]
+[gd_scene format=4]
 
-[ext_resource type="PackedScene" uid="uid://daofqtsiora3m" path="res://Scenes/F1aze23/CampFire.tscn" id="1_4bqg2"]
-[ext_resource type="Texture2D" uid="uid://ceduv4d2jdcb3" path="res://Assets/TileMap.png" id="1_8dr0h"]
-[ext_resource type="PackedScene" uid="uid://co8llfh76lsdc" path="res://Scenes/F1aze23/camZone.tscn" id="3_c4byr"]
-[ext_resource type="PackedScene" uid="uid://dfc0oggyt1dpm" path="res://Scenes/icyfire/jumper.tscn" id="3_csaee"]
-[ext_resource type="Script" uid="uid://d4k5bss050hco" path="res://Scripts/F1aze23/LevelManager.gd" id="4_c4byr"]
-[ext_resource type="PackedScene" uid="uid://by4ubgr23nahq" path="res://Scenes/icyfire/spitter.tscn" id="4_h57tg"]
-[ext_resource type="PackedScene" uid="uid://boaljk64saxvx" path="res://Scenes/icyfire/crawler.tscn" id="4_xuanr"]
-[ext_resource type="AudioStream" uid="uid://ce2ilkplvfbrs" path="res://Assets/icyfire/Planet terion - 3.mp3" id="5_xuanr"]
-[ext_resource type="PackedScene" uid="uid://bv0vlj6ih8hoa" path="res://Scenes/icyfire/heal.tscn" id="8_h57tg"]
-[ext_resource type="PackedScene" uid="uid://bh31oo8pjus4q" path="res://Scenes/randemlyy/WeaponPickup.tscn" id="10_7lj02"]
-[ext_resource type="PackedScene" uid="uid://26328poeoxev" path="res://Scenes/randemlyy/Knife.tscn" id="12_21qtk"]
-[ext_resource type="PackedScene" uid="uid://iolo2ehtl5qa" path="res://Scenes/randemlyy/ShardDeposit.tscn" id="13_21qtk"]
-[ext_resource type="Script" uid="uid://ctajf64213x1r" path="res://Scripts/randemlyy/Doorway.gd" id="14_4bqg2"]
-[ext_resource type="PackedScene" uid="uid://df7x2txnf16an" path="res://Scenes/randemlyy/BreakableWall.tscn" id="16_q1ylb"]
+[ext_resource type="PackedScene" path="res://Scenes/F1aze23/CampFire.tscn" id="1_u16iq"]
+[ext_resource type="Script" path="res://Scripts/F1aze23/CampFire.gd" id="2_hktqr"]
+[ext_resource type="Texture2D" path="res://Assets/TileMap.png" id="3_n5668"]
+[ext_resource type="PackedScene" path="res://Scenes/F1aze23/camZone.tscn" id="4_gs3s8"]
+[ext_resource type="Script" path="res://Scripts/F1aze23/CamZone.gd" id="5_urjpe"]
+[ext_resource type="Script" path="res://Scripts/F1aze23/LevelManager.gd" id="6_2f2jb"]
+[ext_resource type="AudioStream" path="res://Assets/icyfire/Planet terion - 3.mp3" id="7_rj0b3"]
+[ext_resource type="PackedScene" path="res://Scenes/icyfire/crawler.tscn" id="8_n2ndp"]
+[ext_resource type="Script" path="res://Scripts/icyfire/crawler.gd" id="9_5garv"]
+[ext_resource type="PackedScene" path="res://Scenes/icyfire/jumper.tscn" id="10_kdjrw"]
+[ext_resource type="Script" path="res://Scripts/icyfire/jumper.gd" id="11_g5ui5"]
+[ext_resource type="PackedScene" path="res://Scenes/icyfire/spitter.tscn" id="12_ps5w7"]
+[ext_resource type="Script" path="res://Scripts/icyfire/spitter.gd" id="13_ugtei"]
+[ext_resource type="PackedScene" path="res://Scenes/icyfire/heal.tscn" id="14_kpw3d"]
+[ext_resource type="PackedScene" path="res://Scenes/randemlyy/ShardDeposit.tscn" id="15_3ofhv"]
+[ext_resource type="Script" path="res://Scripts/randemlyy/ShardDeposit.gd" id="16_i2yfx"]
+[ext_resource type="Script" path="res://Scripts/randemlyy/Doorway.gd" id="17_lewi0"]
+[ext_resource type="PackedScene" path="res://Scenes/randemlyy/BreakableWall.tscn" id="18_74ye8"]
+[ext_resource type="Script" path="res://Scripts/randemlyy/Breakable.gd" id="19_i8ujj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_21qtk"]
-texture = ExtResource("1_8dr0h")
+texture = ExtResource("3_n5668")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -136,10 +141,11 @@ size = Vector2(19.87, 48.5)
 
 [node name="Area1" type="Node2D" unique_id=868296740]
 
-[node name="CampFire" parent="." unique_id=1905742394 instance=ExtResource("1_4bqg2")]
+[node name="StartPoint" type="Area2D" parent="." unique_id=1905742394 instance=ExtResource("1_u16iq")]
 position = Vector2(173, -82)
+script = ExtResource("2_hktqr")
 
-[node name="StartPoint" type="Node2D" parent="." unique_id=1298766594]
+[node name="notStartPoint" type="Node2D" parent="." unique_id=1298766594]
 position = Vector2(0, -64)
 
 [node name="Tilemap" type="Node" parent="." unique_id=457064911]
@@ -165,222 +171,344 @@ collision_enabled = false
 
 [node name="Cams" type="Node" parent="." unique_id=615334648]
 
-[node name="CamZone" parent="Cams" unique_id=844620592 groups=["StartZone"] instance=ExtResource("3_c4byr")]
+[node name="CamZone" type="Node2D" parent="Cams" unique_id=844620592 node_paths=PackedStringArray("area") groups=["StartZone"] instance=ExtResource("4_gs3s8")]
 position = Vector2(2, -11)
+script = ExtResource("5_urjpe")
+area = NodePath("Area2D")
 
-[node name="CamZone7" parent="Cams" unique_id=2033049503 groups=["StartZone"] instance=ExtResource("3_c4byr")]
+[node name="CamZone7" type="Node2D" parent="Cams" unique_id=2033049503 node_paths=PackedStringArray("area") groups=["StartZone"] instance=ExtResource("4_gs3s8")]
 position = Vector2(2, -301)
+script = ExtResource("5_urjpe")
+area = NodePath("Area2D")
 
-[node name="CamZone8" parent="Cams" unique_id=1948411087 groups=["StartZone"] instance=ExtResource("3_c4byr")]
+[node name="CamZone8" type="Node2D" parent="Cams" unique_id=1948411087 node_paths=PackedStringArray("area") groups=["StartZone"] instance=ExtResource("4_gs3s8")]
 position = Vector2(-510, -365)
+script = ExtResource("5_urjpe")
+area = NodePath("Area2D")
 
-[node name="CamZone10" parent="Cams" unique_id=55766463 groups=["StartZone"] instance=ExtResource("3_c4byr")]
+[node name="CamZone10" type="Node2D" parent="Cams" unique_id=55766463 node_paths=PackedStringArray("area") groups=["StartZone"] instance=ExtResource("4_gs3s8")]
 position = Vector2(-508, -73)
+script = ExtResource("5_urjpe")
+area = NodePath("Area2D")
 
-[node name="CamZone11" parent="Cams" unique_id=1376461460 groups=["StartZone"] instance=ExtResource("3_c4byr")]
+[node name="CamZone11" type="Node2D" parent="Cams" unique_id=1376461460 node_paths=PackedStringArray("area") groups=["StartZone"] instance=ExtResource("4_gs3s8")]
 position = Vector2(-1020, -81)
+script = ExtResource("5_urjpe")
+area = NodePath("Area2D")
 
-[node name="CamZone12" parent="Cams" unique_id=1240034273 groups=["StartZone"] instance=ExtResource("3_c4byr")]
+[node name="CamZone12" type="Node2D" parent="Cams" unique_id=1240034273 node_paths=PackedStringArray("area") groups=["StartZone"] instance=ExtResource("4_gs3s8")]
 position = Vector2(-1669, -110)
+script = ExtResource("5_urjpe")
+area = NodePath("Area2D")
 
-[node name="CamZone13" parent="Cams" unique_id=1031782886 groups=["StartZone"] instance=ExtResource("3_c4byr")]
+[node name="CamZone13" type="Node2D" parent="Cams" unique_id=1031782886 node_paths=PackedStringArray("area") groups=["StartZone"] instance=ExtResource("4_gs3s8")]
 position = Vector2(-1338, -110)
 scale = Vector2(0.27999997, 1)
+script = ExtResource("5_urjpe")
+area = NodePath("Area2D")
 
-[node name="CamZone14" parent="Cams" unique_id=1931877078 groups=["StartZone"] instance=ExtResource("3_c4byr")]
+[node name="CamZone14" type="Node2D" parent="Cams" unique_id=1931877078 node_paths=PackedStringArray("area") groups=["StartZone"] instance=ExtResource("4_gs3s8")]
 position = Vector2(-2008, -108)
 scale = Vector2(0.3276732, 1)
+script = ExtResource("5_urjpe")
+area = NodePath("Area2D")
 
-[node name="CamZone9" parent="Cams" unique_id=1405841528 groups=["StartZone"] instance=ExtResource("3_c4byr")]
+[node name="CamZone9" type="Node2D" parent="Cams" unique_id=1405841528 node_paths=PackedStringArray("area") groups=["StartZone"] instance=ExtResource("4_gs3s8")]
 position = Vector2(513, -415)
+script = ExtResource("5_urjpe")
+area = NodePath("Area2D")
 
-[node name="CamZone3" parent="Cams" unique_id=1673770846 groups=["StartZone"] instance=ExtResource("3_c4byr")]
+[node name="CamZone3" type="Node2D" parent="Cams" unique_id=1673770846 node_paths=PackedStringArray("area") groups=["StartZone"] instance=ExtResource("4_gs3s8")]
 position = Vector2(816, -150)
 scale = Vector2(0.92, 1)
+script = ExtResource("5_urjpe")
+area = NodePath("Area2D")
 
-[node name="CamZone4" parent="Cams" unique_id=2120478066 groups=["StartZone"] instance=ExtResource("3_c4byr")]
+[node name="CamZone4" type="Node2D" parent="Cams" unique_id=2120478066 node_paths=PackedStringArray("area") groups=["StartZone"] instance=ExtResource("4_gs3s8")]
 position = Vector2(1308, -308)
+script = ExtResource("5_urjpe")
+area = NodePath("Area2D")
 
-[node name="CamZone5" parent="Cams" unique_id=999469282 groups=["StartZone"] instance=ExtResource("3_c4byr")]
+[node name="CamZone5" type="Node2D" parent="Cams" unique_id=999469282 node_paths=PackedStringArray("area") groups=["StartZone"] instance=ExtResource("4_gs3s8")]
 position = Vector2(1659.235, -308)
 scale = Vector2(-0.37, 1.069)
+script = ExtResource("5_urjpe")
+area = NodePath("Area2D")
 
-[node name="CamZone6" parent="Cams" unique_id=1441598151 groups=["StartZone"] instance=ExtResource("3_c4byr")]
+[node name="CamZone6" type="Node2D" parent="Cams" unique_id=1441598151 node_paths=PackedStringArray("area") groups=["StartZone"] instance=ExtResource("4_gs3s8")]
 position = Vector2(1951.87, -308)
 scale = Vector2(0.775, 0.9)
+script = ExtResource("5_urjpe")
+area = NodePath("Area2D")
 
-[node name="CamZone2" parent="Cams" unique_id=1034079624 groups=["StartZone"] instance=ExtResource("3_c4byr")]
+[node name="CamZone2" type="Node2D" parent="Cams" unique_id=1034079624 node_paths=PackedStringArray("area") groups=["StartZone"] instance=ExtResource("4_gs3s8")]
 position = Vector2(416, -129)
 scale = Vector2(0.63999397, 1)
+script = ExtResource("5_urjpe")
+area = NodePath("Area2D")
 
 [node name="LevelManager" type="Node" parent="." unique_id=666015886]
-script = ExtResource("4_c4byr")
+script = ExtResource("6_2f2jb")
 metadata/_custom_type_script = "uid://d4k5bss050hco"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1400871342]
-stream = ExtResource("5_xuanr")
+stream = ExtResource("7_rj0b3")
 autoplay = true
 parameters/looping = true
 
 [node name="Enemies" type="Node" parent="." unique_id=1689844225]
 
-[node name="crawler" parent="Enemies" unique_id=991275237 instance=ExtResource("4_xuanr")]
-position = Vector2(601, -77)
+[node name="crawler" type="CharacterBody2D" parent="Enemies" unique_id=991275237 node_paths=PackedStringArray("anim") groups=["Enemies"] instance=ExtResource("8_n2ndp")]
+position = Vector2(751.4526, -58.07477)
+velocity = Vector2(140, 0)
+platform_floor_layers = 4294967294
+script = ExtResource("9_5garv")
+anim = NodePath("AnimationComponent")
 
-[node name="jumper" parent="Enemies" unique_id=588281268 instance=ExtResource("3_csaee")]
-position = Vector2(-595, 1)
+[node name="jumper" type="CharacterBody2D" parent="Enemies" unique_id=588281268 node_paths=PackedStringArray("anim") groups=["Enemies"] instance=ExtResource("10_kdjrw")]
+position = Vector2(-462.0182, 3.998226)
+scale = Vector2(1, 2)
+platform_floor_layers = 4294967294
+script = ExtResource("11_g5ui5")
+anim = NodePath("AnimationComponent")
 
-[node name="spitter" parent="Enemies" unique_id=16186634 instance=ExtResource("4_h57tg")]
-position = Vector2(-866, -43)
+[node name="spitter" type="CharacterBody2D" parent="Enemies" unique_id=16186634 node_paths=PackedStringArray("anim") groups=["spitter"] instance=ExtResource("12_ps5w7")]
+position = Vector2(-922.93585, -39.07477)
+scale = Vector2(1.5, 1.5)
+velocity = Vector2(-100, 0)
+platform_floor_layers = 4294967294
+script = ExtResource("13_ugtei")
+anim = NodePath("AnimationComponent")
 
-[node name="crawler2" parent="Enemies" unique_id=915377039 instance=ExtResource("4_xuanr")]
-position = Vector2(1357, -210)
+[node name="crawler2" type="CharacterBody2D" parent="Enemies" unique_id=915377039 node_paths=PackedStringArray("anim") groups=["Enemies"] instance=ExtResource("8_n2ndp")]
+position = Vector2(1096.5497, -202.07477)
+velocity = Vector2(-70, 0)
+platform_floor_layers = 4294967294
+script = ExtResource("9_5garv")
+anim = NodePath("AnimationComponent")
 
-[node name="spitter2" parent="Enemies" unique_id=1384897832 instance=ExtResource("4_h57tg")]
-position = Vector2(1441, -217)
+[node name="spitter2" type="CharacterBody2D" parent="Enemies" unique_id=1384897832 node_paths=PackedStringArray("anim") groups=["spitter"] instance=ExtResource("12_ps5w7")]
+position = Vector2(1125.0524, -207.07597)
+scale = Vector2(1.5, 1.5)
+velocity = Vector2(-100, 0)
+platform_floor_layers = 4294967294
+script = ExtResource("13_ugtei")
+anim = NodePath("AnimationComponent")
 
-[node name="jumper2" parent="Enemies" unique_id=593855349 instance=ExtResource("3_csaee")]
-position = Vector2(1734, -223)
+[node name="jumper2" type="CharacterBody2D" parent="Enemies" unique_id=593855349 node_paths=PackedStringArray("anim") groups=["Enemies"] instance=ExtResource("10_kdjrw")]
+position = Vector2(1741.976, -212.00179)
+scale = Vector2(1, 2)
+platform_floor_layers = 4294967294
+script = ExtResource("11_g5ui5")
+anim = NodePath("AnimationComponent")
 
-[node name="crawler3" parent="Enemies" unique_id=602537605 instance=ExtResource("4_xuanr")]
-position = Vector2(1936, -316)
+[node name="crawler3" type="CharacterBody2D" parent="Enemies" unique_id=602537605 node_paths=PackedStringArray("anim") groups=["Enemies"] instance=ExtResource("8_n2ndp")]
+position = Vector2(2073.0315, -250.00179)
+platform_floor_layers = 4294967294
+script = ExtResource("9_5garv")
+anim = NodePath("AnimationComponent")
 
-[node name="crawler4" parent="Enemies" unique_id=1162893310 instance=ExtResource("4_xuanr")]
-position = Vector2(2078, -265)
+[node name="crawler4" type="CharacterBody2D" parent="Enemies" unique_id=1162893310 node_paths=PackedStringArray("anim") groups=["Enemies"] instance=ExtResource("8_n2ndp")]
+position = Vector2(2093.0332, -250.00179)
+platform_floor_layers = 4294967294
+script = ExtResource("9_5garv")
+anim = NodePath("AnimationComponent")
 
-[node name="spitter3" parent="Enemies" unique_id=121988838 instance=ExtResource("4_h57tg")]
-position = Vector2(-1879, -37)
+[node name="spitter3" type="CharacterBody2D" parent="Enemies" unique_id=121988838 node_paths=PackedStringArray("anim") groups=["spitter"] instance=ExtResource("12_ps5w7")]
+position = Vector2(-1303.0092, -15.000535)
+scale = Vector2(1.5, 1.5)
+platform_floor_layers = 4294967294
+script = ExtResource("13_ugtei")
+anim = NodePath("AnimationComponent")
 
-[node name="crawler5" parent="Enemies" unique_id=1193763124 instance=ExtResource("4_xuanr")]
-position = Vector2(-1698, -26)
+[node name="crawler5" type="CharacterBody2D" parent="Enemies" unique_id=1193763124 node_paths=PackedStringArray("anim") groups=["Enemies"] instance=ExtResource("8_n2ndp")]
+position = Vector2(-1277.9631, -10.075993)
+velocity = Vector2(0, 3129.9104)
+platform_floor_layers = 4294967294
+script = ExtResource("9_5garv")
+anim = NodePath("AnimationComponent")
 
-[node name="crawler6" parent="Enemies" unique_id=851905741 instance=ExtResource("4_xuanr")]
-position = Vector2(-1593, -42)
+[node name="crawler6" type="CharacterBody2D" parent="Enemies" unique_id=851905741 node_paths=PackedStringArray("anim") groups=["Enemies"] instance=ExtResource("8_n2ndp")]
+position = Vector2(-1257.9703, -10.074754)
+platform_floor_layers = 4294967294
+script = ExtResource("9_5garv")
+anim = NodePath("AnimationComponent")
 
-[node name="jumper3" parent="Enemies" unique_id=2122105326 instance=ExtResource("3_csaee")]
-position = Vector2(-227, -243)
+[node name="jumper3" type="CharacterBody2D" parent="Enemies" unique_id=2122105326 node_paths=PackedStringArray("anim") groups=["Enemies"] instance=ExtResource("10_kdjrw")]
+position = Vector2(-58.000427, -236.00179)
+scale = Vector2(1, 2)
+platform_floor_layers = 4294967294
+script = ExtResource("11_g5ui5")
+anim = NodePath("AnimationComponent")
 
-[node name="crawler7" parent="Enemies" unique_id=779185768 instance=ExtResource("4_xuanr")]
-position = Vector2(61, -233)
+[node name="crawler7" type="CharacterBody2D" parent="Enemies" unique_id=779185768 node_paths=PackedStringArray("anim") groups=["Enemies"] instance=ExtResource("8_n2ndp")]
+position = Vector2(526.775, -164.2023)
+velocity = Vector2(140, 253.15622)
+platform_floor_layers = 4294967294
+script = ExtResource("9_5garv")
+anim = NodePath("AnimationComponent")
 
-[node name="spitter4" parent="Enemies" unique_id=472659963 instance=ExtResource("4_h57tg")]
-position = Vector2(552, -407)
+[node name="spitter4" type="CharacterBody2D" parent="Enemies" unique_id=472659963 node_paths=PackedStringArray("anim") groups=["spitter"] instance=ExtResource("12_ps5w7")]
+position = Vector2(560.9999, -399.00177)
+scale = Vector2(1.5, 1.5)
+platform_floor_layers = 4294967294
+script = ExtResource("13_ugtei")
+anim = NodePath("AnimationComponent")
 
-[node name="jumper4" parent="Enemies" unique_id=1354624651 instance=ExtResource("3_csaee")]
-position = Vector2(-212, -365)
+[node name="jumper4" type="CharacterBody2D" parent="Enemies" unique_id=1354624651 node_paths=PackedStringArray("anim") groups=["Enemies"] instance=ExtResource("10_kdjrw")]
+position = Vector2(-123.51348, -320.2124)
+scale = Vector2(1, 2)
+platform_floor_layers = 4294967294
+script = ExtResource("11_g5ui5")
+anim = NodePath("AnimationComponent")
 
-[node name="crawler8" parent="Enemies" unique_id=333334286 instance=ExtResource("4_xuanr")]
-position = Vector2(-292, -351)
+[node name="crawler8" type="CharacterBody2D" parent="Enemies" unique_id=333334286 node_paths=PackedStringArray("anim") groups=["Enemies"] instance=ExtResource("8_n2ndp")]
+position = Vector2(-143.51813, -310.37845)
+platform_floor_layers = 4294967294
+script = ExtResource("9_5garv")
+anim = NodePath("AnimationComponent")
 
-[node name="crawler9" parent="Enemies" unique_id=1347265123 instance=ExtResource("4_xuanr")]
-position = Vector2(164, -384)
+[node name="crawler9" type="CharacterBody2D" parent="Enemies" unique_id=1347265123 node_paths=PackedStringArray("anim") groups=["Enemies"] instance=ExtResource("8_n2ndp")]
+position = Vector2(317.9677, -346.07477)
+velocity = Vector2(140, 0)
+platform_floor_layers = 4294967294
+script = ExtResource("9_5garv")
+anim = NodePath("AnimationComponent")
 
-[node name="jumper5" parent="Enemies" unique_id=1145981539 instance=ExtResource("3_csaee")]
-position = Vector2(858, -87)
+[node name="jumper5" type="CharacterBody2D" parent="Enemies" unique_id=1145981539 node_paths=PackedStringArray("anim") groups=["Enemies"] instance=ExtResource("10_kdjrw")]
+position = Vector2(826.0058, -68.00176)
+scale = Vector2(1, 2)
+platform_floor_layers = 4294967294
+script = ExtResource("11_g5ui5")
+anim = NodePath("AnimationComponent")
 
-[node name="crawler10" parent="Enemies" unique_id=334128056 instance=ExtResource("4_xuanr")]
-position = Vector2(-583, -138)
+[node name="crawler10" type="CharacterBody2D" parent="Enemies" unique_id=334128056 node_paths=PackedStringArray("anim") groups=["Enemies"] instance=ExtResource("8_n2ndp")]
+position = Vector2(-441.97763, 13.925188)
+platform_floor_layers = 4294967294
+script = ExtResource("9_5garv")
+anim = NodePath("AnimationComponent")
 
-[node name="Heal" parent="Enemies" unique_id=1674517239 instance=ExtResource("8_h57tg")]
+[node name="Heal" type="Node2D" parent="Enemies" unique_id=1674517239 instance=ExtResource("14_kpw3d")]
 position = Vector2(894, -71)
+scale = Vector2(3.805, 3.805)
 
-[node name="Heal2" parent="Enemies" unique_id=2079598750 instance=ExtResource("8_h57tg")]
+[node name="Heal2" type="Node2D" parent="Enemies" unique_id=2079598750 instance=ExtResource("14_kpw3d")]
 position = Vector2(462.99997, -411.99997)
+scale = Vector2(3.805, 3.805)
 
-[node name="Heal3" parent="Enemies" unique_id=250790534 instance=ExtResource("8_h57tg")]
+[node name="Heal3" type="Node2D" parent="Enemies" unique_id=250790534 instance=ExtResource("14_kpw3d")]
 position = Vector2(410, -414)
+scale = Vector2(3.805, 3.805)
 
-[node name="Heal4" parent="Enemies" unique_id=1447867874 instance=ExtResource("8_h57tg")]
+[node name="Heal4" type="Node2D" parent="Enemies" unique_id=1447867874 instance=ExtResource("14_kpw3d")]
 position = Vector2(354, -410)
+scale = Vector2(3.805, 3.805)
 
-[node name="Heal5" parent="Enemies" unique_id=1496823235 instance=ExtResource("8_h57tg")]
+[node name="Heal5" type="Node2D" parent="Enemies" unique_id=1496823235 instance=ExtResource("14_kpw3d")]
 position = Vector2(-536, -129)
+scale = Vector2(3.805, 3.805)
 
-[node name="Heal6" parent="Enemies" unique_id=737607733 instance=ExtResource("8_h57tg")]
+[node name="Heal6" type="Node2D" parent="Enemies" unique_id=737607733 instance=ExtResource("14_kpw3d")]
 position = Vector2(-557, -127)
+scale = Vector2(3.805, 3.805)
 
-[node name="Heal7" parent="Enemies" unique_id=615848745 instance=ExtResource("8_h57tg")]
+[node name="Heal7" type="Node2D" parent="Enemies" unique_id=615848745 instance=ExtResource("14_kpw3d")]
 position = Vector2(-583, -125)
+scale = Vector2(3.805, 3.805)
 
-[node name="Heal8" parent="Enemies" unique_id=1945481808 instance=ExtResource("8_h57tg")]
+[node name="Heal8" type="Node2D" parent="Enemies" unique_id=1945481808 instance=ExtResource("14_kpw3d")]
 position = Vector2(1640, -208.99998)
+scale = Vector2(3.805, 3.805)
 
-[node name="Heal9" parent="Enemies" unique_id=1072216191 instance=ExtResource("8_h57tg")]
+[node name="Heal9" type="Node2D" parent="Enemies" unique_id=1072216191 instance=ExtResource("14_kpw3d")]
 position = Vector2(1666, -210)
+scale = Vector2(3.805, 3.805)
 
-[node name="Heal10" parent="Enemies" unique_id=1627334772 instance=ExtResource("8_h57tg")]
+[node name="Heal10" type="Node2D" parent="Enemies" unique_id=1627334772 instance=ExtResource("14_kpw3d")]
 position = Vector2(739, -181)
+scale = Vector2(3.805, 3.805)
 
-[node name="Heal11" parent="Enemies" unique_id=1412457620 instance=ExtResource("8_h57tg")]
+[node name="Heal11" type="Node2D" parent="Enemies" unique_id=1412457620 instance=ExtResource("14_kpw3d")]
 position = Vector2(644, -130)
+scale = Vector2(3.805, 3.805)
 
-[node name="Heal12" parent="Enemies" unique_id=185923425 instance=ExtResource("8_h57tg")]
+[node name="Heal12" type="Node2D" parent="Enemies" unique_id=185923425 instance=ExtResource("14_kpw3d")]
 position = Vector2(-272, -253)
+scale = Vector2(3.805, 3.805)
 
-[node name="Heal13" parent="Enemies" unique_id=1570110872 instance=ExtResource("8_h57tg")]
+[node name="Heal13" type="Node2D" parent="Enemies" unique_id=1570110872 instance=ExtResource("14_kpw3d")]
 position = Vector2(-249, -253)
+scale = Vector2(3.805, 3.805)
 
-[node name="Heal14" parent="Enemies" unique_id=1221377237 instance=ExtResource("8_h57tg")]
+[node name="Heal14" type="Node2D" parent="Enemies" unique_id=1221377237 instance=ExtResource("14_kpw3d")]
 position = Vector2(-197, -264)
+scale = Vector2(3.805, 3.805)
 
-[node name="Heal15" parent="Enemies" unique_id=1556041174 instance=ExtResource("8_h57tg")]
+[node name="Heal15" type="Node2D" parent="Enemies" unique_id=1556041174 instance=ExtResource("14_kpw3d")]
 position = Vector2(-377, -376)
+scale = Vector2(3.805, 3.805)
 
-[node name="Heal16" parent="Enemies" unique_id=1390066659 instance=ExtResource("8_h57tg")]
+[node name="Heal16" type="Node2D" parent="Enemies" unique_id=1390066659 instance=ExtResource("14_kpw3d")]
 position = Vector2(-339, -373)
+scale = Vector2(3.805, 3.805)
 
-[node name="Heal17" parent="Enemies" unique_id=1930086818 instance=ExtResource("8_h57tg")]
+[node name="Heal17" type="Node2D" parent="Enemies" unique_id=1930086818 instance=ExtResource("14_kpw3d")]
 position = Vector2(-304, -390)
+scale = Vector2(3.805, 3.805)
 
-[node name="Heal18" parent="Enemies" unique_id=1559748415 instance=ExtResource("8_h57tg")]
+[node name="Heal18" type="Node2D" parent="Enemies" unique_id=1559748415 instance=ExtResource("14_kpw3d")]
 position = Vector2(-1736, -63)
+scale = Vector2(3.805, 3.805)
 
-[node name="Heal19" parent="Enemies" unique_id=50345347 instance=ExtResource("8_h57tg")]
+[node name="Heal19" type="Node2D" parent="Enemies" unique_id=50345347 instance=ExtResource("14_kpw3d")]
 position = Vector2(-1634, -83)
+scale = Vector2(3.805, 3.805)
 
-[node name="Heal20" parent="Enemies" unique_id=1302245920 instance=ExtResource("8_h57tg")]
+[node name="Heal20" type="Node2D" parent="Enemies" unique_id=1302245920 instance=ExtResource("14_kpw3d")]
 position = Vector2(-2030, -21)
+scale = Vector2(3.805, 3.805)
 
-[node name="Heal21" parent="Enemies" unique_id=177075782 instance=ExtResource("8_h57tg")]
+[node name="Heal21" type="Node2D" parent="Enemies" unique_id=177075782 instance=ExtResource("14_kpw3d")]
 position = Vector2(-1982, -21)
+scale = Vector2(3.805, 3.805)
 
-[node name="Heal22" parent="Enemies" unique_id=559634357 instance=ExtResource("8_h57tg")]
+[node name="Heal22" type="Node2D" parent="Enemies" unique_id=559634357 instance=ExtResource("14_kpw3d")]
 position = Vector2(-2070, -23)
+scale = Vector2(3.805, 3.805)
 
-[node name="Heal23" parent="Enemies" unique_id=679732169 instance=ExtResource("8_h57tg")]
+[node name="Heal23" type="Node2D" parent="Enemies" unique_id=679732169 instance=ExtResource("14_kpw3d")]
 position = Vector2(-1935, -21)
-
-[node name="Heal24" parent="Enemies" unique_id=2087209350 instance=ExtResource("8_h57tg")]
-position = Vector2(85, -40)
-
-[node name="KnifePickup" parent="." unique_id=1306326238 instance=ExtResource("10_7lj02")]
-position = Vector2(61, -8)
-weapon_scene = ExtResource("12_21qtk")
+scale = Vector2(3.805, 3.805)
 
 [node name="Deposits" type="Node" parent="." unique_id=1434355405]
 
-[node name="ShardDeposit" parent="Deposits" unique_id=969256831 instance=ExtResource("13_21qtk")]
+[node name="ShardDeposit" type="StaticBody2D" parent="Deposits" unique_id=969256831 instance=ExtResource("15_3ofhv")]
 position = Vector2(-266, -224)
+script = ExtResource("16_i2yfx")
 
-[node name="ShardDeposit2" parent="Deposits" unique_id=1447297708 instance=ExtResource("13_21qtk")]
+[node name="ShardDeposit2" type="StaticBody2D" parent="Deposits" unique_id=1447297708 instance=ExtResource("15_3ofhv")]
 position = Vector2(513, -392)
+script = ExtResource("16_i2yfx")
 
-[node name="ShardDeposit3" parent="Deposits" unique_id=1093723538 instance=ExtResource("13_21qtk")]
+[node name="ShardDeposit3" type="StaticBody2D" parent="Deposits" unique_id=1093723538 instance=ExtResource("15_3ofhv")]
 position = Vector2(2111, -248)
+script = ExtResource("16_i2yfx")
 
-[node name="ShardDeposit4" parent="Deposits" unique_id=1998883354 instance=ExtResource("13_21qtk")]
+[node name="ShardDeposit4" type="StaticBody2D" parent="Deposits" unique_id=1998883354 instance=ExtResource("15_3ofhv")]
 position = Vector2(-2054, -8)
+script = ExtResource("16_i2yfx")
 
 [node name="Exits" type="Node" parent="." unique_id=1876621727]
 
 [node name="Exit1" type="Area2D" parent="Exits" unique_id=388240656]
 position = Vector2(243, -84)
-script = ExtResource("14_4bqg2")
+script = ExtResource("17_lewi0")
 destination = "uid://0yp1rqf1f2w"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Exits/Exit1" unique_id=850900563]
 shape = SubResource("RectangleShape2D_jpaqu")
 
-[node name="BreakableWall" parent="." unique_id=468309300 instance=ExtResource("16_q1ylb")]
+[node name="BreakableWall" type="StaticBody2D" parent="." unique_id=468309300 groups=["Breakable"] instance=ExtResource("18_74ye8")]
 position = Vector2(-1137, -84)
 scale = Vector2(1, 4.5)
+script = ExtResource("19_i8ujj")

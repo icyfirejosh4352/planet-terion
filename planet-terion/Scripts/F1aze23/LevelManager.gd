@@ -12,7 +12,13 @@ func _ready() -> void:
 	for child in parent.get_children():
 		if child.name == "StartPoint":
 			startPoint=child
-	if startPoint:
+			
+	if ResourceLoader.exists("res://SavedPlayer.tscn"):
+		player = load("res://SavedPlayer.tscn").instantiate()
+		parent.add_child.call_deferred(player)
+		player.global_position = startPoint.global_position
+		print("hello")
+	elif startPoint:
 		player = playerScene.instantiate()
 		parent.add_child.call_deferred(player)
 		player.global_position = startPoint.global_position

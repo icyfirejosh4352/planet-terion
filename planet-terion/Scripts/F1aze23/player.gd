@@ -64,8 +64,8 @@ func _process(delta: float) -> void:
 	move.dir = input.dir
 	move.is_crouching = input.crouch
 	dash.canDash = input.dash
-	anim.isMoving = move.isMoving
 	anim.moveState = move.moveState
+	anim.movingDir = move.animDir
 	anim.playerType = inventory.equippedWeapon
 	if input.jump:
 		move.jump()
@@ -74,6 +74,7 @@ func _process(delta: float) -> void:
 	health.process(delta)
 	input.process(delta)
 	cam.process(delta)
+	move.process()
 	anim.process(delta)
 	inventory.process(delta)
 	

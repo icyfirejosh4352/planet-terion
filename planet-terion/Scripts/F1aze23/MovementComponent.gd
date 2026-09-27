@@ -22,8 +22,9 @@ var is_crouching := false
 
 var isMoving :bool = false
 
-enum move{STANDING, LWALK, RWALK, JUMP}
-var moveState := move.RWALK
+enum move{STANDING, WALK, JUMP}
+var moveState := move.WALK
+var animDir:=0
 
 func physics_process(delta: float) -> void:
 	var grounded:= body.is_on_floor()
@@ -75,15 +76,19 @@ func physics_process(delta: float) -> void:
 	body.move_and_slide()
 	isMoving = not is_zero_approx(body.velocity.x)
 
+
+func process():
 	if !body.is_on_floor():
 		moveState = move.JUMP
-	elif dir > 0:
-		moveState = move.LWALK
+	else:
+		if dir != 0:
+			moveState = move.WALK
+		elif dir == 0:
+			moveState = move.STANDING
+	if dir > 0:
+		animDir = 0
 	elif dir < 0:
-		moveState = move.RWALK
-	elif dir == 0:
-		moveState = move.STANDING
-
+		animDir = 1
 func jump():
 	_jump_buffer_timer = _jump_buffer_time
 	#if body.is_on_floor() or _coyote_timer > 0.0:

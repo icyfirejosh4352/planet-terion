@@ -10,14 +10,24 @@ var current_scene = null
 func _ready():
 	load_scene(mainMenu)
 
-func load_scene(scene):
+func load_scene(scene, isLevel = 0):
 	if scene == null:
 		push_error("Attempted to load a null scene in GameManager.load_scene")
 		return
 	
 	var scene_to_instantiate: PackedScene = null
 	
-	if scene is String:
+	if isLevel == 1: 
+		if ResourceLoader.exists("res://SaveFile.tscn"):
+			scene_to_instantiate = load("res://SaveFile.tscn") as PackedScene
+		elif scene is String:
+			if scene == "":
+				push_error("Attempted to load an empty scene path string!")
+				return
+			scene_to_instantiate = load(scene) as PackedScene
+		elif scene is PackedScene:
+			scene_to_instantiate = scene
+	elif scene is String:
 		if scene == "":
 			push_error("Attempted to load an empty scene path string!")
 			return
@@ -36,18 +46,6 @@ func load_scene(scene):
 	
 	if old_scene != null:
 		old_scene.queue_free()
-	
-	#var old_scene = null
-	#if current_scene != null:
-		#old_scene = current_scene
-	#current_scene = scene.instantiate()
-	#add_child(current_scene)
-	#if old_scene:
-		#for child in get_children():
-			#if child.name == old_scene.name:
-				#print(child.name)
-				#child.queue_free()
-		#remove_child(old_scene)
 
 func quit_game():
 	get_tree().quit()

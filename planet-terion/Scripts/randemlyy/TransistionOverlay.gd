@@ -3,7 +3,7 @@ extends CanvasLayer
 @onready var cover: ColorRect = $ScreenCover
 var transistioning = false
 
-func change_room(destination: String) -> void:
+func change_room(destination: String, isLevel = 0) -> void:
 	if transistioning:
 		return
 	
@@ -15,7 +15,10 @@ func change_room(destination: String) -> void:
 	await  fade_out.finished
 	
 	var game_manager = get_node("/root/GameManager")
-	game_manager.load_scene(destination)
+	if isLevel == 1:
+		game_manager.load_scene(destination, 1)
+	else:
+		game_manager.load_scene(destination)
 	
 	await get_tree().process_frame
 	

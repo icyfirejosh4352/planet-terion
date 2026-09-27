@@ -7,6 +7,8 @@ extends Enemy
 @onready var right_check: RayCast2D = $CollisionChecks/RightCheck
 @onready var spitsc = preload("res://Scenes/icyfire/spit.tscn")
 
+@export var anim:AnimationComponent
+
 var TimeSinceDmg:float = 0
 var DmgTime:float = 1
 var TimeSinceSpit:float = 0
@@ -22,8 +24,12 @@ var DRcheckcol:bool
 
 var MovingDir:float = 1
 
+func _ready() -> void:
+	anim.charType = anim.animType.THROWER
+
 func _process(delta: float) -> void:
 #	print ("running")
+	anim.process(delta)
 	Enemy_process(delta)
 	TimeSinceDmg += delta
 	TimeSinceRoll += delta
@@ -37,7 +43,7 @@ func _process(delta: float) -> void:
 	
 	
 	if S_EnemyState != EnemyStates.KNOCKEDBACK:
-		if S_EnemyState == EnemyStates.CHASING:
+		if S_EnemyState == EnemyStates.CHASING && is_on_floor():
 			var randemlyy
 			var direction = (player.global_position - global_position).normalized()
 			velocity.x = direction.x  * (MovementSpeed + MovementSpeedDiff)
@@ -46,6 +52,7 @@ func _process(delta: float) -> void:
 				TimeSinceRoll = 0
 				randemlyy = rng.randi_range(0,9)
 				if randemlyy == 4:
+					anim.isAttack = true
 					var new_bullet = spitsc.instantiate()
 					new_bullet.global_position = self.global_position
 					if direction.x > 0:
@@ -67,7 +74,17 @@ func _process(delta: float) -> void:
 			velocity.x = MovingDir * (MovementSpeed)
 		
 	move_and_slide()
+	if velocity.x > 0:
+		anim.movingDir = 0
+	elif velocity.x < 0:
+		anim.movingDir = 1
+	if velocity.x != 0:
+		anim.moveState = 1
+	else:
+		anim.moveState = 0
+
 	for i in get_slide_collision_count():
 		if get_slide_collision(i).get_collider() == player && TimeSinceDmg>DmgTime:
 			TimeSinceDmg = 0
+			anim.isAttack = true
 			player.get_node("HealthComponent").damage(10)
