@@ -3,9 +3,12 @@ extends Node
 
 @export var body : CharacterBody2D
 
-@export var acceleration:= 300
-@export var vel:= 85.0
-@export var jump_vel:= -275.0
+@export var acceleration:= 1500.0
+@export var air_acceleration:= 1400.0
+@export var braking:= 1800.0
+@export var air_braking:= 1200.0
+@export var vel:= 115.0
+@export var jump_vel:= -170.0
 @export var speedMultiplier := 1.3
 @export var coyote_time := 0.10
 @export var _jump_buffer_time := 0.15 
@@ -15,7 +18,6 @@ extends Node
 var dir:float
 var _coyote_timer := 0.0
 var _jump_buffer_timer := 0.0
-var _was_on_floor := false
 var is_crouching := false
 
 var isMoving :bool = false
@@ -24,42 +26,54 @@ enum move{STANDING, LWALK, RWALK, JUMP}
 var moveState := move.RWALK
 
 func physics_process(delta: float) -> void:
-	if body.is_on_floor():
+	var grounded:= body.is_on_floor()
+	
+	if grounded:
 		_coyote_timer = coyote_time
-		_was_on_floor = true
-		body.velocity.y += body.get_gravity().y/150
+		if body.velocity.y > 0.0:
+			body.velocity.y = 0
 	else:
-		if _was_on_floor:
-			_was_on_floor = false 
-		_coyote_timer = max(0.0, _coyote_timer - delta) # count down
-		
-		body.velocity.y += body.get_gravity().y/60
+		_coyote_timer = maxf(_coyote_timer-delta, 0.0)
+		body.velocity += body.get_gravity() * delta
 	
-	if Input.is_action_just_pressed("Jump"):
-		_jump_buffer_timer = _jump_buffer_time
+	_jump_buffer_timer = maxf(_jump_buffer_timer - delta, 0.0)
+	if _jump_buffer_timer > 0.0 and _coyote_timer > 0.0:
+		body.velocity.y = jump_vel
+		_jump_buffer_timer = 0.0
+		_coyote_timer = 0.0
+		grounded = false
+	
+	var target_speed = vel * maxf(speedMultiplier, 0.0)
+	if is_crouching:
+		target_speed *= crouch_speed_mult
+	
+	var target_x : float = dir * target_speed
+	var rate: float
+	if is_zero_approx(dir):
+		if grounded:
+			rate = braking
+		else:
+			rate = air_braking
 	else:
-		_jump_buffer_timer = max(0.0, _jump_buffer_timer - delta)
+		if grounded:
+			rate = acceleration
+		else:
+			rate = air_acceleration
 	
-	if Input.is_action_just_released("Jump") and body.velocity.y < 0:
+	if speedMultiplier > 1.0 and not is_zero_approx(dir):
+		body.velocity.x = dir * target_speed
+	else:
+		body.velocity.x = move_toward(
+			body.velocity.x,
+			target_x,
+			rate * delta
+		)
+	
+	if Input.is_action_just_released("Jump") and body.velocity.y < 0.0:
 		body.velocity.y *= jump_cutoff
 	
-	var current_vel = vel
-	if is_crouching:
-		current_vel *= crouch_speed_mult
-		
-	if dir == 0:
-		body.velocity.x = move_toward(body.velocity.x, 0, acceleration)
-	else:
-		if speedMultiplier == 1:
-			body.velocity.x = move_toward(body.velocity.x, dir * current_vel , acceleration)
-		else:
-			body.velocity.x = dir*current_vel*speedMultiplier
-	
 	body.move_and_slide()
-	if body.velocity != Vector2.ZERO:
-		isMoving = true
-	else:
-		isMoving = false
+	isMoving = not is_zero_approx(body.velocity.x)
 
 	if !body.is_on_floor():
 		moveState = move.JUMP
@@ -71,5 +85,6 @@ func physics_process(delta: float) -> void:
 		moveState = move.STANDING
 
 func jump():
-	if body.is_on_floor() or _coyote_timer > 0.0:
-		body.velocity.y = jump_vel
+	_jump_buffer_timer = _jump_buffer_time
+	#if body.is_on_floor() or _coyote_timer > 0.0:
+		#body.velocity.y = jump_vel

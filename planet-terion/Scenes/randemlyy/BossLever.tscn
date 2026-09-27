@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dyvknxuwmsisk"]
+
+[ext_resource type="Script" uid="uid://bvtrltrryvbep" path="res://Scripts/randemlyy/BossLever.gd" id="1_1716l"]
+[ext_resource type="Texture2D" uid="uid://dsxahrdodgir7" path="res://Assets/tileset.png" id="2_ryyl4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jpaqu"]
+size = Vector2(18, 16)
+
+[node name="BossLever" type="Area2D" unique_id=1360966624]
+script = ExtResource("1_1716l")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1508865056]
+texture = ExtResource("2_ryyl4")
+region_enabled = true
+region_rect = Rect2(32, 160, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2129160611]
+shape = SubResource("RectangleShape2D_jpaqu")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=70149063]

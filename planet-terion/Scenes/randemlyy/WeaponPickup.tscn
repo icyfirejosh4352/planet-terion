@@ -1,13 +1,19 @@
 [gd_scene format=3 uid="uid://bh31oo8pjus4q"]
 
 [ext_resource type="Script" uid="uid://byifh2txndr4k" path="res://Scripts/randemlyy/WeaponPickup.gd" id="1_fxoj3"]
+[ext_resource type="Texture2D" uid="uid://dsxahrdodgir7" path="res://Assets/tileset.png" id="2_ww8vj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jpaqu"]
+size = Vector2(22, 20)
 
 [node name="WeaponPickup" type="Area2D" unique_id=2042744842]
 script = ExtResource("1_fxoj3")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=23125448]
+texture = ExtResource("2_ww8vj")
+region_enabled = true
+region_rect = Rect2(144, 144, 16, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=830076421]
+position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_jpaqu")

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://df7x2txnf16an"]
+
+[ext_resource type="Script" uid="uid://chk30hqxy1qp5" path="res://Scripts/randemlyy/Breakable.gd" id="1_7t5se"]
+[ext_resource type="Texture2D" uid="uid://dsxahrdodgir7" path="res://Assets/tileset.png" id="2_1huao"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jmhjr"]
+size = Vector2(5, 16)
+
+[node name="BreakableWall" type="StaticBody2D" unique_id=468309300 groups=["Breakable"]]
+script = ExtResource("1_7t5se")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1209227963]
+texture = ExtResource("2_1huao")
+region_enabled = true
+region_rect = Rect2(128, 160, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2100878188]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_jmhjr")

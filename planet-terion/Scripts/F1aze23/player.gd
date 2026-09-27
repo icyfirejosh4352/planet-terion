@@ -61,7 +61,6 @@ func _ready() -> void:
 	tut_timer.timeout.connect(tutorial.hide)
 
 func _process(delta: float) -> void:
-	move.speedMultiplier = dash.speedMultiplier
 	move.dir = input.dir
 	move.is_crouching = input.crouch
 	dash.canDash = input.dash
@@ -71,6 +70,7 @@ func _process(delta: float) -> void:
 	if input.jump:
 		move.jump()
 	dash.process(delta)
+	move.speedMultiplier = dash.speedMultiplier
 	health.process(delta)
 	input.process(delta)
 	cam.process(delta)

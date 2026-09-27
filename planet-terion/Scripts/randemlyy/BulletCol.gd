@@ -9,7 +9,6 @@ extends Area2D
 
 func _process(delta: float) -> void:
 	#position -= transform.y * Speed * delta
-	
 	for body in get_overlapping_bodies():
 		if body != null && !body.is_in_group("Player"):
 			if body.get_node_or_null("HealthComponent") != null:
@@ -25,3 +24,17 @@ func _process(delta: float) -> void:
 				#HitEffectManager.apply_knockback(body, knockback_dir, knockback_force)
 				body.knockback(knockback_dir, Damage, knockback_force)
 			self.get_parent().queue_free()
+		var breakable := find_breakable(body)
+		if breakable != null:
+			breakable.take_hit(Damage, &"bullet")
+			self.get_parent().queue_free()
+			return
+
+func find_breakable(node: Node) -> Node:
+	var current := node
+	while current != null:
+		if current.is_in_group("Breakable") and current.has_method("take_hit"):
+			return current
+		current = current.get_parent()
+	return null
+	

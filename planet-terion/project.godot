@@ -36,6 +36,7 @@ enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 Player=""
 StartZone=""
 Enemies=""
+Breakable=""
 
 [gui]
 

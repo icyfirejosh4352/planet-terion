@@ -3,6 +3,7 @@
 .nomedia
 planet-terion/addons/godotty/
 planet-terion/addons/terminal/
+planet-terion/addons/sticky_scribe/
 planet-terion\override.cfg
 
 # Godot-specific ignores

@@ -8,12 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://boaljk64saxvx" path="res://Scenes/icyfire/crawler.tscn" id="4_xuanr"]
 [ext_resource type="AudioStream" uid="uid://ce2ilkplvfbrs" path="res://Assets/icyfire/Planet terion - 3.mp3" id="5_xuanr"]
 [ext_resource type="PackedScene" uid="uid://bv0vlj6ih8hoa" path="res://Scenes/icyfire/heal.tscn" id="8_h57tg"]
-[ext_resource type="PackedScene" uid="uid://47dwoc1so1xh" path="res://Scenes/randemlyy/KnifePickup.tscn" id="9_22lfh"]
-[ext_resource type="PackedScene" uid="uid://bh31oo8pjus4q" path="res://Scenes/randemlyy/PistolPickup.tscn" id="10_7lj02"]
-[ext_resource type="PackedScene" uid="uid://bffockmsld7qn" path="res://Scenes/randemlyy/Pistol.tscn" id="10_ifwl1"]
+[ext_resource type="PackedScene" uid="uid://bh31oo8pjus4q" path="res://Scenes/randemlyy/WeaponPickup.tscn" id="10_7lj02"]
 [ext_resource type="PackedScene" uid="uid://26328poeoxev" path="res://Scenes/randemlyy/Knife.tscn" id="12_21qtk"]
 [ext_resource type="PackedScene" uid="uid://iolo2ehtl5qa" path="res://Scenes/randemlyy/ShardDeposit.tscn" id="13_21qtk"]
 [ext_resource type="Script" uid="uid://ctajf64213x1r" path="res://Scripts/randemlyy/Doorway.gd" id="14_4bqg2"]
+[ext_resource type="PackedScene" uid="uid://df7x2txnf16an" path="res://Scenes/randemlyy/BreakableWall.tscn" id="16_q1ylb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_21qtk"]
 texture = ExtResource("1_8dr0h")
@@ -347,19 +346,26 @@ position = Vector2(-2070, -23)
 [node name="Heal23" parent="Enemies" unique_id=679732169 instance=ExtResource("8_h57tg")]
 position = Vector2(-1935, -21)
 
-[node name="Heal" parent="." unique_id=2087209350 instance=ExtResource("8_h57tg")]
+[node name="Heal24" parent="Enemies" unique_id=2087209350 instance=ExtResource("8_h57tg")]
 position = Vector2(85, -40)
 
-[node name="WeaponPickup" parent="." unique_id=2042744842 instance=ExtResource("9_22lfh")]
-position = Vector2(-110, -10)
-weapon_scene = ExtResource("10_ifwl1")
-
-[node name="WeaponPickup2" parent="." unique_id=1306326238 instance=ExtResource("10_7lj02")]
-position = Vector2(62, -10)
+[node name="KnifePickup" parent="." unique_id=1306326238 instance=ExtResource("10_7lj02")]
+position = Vector2(61, -8)
 weapon_scene = ExtResource("12_21qtk")
 
-[node name="ShardDeposit" parent="." unique_id=969256831 instance=ExtResource("13_21qtk")]
-position = Vector2(-165, -56)
+[node name="Deposits" type="Node" parent="." unique_id=1434355405]
+
+[node name="ShardDeposit" parent="Deposits" unique_id=969256831 instance=ExtResource("13_21qtk")]
+position = Vector2(-266, -224)
+
+[node name="ShardDeposit2" parent="Deposits" unique_id=1447297708 instance=ExtResource("13_21qtk")]
+position = Vector2(513, -392)
+
+[node name="ShardDeposit3" parent="Deposits" unique_id=1093723538 instance=ExtResource("13_21qtk")]
+position = Vector2(2111, -248)
+
+[node name="ShardDeposit4" parent="Deposits" unique_id=1998883354 instance=ExtResource("13_21qtk")]
+position = Vector2(-2054, -8)
 
 [node name="Exits" type="Node" parent="." unique_id=1876621727]
 
@@ -369,5 +375,9 @@ script = ExtResource("14_4bqg2")
 destination = "uid://0yp1rqf1f2w"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Exits/Exit1" unique_id=850900563]
-position = Vector2(69, -49)
+position = Vector2(2124, -442)
 shape = SubResource("RectangleShape2D_jpaqu")
+
+[node name="BreakableWall" parent="." unique_id=468309300 instance=ExtResource("16_q1ylb")]
+position = Vector2(-1137, -84)
+scale = Vector2(1, 4.5)

@@ -20,10 +20,14 @@ var canDash:= false
 var has_used_air_dash:= false
 
 func process(delta: float):
-	if dash_timer > 0:
-		dash_timer -= delta
-	if decel_timer > 0:
-		decel_timer -= delta
+	if dash_timer > 0.0:
+		dash_timer = maxf(dash_timer - delta, 0.0)
+		if dash_timer == 0.0:
+			decel_timer = dash_deceleration
+	
+	elif decel_timer > 0.0:
+		decel_timer = maxf(decel_timer - delta, 0.0)
+		
 	if dash_cooldown_timer > 0:
 		dash_cooldown_timer -= delta
 	
@@ -35,7 +39,6 @@ func process(delta: float):
 			if not move.is_crouching:
 				ScreenShakeManager.shake(0.5, 5.0, Vector2(10, 0))
 				dash_timer = dash_duration
-				decel_timer = dash_deceleration
 				dash_cooldown_timer = dash_cooldown
 				play_dash_feedback()
 				start_ghost_chain()

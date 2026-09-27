@@ -7,7 +7,7 @@ extends CharacterBody2D
 @export var bob_speed: float = 0.5
 @export var attraction_radius: float = 48.0
 @export var attraction_accel: float = 500.0
-@export var max_attraction_speed: float = 240.0
+@export var max_attraction_speed: float = 400.0
 @onready var pickup_area: Area2D = $PickupArea
 @onready var sprite: Sprite2D = $Sprite2D
 var collected = false
@@ -22,7 +22,13 @@ func launch(offset: Vector2) -> void:
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
-		velocity.y += gravity * delta / 0.7
+		var player = get_tree().get_first_node_in_group("Player")
+		var to_player = player.global_position - global_position
+		var distance = to_player.length()
+		if distance >= attraction_radius:
+			velocity.y += gravity * delta / 0.7
+		else:
+			velocity.y += gravity * delta * 0.1
 	velocity.x = move_toward(velocity.x, 0.0, 450 * delta)
 	move_and_slide()
 	if is_on_floor():
