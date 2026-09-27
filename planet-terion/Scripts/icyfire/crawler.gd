@@ -66,7 +66,7 @@ func _process(delta: float) -> void:
 						elif MovingDir == 1 && (Rcheckcol || !DRcheckcol):
 							MovingDir = -1
 							anim.moveDir = 1
-				velocity.x = MovingDir * (MovementSpeed)
+				velocity.x = MovingDir * (MovementSpeed * 0.7)
 				anim.isMoving = true
 			else:
 				anim.isMoving = false

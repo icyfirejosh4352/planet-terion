@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 ScreenShakeManager="*uid://cw7i7127ydynu"
 HitEffectManager="*uid://cdn4dfegb7ln1"
 ShardBank="*uid://bh05wk8ahpnar"
+TransistionOverlay="*uid://bhd2h7t0vdoxh"
 
 [display]
 

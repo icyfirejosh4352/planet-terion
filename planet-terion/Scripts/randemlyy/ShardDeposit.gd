@@ -56,3 +56,6 @@ func break_deposit() -> void:
 		pickup.launch(offset)
 		
 		queue_free()
+		
+func knockback(direction:Vector2, damage:float, force:float) -> void:
+	pass
