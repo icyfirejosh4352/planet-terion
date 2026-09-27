@@ -8,6 +8,16 @@ signal equipped_changed(weapon)
 var weapons: Array[Weapon] = []
 var equipped_index: int = -1
 
+enum equipped{NULL, GUN, SWORD, SWORD_UPGRADE}
+var equippedWeapon:equipped
+
+func process(delta: float) -> void:
+	if get_equipped() == Pistol:
+		equippedWeapon = equipped.GUN
+	elif get_equipped() == Knife:
+		equippedWeapon = equipped.SWORD
+	else:
+		equippedWeapon = equipped.NULL
 func add_weapon(weapon: Weapon) -> void:
 	if weapon and not weapons.has(weapon):
 		weapons.append(weapon)

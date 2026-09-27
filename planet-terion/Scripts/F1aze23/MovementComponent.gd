@@ -19,8 +19,9 @@ var _was_on_floor := false
 var is_crouching := false
 
 var isMoving :bool = false
-enum MoveDir{left, right}
-var moveDir:MoveDir
+
+enum move{JUMP, LWALK, RWALK}
+var moveState := move.RWALK
 
 func physics_process(delta: float) -> void:
 	if body.is_on_floor():
@@ -59,15 +60,13 @@ func physics_process(delta: float) -> void:
 		isMoving = true
 	else:
 		isMoving = false
-	#if dir > 0:
-		#moveDir = MoveDir.left
-	#else:
-		#moveDir = MoveDir.right
-	if dir != 0:
-		if dir > 0:
-			moveDir = MoveDir.left
-		else:
-			moveDir = MoveDir.right
+
+	if !body.is_on_floor():
+		moveState = move.JUMP
+	elif dir > 0:
+		moveState = move.LWALK
+	else:
+		moveState = move.RWALK
 
 func jump():
 	if body.is_on_floor() or _coyote_timer > 0.0:

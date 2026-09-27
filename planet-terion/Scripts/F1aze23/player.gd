@@ -14,7 +14,6 @@ extends CharacterBody2D
 @onready var tutorial: Label = $Camera2D/UI/Control/Tutorial
 @onready var tut_timer: Timer = $TutTimer
 
-=======
 @onready var sprite = $Sprite2D
 
 
@@ -67,7 +66,8 @@ func _process(delta: float) -> void:
 	move.is_crouching = input.crouch
 	dash.canDash = input.dash
 	anim.isMoving = move.isMoving
-	anim.moveDir = move.moveDir
+	anim.moveState = move.moveState
+	anim.playerType = inventory.equippedWeapon
 	if input.jump:
 		move.jump()
 	dash.process(delta)
@@ -75,6 +75,7 @@ func _process(delta: float) -> void:
 	input.process(delta)
 	cam.process(delta)
 	anim.process(delta)
+	inventory.process(delta)
 	
 	if equipped_weapon:
 		equipped_weapon._process(delta)
@@ -85,9 +86,9 @@ func _process(delta: float) -> void:
 	if input.attack:
 		if equipped_weapon and equipped_weapon.can_attack():
 			var aim_dir = Vector2.ZERO
-			if move.moveDir == 1:
+			if move.moveState == 2:
 				aim_dir = Vector2(-1, 0.0)
-			else:
+			elif move.moveState == 1:
 				aim_dir = Vector2(1, 0.0)
 			equipped_weapon.attack(aim_dir)
 			anim.isAttack = true

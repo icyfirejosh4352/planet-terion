@@ -62,10 +62,10 @@ func _process(delta: float) -> void:
 					if left_check.is_colliding() || !down_left_check.is_colliding():
 						if MovingDir == -1 && (Lcheckcol || !DLcheckcol):
 							MovingDir = 1
-							anim.moveDir = 0
+							anim.moveState = 2
 						elif MovingDir == 1 && (Rcheckcol || !DRcheckcol):
 							MovingDir = -1
-							anim.moveDir = 1
+							anim.moveState = 1
 				velocity.x = MovingDir * (MovementSpeed * 0.7)
 				anim.isMoving = true
 			else:
