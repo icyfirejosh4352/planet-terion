@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://byifh2txndr4k" path="res://Scripts/randemlyy/WeaponPickup.gd" id="1_fxoj3"]
 [ext_resource type="Texture2D" uid="uid://dsxahrdodgir7" path="res://Assets/tileset.png" id="2_ww8vj"]
+[ext_resource type="FontFile" uid="uid://dy7pnk8a37nas" path="res://Assets/F1aze23/PixelifySans-VariableFont_wght.ttf" id="3_02jys"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jpaqu"]
 size = Vector2(22, 20)
@@ -17,3 +18,19 @@ region_rect = Rect2(144, 144, 16, 16)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=830076421]
 position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_jpaqu")
+
+[node name="Interact" type="Label" parent="." unique_id=608207371]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -13.0
+offset_top = -22.0
+offset_right = 14.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_02jys")
+theme_override_font_sizes/font_size = 11
+text = "INTERACT"

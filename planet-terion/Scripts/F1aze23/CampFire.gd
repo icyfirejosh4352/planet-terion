@@ -1,5 +1,9 @@
 extends Area2D
 
+@onready var stext: Label = $SaveText
+
+func _ready() -> void:
+	stext.visible = false
 
 func _process(delta: float) -> void:
 	for i in get_overlapping_bodies():
@@ -16,4 +20,6 @@ func _process(delta: float) -> void:
 			player.pack(i)
 			ResourceSaver.save(scene, "res://SaveFile.tscn")
 			ResourceSaver.save(player, "res://SavedPlayer.tscn")
-			print("saved")
+			stext.visible = true
+		else:
+			stext.visible = false

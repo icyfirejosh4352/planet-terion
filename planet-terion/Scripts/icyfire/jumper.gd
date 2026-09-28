@@ -77,3 +77,4 @@ func _process(delta: float) -> void:
 			TimeSinceDmg = 0
 			anim.isAttack = true
 			player.get_node("HealthComponent").damage(10)
+			ScreenShakeManager.shake(0.5, 5.0, Vector2(40, 20))

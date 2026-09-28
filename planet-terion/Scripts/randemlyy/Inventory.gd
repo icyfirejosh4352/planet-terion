@@ -5,11 +5,19 @@ signal weapon_added(weapon)
 signal weapon_removed(weapon)
 signal equipped_changed(weapon)
 
-var weapons: Array[Weapon] = []
-var equipped_index: int = -1
+@export var weapons: Array[Weapon] = []
+@export var equipped_index: int
 
 enum equipped{NULL, GUN, SWORD, SWORD_UPGRADE}
-var equippedWeapon:equipped
+@export var equippedWeapon:equipped
+
+func _ready() -> void:
+	if weapons != null:
+		for i in weapons:
+			if i != null:
+				equip_weapon(i.get_index())
+				
+	owner = get_parent()
 
 func process(delta: float) -> void:
 	if get_equipped() !=  null:
@@ -19,6 +27,7 @@ func process(delta: float) -> void:
 			equippedWeapon = equipped.SWORD
 	else:
 		equippedWeapon = equipped.NULL
+		equipped_index = -1
 func add_weapon(weapon: Weapon) -> void:
 	if weapon and not weapons.has(weapon):
 		weapons.append(weapon)

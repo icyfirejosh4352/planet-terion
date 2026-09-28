@@ -4,13 +4,16 @@ extends Node
 signal damaged(amount: float)
 @export var healthBar: ProgressBar
 @export var health:= 100.0
+@export var max_health := 100.0
 @export var health_smooth_speed: float = 8.0
 signal Death
 var _target_health: float = 100.0
 
 func ready():
-	healthBar.max_value = health
+	healthBar.max_value = max_health
+	healthBar.value = health
 	_target_health = health
+	owner = get_parent()
 
 func process(delta: float) -> void:
 	_target_health = health

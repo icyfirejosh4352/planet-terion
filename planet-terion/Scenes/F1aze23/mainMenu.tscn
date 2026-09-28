@@ -1,13 +1,22 @@
 [gd_scene format=3 uid="uid://cylnv2iwap0gn"]
 
 [ext_resource type="Script" uid="uid://clgxc65xrxjed" path="res://Scripts/F1aze23/mainMenu.gd" id="1_cfx4e"]
+[ext_resource type="Texture2D" uid="uid://h62nqx3p0xgb" path="res://Assets/F1aze23/kenney_pixel-ui-pack/9-Slice/space.png" id="2_eejb8"]
+[ext_resource type="Texture2D" uid="uid://dvcpruewhaxgd" path="res://Assets/F1aze23/kenney_pixel-ui-pack/9-Slice/Outline/yellow.png" id="3_hlqcv"]
+[ext_resource type="Texture2D" uid="uid://cer8picfqgryc" path="res://Assets/F1aze23/kenney_pixel-ui-pack/9-Slice/Outline/yellow_pressed.png" id="4_hlqcv"]
+[ext_resource type="FontFile" uid="uid://dy7pnk8a37nas" path="res://Assets/F1aze23/PixelifySans-VariableFont_wght.ttf" id="4_wsu6s"]
 
 [node name="MainMenu" type="Node2D" unique_id=1269097523]
 script = ExtResource("1_cfx4e")
 
+[node name="Space" type="Sprite2D" parent="." unique_id=635985823]
+position = Vector2(-2.2679567e-05, -1.335144e-05)
+scale = Vector2(24, 13.500001)
+texture = ExtResource("2_eejb8")
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1342042513]
 
-[node name="Start" type="Button" parent="." unique_id=492910986]
+[node name="Start" type="TextureButton" parent="." unique_id=1848046043]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -19,10 +28,33 @@ offset_right = 100.0
 offset_bottom = -18.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "START GAME"
+texture_normal = ExtResource("3_hlqcv")
+texture_pressed = ExtResource("4_hlqcv")
+texture_hover = ExtResource("3_hlqcv")
+texture_disabled = ExtResource("3_hlqcv")
+texture_focused = ExtResource("3_hlqcv")
+stretch_mode = 0
 metadata/_edit_use_anchors_ = true
 
-[node name="Quit" type="Button" parent="." unique_id=54149816]
+[node name="Label" type="Label" parent="Start" unique_id=2118217752]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -11.5
+offset_right = 24.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_wsu6s")
+theme_override_font_sizes/font_size = 44
+text = "START"
+
+[node name="Quit" type="TextureButton" parent="." unique_id=883387362]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -34,8 +66,47 @@ offset_right = 100.0
 offset_bottom = 80.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "QUIT"
+texture_normal = ExtResource("3_hlqcv")
+texture_pressed = ExtResource("4_hlqcv")
+texture_hover = ExtResource("3_hlqcv")
+texture_disabled = ExtResource("3_hlqcv")
+texture_focused = ExtResource("3_hlqcv")
+stretch_mode = 0
 metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Quit" unique_id=1134803963]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -11.5
+offset_right = 24.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_wsu6s")
+theme_override_font_sizes/font_size = 44
+text = "QUIT"
+
+[node name="Label" type="Label" parent="." unique_id=132114322]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -298.0
+offset_top = -272.0
+offset_right = 299.0
+offset_bottom = -169.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_wsu6s")
+theme_override_font_sizes/font_size = 85
+text = "PLANET TERION"
 
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

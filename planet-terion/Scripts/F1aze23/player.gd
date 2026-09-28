@@ -119,6 +119,7 @@ func pick_up_weapon(weapon_scene: PackedScene) -> void:
 		push_warning('no wepaon')
 		return
 	add_child(weapon)
+	weapon.owner = self
 	inventory.add_weapon(weapon)
 
 func _physics_process(delta: float) -> void:
