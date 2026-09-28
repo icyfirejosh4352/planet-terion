@@ -30,6 +30,7 @@ var player
 @onready var SPIT = preload("uid://tps4qfrmupqc")
 @onready var firepoint: Node2D = $Node2D2
 var i = 0
+@onready var WEAPON_PICKUP = preload("uid://bh31oo8pjus4q")
 
 func _ready() -> void:
 	boss_lever.activated_s.connect(_on_activation)
@@ -61,7 +62,7 @@ func _process(delta: float) -> void:
 				break
 		if TimeSinceRoll >= RollTime:
 			TimeSinceRoll = 0
-			randemlyy = rng.randi_range(0,10)
+			randemlyy = rng.randi_range(0,9)
 			if randemlyy == 5:
 				BossState = BossStates.ATTACK_1
 	elif BossState == BossStates.ATTACK_1:
@@ -79,11 +80,18 @@ func _process(delta: float) -> void:
 			print("bullet created")
 		if i >= AttackTime:
 			i = 0
-			BossState = BossStates.ROAM 
-		pass
-	
-	#if player.health <= 20:
-		#pass
+			BossState = BossStates.ROAM
+		if player.get_node("HealthComponent").health <= 20:
+			BossState = BossStates.STOPPING
+	elif BossState == BossStates.STOPPING:
+		var PistolDrop = WEAPON_PICKUP.instantiate()
+		PistolDrop.global_position = global_position
+		PistolDrop.global_position.y += 80
+		PistolDrop.weapon_scene = preload("uid://bffockmsld7qn")
+		get_parent().add_child(PistolDrop)
+		animation_player.play("leave")
+		await animation_player.animation_finished
+		queue_free()
 	
 	move_and_slide()
 	

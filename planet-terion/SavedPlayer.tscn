@@ -301,9 +301,9 @@ radius = 14.0
 height = 60.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1939686657 node_paths=PackedStringArray("input", "move", "dash", "health", "cam", "inventory", "anim", "weapon_label") groups=["Player"]]
-position = Vector2(201.00195, -85.41084)
+position = Vector2(1320.3334, -13.41624)
 scale = Vector2(0.445, 0.445)
-velocity = Vector2(460, 0)
+velocity = Vector2(115, 0)
 script = ExtResource("1_3kmen")
 input = NodePath("InputComponent")
 move = NodePath("MovementComponent")
@@ -337,7 +337,7 @@ offset_top = -161.41095
 offset_right = -140.00006
 offset_bottom = -134.41095
 theme_override_fonts/font = ExtResource("2_pv6y6")
-value = 99.98
+value = 100.0
 metadata/_edit_use_anchors_ = true
 
 [node name="WeaponLabel" type="Label" parent="UI/Control" unique_id=1479989753]
@@ -356,6 +356,7 @@ text = "Equipped Weapon: None"
 metadata/_edit_use_anchors_ = true
 
 [node name="Tutorial" type="Label" parent="UI/Control" unique_id=421537456]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.2478617
@@ -392,12 +393,11 @@ text = "Shards: 0"
 metadata/_edit_use_anchors_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=848227279]
-modulate = Color(0.52378404, 0.91341525, 1, 1)
 texture = ExtResource("3_letpq")
 flip_h = true
 hframes = 12
 vframes = 22
-frame = 86
+frame = 37
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=548549930]
 libraries/ = SubResource("AnimationLibrary_j2hyl")
@@ -406,8 +406,8 @@ libraries/ = SubResource("AnimationLibrary_j2hyl")
 shape = SubResource("CapsuleShape2D_1vivr")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=809227422]
-position = Vector2(-395.50995, 174.41241)
-offset = Vector2(-0.010560227, 0)
+position = Vector2(-234.45142, -91.13187)
+offset = Vector2(0.13278387, 0.21226802)
 zoom = Vector2(2.225, 2.225)
 script = ExtResource("4_giiqd")
 
@@ -419,7 +419,7 @@ metadata/_custom_type_script = "uid://drsrihrd4igyf"
 script = ExtResource("6_ti348")
 body = NodePath("..")
 jump_vel = -350.0
-speedMultiplier = 4.0
+speedMultiplier = 1.0
 metadata/_custom_type_script = "uid://c5nfegkv71e0v"
 
 [node name="DashComponent" type="Node" parent="." unique_id=1420409046 node_paths=PackedStringArray("input", "body", "move")]
