@@ -46,7 +46,7 @@ func attack(direction: Vector2) -> void:
 		if body and body.has_method("get_node"):
 			if body == self or body == self.get_parent():
 				continue
-			if body.has_node("HealthComponent"):		
+			if body.get_node_or_null("HealthComponent") != null:
 				var health = body.get_node("HealthComponent")
 				health.damage(damage)
 				

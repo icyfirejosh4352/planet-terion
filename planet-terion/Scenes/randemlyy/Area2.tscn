@@ -9,6 +9,8 @@
 [ext_resource type="AudioStream" uid="uid://ce2ilkplvfbrs" path="res://Assets/icyfire/Planet terion - 3.mp3" id="7_g21p7"]
 [ext_resource type="PackedScene" uid="uid://df7x2txnf16an" path="res://Scenes/randemlyy/BreakableWall.tscn" id="8_g21p7"]
 [ext_resource type="PackedScene" uid="uid://iolo2ehtl5qa" path="res://Scenes/randemlyy/ShardDeposit.tscn" id="9_bv1hk"]
+[ext_resource type="PackedScene" uid="uid://di35tbv4gjnqa" path="res://Scenes/icyfire/miniboss.tscn" id="10_utym6"]
+[ext_resource type="PackedScene" uid="uid://daofqtsiora3m" path="res://Scenes/F1aze23/CampFire.tscn" id="11_8li8a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lm3kg"]
 texture = ExtResource("1_nyw7x")
@@ -272,8 +274,8 @@ sources/0 = SubResource("TileSetAtlasSource_th8ww")
 [node name="Area2" type="Node2D" unique_id=1601975261]
 
 [node name="CamZone" parent="." unique_id=844620592 groups=["StartZone"] instance=ExtResource("5_th8ww")]
-position = Vector2(297.75, -35.305)
-scale = Vector2(0.345, 0.669)
+position = Vector2(238, -37)
+scale = Vector2(0.8226323, 0.669)
 
 [node name="TileMaps" type="Node" parent="." unique_id=1057686397]
 
@@ -331,3 +333,27 @@ scale = Vector2(1, 3)
 
 [node name="ShardDeposit" parent="Deposits" unique_id=969256831 instance=ExtResource("9_bv1hk")]
 position = Vector2(885, 104)
+
+[node name="CharacterBody2D" parent="." unique_id=1638311734 instance=ExtResource("10_utym6")]
+position = Vector2(2307, -85)
+scale = Vector2(0.5, 0.5)
+
+[node name="CamZone2" parent="." unique_id=1790291527 instance=ExtResource("5_th8ww")]
+position = Vector2(700, -17)
+
+[node name="CamZone3" parent="." unique_id=1101487986 instance=ExtResource("5_th8ww")]
+position = Vector2(1210, -54)
+
+[node name="CamZone4" parent="." unique_id=814756339 instance=ExtResource("5_th8ww")]
+position = Vector2(1929, -57)
+scale = Vector2(0.76, 1)
+
+[node name="CamZone5" parent="." unique_id=1246504199 instance=ExtResource("5_th8ww")]
+position = Vector2(2384, -57)
+
+[node name="CamZone6" parent="." unique_id=812020075 instance=ExtResource("5_th8ww")]
+position = Vector2(1600.0001, -54)
+scale = Vector2(0.5201235, 1.0040603)
+
+[node name="CampFire" parent="." unique_id=1905742394 instance=ExtResource("11_8li8a")]
+position = Vector2(1309, -11)

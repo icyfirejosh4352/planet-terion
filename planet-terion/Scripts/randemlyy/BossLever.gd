@@ -6,7 +6,7 @@ extends Area2D
 
 var player_nearby = false
 var activated = false
-
+signal activated_s
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	sprite.region_enabled = true
@@ -30,4 +30,5 @@ func _on_body_exited(body: Node2D) -> void:
 
 func activate() -> void:
 	sprite.region_rect = Rect2(48, 160, 16, 16)
+	activated_s.emit()
 	print("Activated! 2")
