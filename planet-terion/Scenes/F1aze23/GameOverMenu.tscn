@@ -111,6 +111,23 @@ theme_override_font_sizes/font_size = 85
 text = "PLANET TERION"
 metadata/_edit_use_anchors_ = true
 
-[connection signal="pressed" from="Menu" to="." method="_on_start_pressed"]
+[node name="Label2" type="Label" parent="." unique_id=538128499]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -215.0
+offset_top = -180.0
+offset_right = 216.0
+offset_bottom = -77.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("5_mvqn7")
+theme_override_font_sizes/font_size = 85
+text = "GAME OVER"
+metadata/_edit_use_anchors_ = true
+
 [connection signal="pressed" from="Menu" to="." method="_on_back_to_menu_pressed"]
+[connection signal="pressed" from="Menu" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

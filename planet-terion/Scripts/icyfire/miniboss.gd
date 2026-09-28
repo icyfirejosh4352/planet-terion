@@ -97,3 +97,6 @@ func _process(delta: float) -> void:
 	
 func _on_activation() -> void:
 	BossState = BossStates.ACTIVATING
+	
+func knockback(direction:Vector2, damage:float, force:float) -> void:
+	pass

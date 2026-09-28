@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bvtrltrryvbep" path="res://Scripts/randemlyy/BossLever.gd" id="1_1716l"]
 [ext_resource type="Texture2D" uid="uid://dsxahrdodgir7" path="res://Assets/tileset.png" id="2_ryyl4"]
+[ext_resource type="FontFile" uid="uid://dy7pnk8a37nas" path="res://Assets/F1aze23/PixelifySans-VariableFont_wght.ttf" id="3_ryyl4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jpaqu"]
 size = Vector2(18, 16)
@@ -18,3 +19,19 @@ region_rect = Rect2(32, 160, 16, 16)
 shape = SubResource("RectangleShape2D_jpaqu")
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=70149063]
+
+[node name="Interact" type="Label" parent="." unique_id=126558526]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -13.0
+offset_top = -22.0
+offset_right = 14.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_ryyl4")
+theme_override_font_sizes/font_size = 11
+text = "INTERACT"

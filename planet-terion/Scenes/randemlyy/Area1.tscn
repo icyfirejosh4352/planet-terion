@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://26328poeoxev" path="res://Scenes/randemlyy/Knife.tscn" id="12_21qtk"]
 [ext_resource type="PackedScene" uid="uid://iolo2ehtl5qa" path="res://Scenes/randemlyy/ShardDeposit.tscn" id="13_21qtk"]
 [ext_resource type="Script" uid="uid://ctajf64213x1r" path="res://Scripts/randemlyy/Doorway.gd" id="14_4bqg2"]
+[ext_resource type="Texture2D" uid="uid://h62nqx3p0xgb" path="res://Assets/F1aze23/kenney_pixel-ui-pack/9-Slice/space.png" id="14_444oh"]
 [ext_resource type="PackedScene" uid="uid://df7x2txnf16an" path="res://Scenes/randemlyy/BreakableWall.tscn" id="16_q1ylb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_21qtk"]
@@ -380,6 +381,12 @@ destination = "uid://0yp1rqf1f2w"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Exits/Exit1" unique_id=850900563]
 shape = SubResource("RectangleShape2D_jpaqu")
+
+[node name="Sprite2D" type="Sprite2D" parent="Exits/Exit1" unique_id=1483701823]
+position = Vector2(-2.0503998e-05, 3.9999933)
+scale = Vector2(0.41666752, 1.8333333)
+texture = ExtResource("14_444oh")
+vframes = 2
 
 [node name="BreakableWall" parent="." unique_id=468309300 instance=ExtResource("16_q1ylb")]
 position = Vector2(-1137, -84)

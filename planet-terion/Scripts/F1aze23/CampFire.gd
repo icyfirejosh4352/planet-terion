@@ -12,7 +12,7 @@ func _process(delta: float) -> void:
 			for j in start:
 				if j.name == "StartPoint":
 					j.name = "notStartPoint"
-					self.name = "StartPoint"
+				self.name = "StartPoint"
 			var node_to_save = get_parent()
 			var scene = PackedScene.new()
 			var player = PackedScene.new()
