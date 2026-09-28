@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dpepf03jb402j" path="res://Scripts/icyfire/miniboss.gd" id="1_kpa0r"]
 [ext_resource type="Texture2D" uid="uid://cgt774bjm8mrl" path="res://Assets/icyfire/Sprite-00022.png" id="2_cws1t"]
+[ext_resource type="Script" uid="uid://qb6e5kxd2ui" path="res://Scripts/F1aze23/HealthComponent.gd" id="3_76tew"]
 
 [sub_resource type="Animation" id="Animation_cws1t"]
 length = 0.001
@@ -1426,11 +1427,14 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0bba5"]
 size = Vector2(62, 264)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ciom7"]
+size = Vector2(122, 70)
+
 [node name="miniboss" type="CharacterBody2D" unique_id=1638311734]
-scale = Vector2(-1, 1)
 script = ExtResource("1_kpa0r")
 
 [node name="Skeleton2D" type="Skeleton2D" parent="." unique_id=1225636067]
+visible = false
 
 [node name="torso" type="Bone2D" parent="Skeleton2D" unique_id=1830971396]
 position = Vector2(-7, 65)
@@ -1440,6 +1444,7 @@ rest = Transform2D(-4.371139e-08, -1, 1, -4.371139e-08, -7, 65)
 [node name="head" type="Bone2D" parent="Skeleton2D/torso" unique_id=1561509973]
 position = Vector2(101.40768, -1.2178102)
 rotation = -0.5204931
+scale = Vector2(0.99999994, 0.99999994)
 rest = Transform2D(1, 0, 0, 1, 104, -0.9999953)
 
 [node name="upper left arm" type="Bone2D" parent="Skeleton2D/torso" unique_id=920766894]
@@ -1460,6 +1465,7 @@ bone_angle = 0.0
 [node name="upper right arm" type="Bone2D" parent="Skeleton2D/torso" unique_id=1570789382]
 position = Vector2(88.11762, -14.94276)
 rotation = -2.4407377
+scale = Vector2(0.99999994, 0.99999994)
 rest = Transform2D(-1, -1.509958e-07, 1.509958e-07, -1, 89, -17.999996)
 auto_calculate_length_and_angle = false
 length = 70.0
@@ -1483,7 +1489,7 @@ bone_angle = 0.0
 [node name="lower left leg" type="Bone2D" parent="Skeleton2D/torso/upper left leg" unique_id=100260300]
 position = Vector2(49.038136, 0.51061106)
 rotation = -1.3761277
-scale = Vector2(0.9999988, 0.9999988)
+scale = Vector2(0.99999523, 0.99999523)
 rest = Transform2D(0.99894035, -0.04602321, 0.04602321, 0.99894035, 49.038136, 0.51061106)
 auto_calculate_length_and_angle = false
 length = 78.781
@@ -1500,7 +1506,7 @@ bone_angle = 0.0
 [node name="lower left leg2" type="Bone2D" parent="Skeleton2D/torso/upper right leg" unique_id=899224394]
 position = Vector2(51.03722, 0.44986153)
 rotation = -0.9162812
-scale = Vector2(0.9999986, 0.9999986)
+scale = Vector2(0.999995, 0.999995)
 rest = Transform2D(0.99894017, -0.046023205, 0.046023205, 0.99894017, 51.03722, 0.44986153)
 auto_calculate_length_and_angle = false
 length = 78.781
@@ -1631,3 +1637,16 @@ libraries/ = SubResource("AnimationLibrary_vjhed")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=916564470]
 position = Vector2(-19, 59)
 shape = SubResource("RectangleShape2D_0bba5")
+
+[node name="dmgcol" type="Area2D" parent="." unique_id=1841357276]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dmgcol" unique_id=1498328013]
+position = Vector2(-38, 164)
+shape = SubResource("RectangleShape2D_ciom7")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=27909987]
+script = ExtResource("3_76tew")
+health = 500.0
+
+[node name="Node2D2" type="Node2D" parent="." unique_id=1533150898]
+position = Vector2(-77, 42)
