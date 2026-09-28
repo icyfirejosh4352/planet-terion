@@ -6,4 +6,9 @@ You play as an astronaut character stuck on Planet Terion. Your goal is to kill 
 # CONTROLS
 A and D to move.\
 Left Click to Attack. \
-F to interact.
+F to interact. \
+Space to Jump. \
+Shift to Dash
+
+<img width="1720" height="949" alt="Screenshot (67)" src="https://github.com/user-attachments/assets/fae56685-db6f-49b6-824e-70e75aba5ef2" />
+
